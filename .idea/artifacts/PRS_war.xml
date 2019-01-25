@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="PRS:war">
+    <output-path>$PROJECT_DIR$/PatientRecordSystem/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>PRS</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="PRS.war">
+      <element id="artifact" artifact-name="PRS:war exploded" />
+    </root>
+  </artifact>
+</component>
