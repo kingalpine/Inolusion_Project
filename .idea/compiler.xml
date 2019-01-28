@@ -6,11 +6,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="PRS" />
+        <module name="patient_record_system" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="patient_record_system" target="1.8" />
       <module name="PRS" target="1.7" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="patient_record_system" options="-parameters" />
+    </option>
   </component>
 </project>
