@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Treatment Plan Progress</title>
+    <link rel="stylesheet" href="../static/css/template.css" th:href="@{/css/template.css}">
 </head>
 <body>
+<ul>
+    <li><a href="/">Main Menu</a></li>
+    <li><a href="/greeting">Greeting</a></li>
+    <li><a href="/patient_records">Patient Records</a></li>
+    <li><a class="active" href="/treatment_plan_progress">Treatment Plan Progress</a></li>
+</ul>
 <p>This is the treatment plan progress page</p>
 <p>There's nothing here at the moment</p>
 </body>
