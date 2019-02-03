@@ -5,6 +5,11 @@
     <title>Patients</title>
 </head>
 <body>
-<p th:text="'Hello, ' + ${patient} + '!'"/>
+<table>
+    <tr>
+        <td th:text="${patients}">Default Name</td>
+        <td>Test Name</td>
+    </tr>
+</table>
 </body>
 </html>

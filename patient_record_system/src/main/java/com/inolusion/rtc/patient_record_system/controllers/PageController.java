@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.servlet.ModelAndView;
+
 
 import java.util.List;
 
@@ -31,10 +33,12 @@ public class PageController {
         return "treatment_plan_progress";
     }
 
+
     @GetMapping("/patients")
     public String showPatientsPage (Model md){
-        List<PatientEntity> patientEntities = repository.findByFirstName("John");
-        md.addAllAttributes(patientEntities);
+        String name = repository.findByFirstName("John").toString();
+        md.addAttribute("patients", name);
+
         return "patients";
     }
 }
