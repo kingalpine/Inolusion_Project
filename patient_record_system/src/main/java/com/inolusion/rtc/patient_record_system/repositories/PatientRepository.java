@@ -10,5 +10,5 @@ import java.util.List;
 
 @Repository
 public interface PatientRepository extends CrudRepository<PatientEntity, Long> {
-    List<PatientEntity> findByFirstName (String firstName);
+    List<PatientEntity> findByPatientFname (String firstName);
 }
