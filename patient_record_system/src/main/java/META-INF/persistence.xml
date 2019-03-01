@@ -1,5 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
 
-    <persistence-unit name="NewPersistenceUnit"/>
+    <persistence-unit name="NewPersistenceUnit">
+        <class>com.inolusion.rtc.patient_record_system.entities.AdministratorEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.AdministratorStatusEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.AllergyEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.AssessmentEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.CountryEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.DoctorEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.DoctorStatusEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.EvaluationEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.EvaluationStatusEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.FrontDeskEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.FrontDeskStatusEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.IncidentEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.IncidentStatusEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.IncidentTypeEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.InsuranceEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.InterventionCodeEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.MedicationEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.ObjectiveEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.PatientEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.PatientStatusEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.PlanEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.ReferralEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.ReferralApprovalEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.RegionEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.SexEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.SpeechCptCodeEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.SubjectiveEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.TherapistEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.TherapistStatusEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.TherapyProgressNoteEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.TherapySessionEntity</class>
+        <properties>
+            <property name="toplink.jdbc.url" value="jdbc:sqlserver://192.168.1.121;database=Inolusion_PRS"/>
+            <property name="toplink.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+            <property name="hibernate.connection.url" value="jdbc:sqlserver://192.168.1.121;database=Inolusion_PRS"/>
+            <property name="hibernate.connection.driver_class" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+            <property name="openjpa.ConnectionURL" value="jdbc:sqlserver://192.168.1.121;database=Inolusion_PRS"/>
+            <property name="openjpa.ConnectionDriverName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+            <property name="eclipselink.jdbc.url" value="jdbc:sqlserver://192.168.1.121;database=Inolusion_PRS"/>
+            <property name="eclipselink.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+        </properties>
+    </persistence-unit>
 </persistence>

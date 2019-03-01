@@ -5,18 +5,16 @@ import java.sql.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name = "patient", schema = "dbo", catalog = "springbootdb")
+@Table(name = "patient", schema = "dbo", catalog = "Inolusion_PRS")
 public class PatientEntity {
     private int patientId;
     private String patientFname;
     private String patientLname;
-    private String sex;
+    private String patientAddress;
     private String patientEmail;
     private Date patientDob;
     private String patientHphone;
     private String patientMphone;
-    private Integer height;
-    private Integer weight;
 
     @Id
     @Column(name = "patient_id")
@@ -49,13 +47,13 @@ public class PatientEntity {
     }
 
     @Basic
-    @Column(name = "sex")
-    public String getSex() {
-        return sex;
+    @Column(name = "patient_address")
+    public String getPatientAddress() {
+        return patientAddress;
     }
 
-    public void setSex(String sex) {
-        this.sex = sex;
+    public void setPatientAddress(String patientAddress) {
+        this.patientAddress = patientAddress;
     }
 
     @Basic
@@ -98,26 +96,6 @@ public class PatientEntity {
         this.patientMphone = patientMphone;
     }
 
-    @Basic
-    @Column(name = "height")
-    public Integer getHeight() {
-        return height;
-    }
-
-    public void setHeight(Integer height) {
-        this.height = height;
-    }
-
-    @Basic
-    @Column(name = "weight")
-    public Integer getWeight() {
-        return weight;
-    }
-
-    public void setWeight(Integer weight) {
-        this.weight = weight;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -126,17 +104,15 @@ public class PatientEntity {
         return patientId == that.patientId &&
                 Objects.equals(patientFname, that.patientFname) &&
                 Objects.equals(patientLname, that.patientLname) &&
-                Objects.equals(sex, that.sex) &&
+                Objects.equals(patientAddress, that.patientAddress) &&
                 Objects.equals(patientEmail, that.patientEmail) &&
                 Objects.equals(patientDob, that.patientDob) &&
                 Objects.equals(patientHphone, that.patientHphone) &&
-                Objects.equals(patientMphone, that.patientMphone) &&
-                Objects.equals(height, that.height) &&
-                Objects.equals(weight, that.weight);
+                Objects.equals(patientMphone, that.patientMphone);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(patientId, patientFname, patientLname, sex, patientEmail, patientDob, patientHphone, patientMphone, height, weight);
+        return Objects.hash(patientId, patientFname, patientLname, patientAddress, patientEmail, patientDob, patientHphone, patientMphone);
     }
 }
