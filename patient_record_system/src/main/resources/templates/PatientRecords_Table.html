@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Main Menu</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/PatientRecords.css" th:href="../static/css/PatientRecords.css">
+</head>
+    <body>
+        <ul id="nav">
+			<li><a href="index.html">Main Menu</a></li>
+            <li><a class="active" href="PatientRecords_Table.html">Patient Records</a></li>
+			<li><a href="Employees_Table.html">Employee Records</a></li>
+            <li><a href="TherapySessions_Table.html">Therapy Sessions</a></li>
+            <li><a href="Referrals_Table.html">Reports</a></li>
+		</ul>
+		<h1>
+		<a href="AddPatientForm.html">Add Patient</a>
+		</h1>
+		<center> <input style="text-align:center;" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by Patient Name" title="Type Patient's Name"> </center>
+		<center> 
+		<table id="myTable">
+		<tr class="header">
+			<th>Patient ID</th>
+			<th>Patient Name</th>
+			<th>Sex</th>
+			<th>Address</th>
+			<th>Region</th>
+			<th>Country</th>
+			<th>Email</th>
+			<th>DOB</th>
+			<th>Home Phone</th>
+			<th>Mobile Phone</th>
+			<th>Allergies</th>
+			<th>Medication History</th>
+			<th>Patient Status</th>
+			<th>Insurance</th>
+		</tr>
+		<tr>
+			<td>001</td>
+			<td>Maria Anders</td>
+			<td>Female</td>
+			<td>4800 Calhoun Rd, Houston</td>
+			<td>Texas</td>
+			<td>United States</td>
+			<td>mariaanders@gmail.com</td>
+			<td>03-25-1999</td>
+			<td>8984516935</td>
+			<td>2814569832</td>
+			<td>None</td>
+			<td>None</td>
+			<td>Active</td>
+			<td>TCHP</td>
+		</tr>
+		</table>
+		</center>
+		<script>
+		function myFunction() {
+			var input, filter, table, tr, td, i, txtValue;
+			input = document.getElementById("myInput");
+			filter = input.value.toUpperCase();
+			table = document.getElementById("myTable");
+			tr = table.getElementsByTagName("tr");
+			for (i = 0; i < tr.length; i++) {
+				td = tr[i].getElementsByTagName("td")[1];
+				if (td) {
+					txtValue = td.textContent || td.innerText;
+					if (txtValue.toUpperCase().indexOf(filter) > -1) {
+						tr[i].style.display = "";
+					} else {
+					  tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+    </body>
+</html>

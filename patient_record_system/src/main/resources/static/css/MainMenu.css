@@ -1,0 +1,32 @@
+#nav {
+width:1000px;
+margin:0 auto;
+list-style:none;
+overflow: hidden;
+background-color: #e9e9e9;
+}
+#nav li {
+float:left;
+}
+#nav a {
+display:block;
+text-align:center;
+width:160px;
+text-decoration:none;
+color: black;
+text-align: center;
+font-size: 17px;
+padding: 14px 16px;
+}
+#nav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+#nav a.active {
+  background-color: green;
+  color: white;
+}
+body {
+  background-image: url("../images/medicalBG.png");
+  margin: auto;
+}
