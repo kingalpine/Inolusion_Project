@@ -5,7 +5,7 @@ import java.sql.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name = "front_desk", schema = "dbo", catalog = "Inolusion_PRS")
+@Table(name = "front_desk", schema = "dbo", catalog = "localspringbootdb")
 public class FrontDeskEntity {
     private int frontDeskId;
     private String frontDeskFname;

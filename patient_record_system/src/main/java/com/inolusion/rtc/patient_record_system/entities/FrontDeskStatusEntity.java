@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "front_desk_status", schema = "dbo", catalog = "Inolusion_PRS")
+@Table(name = "front_desk_status", schema = "dbo", catalog = "localspringbootdb")
 public class FrontDeskStatusEntity {
     private int frontDeskStatusId;
     private String frontDeskStatusDescription;

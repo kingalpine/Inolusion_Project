@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "referral_approval", schema = "dbo", catalog = "Inolusion_PRS")
+@Table(name = "referral_approval", schema = "dbo", catalog = "localspringbootdb")
 public class ReferralApprovalEntity {
     private int referralApprovalId;
     private String referralDecision;

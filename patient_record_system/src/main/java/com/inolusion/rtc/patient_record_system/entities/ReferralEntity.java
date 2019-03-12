@@ -5,7 +5,7 @@ import java.sql.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name = "referral", schema = "dbo", catalog = "Inolusion_PRS")
+@Table(name = "referral", schema = "dbo", catalog = "localspringbootdb")
 public class ReferralEntity {
     private int referralId;
     private Date referralDate;

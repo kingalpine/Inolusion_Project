@@ -5,7 +5,7 @@ import java.sql.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name = "incident", schema = "dbo", catalog = "Inolusion_PRS")
+@Table(name = "incident", schema = "dbo", catalog = "localspringbootdb")
 public class IncidentEntity {
     private int incidentId;
     private Date incidentDay;

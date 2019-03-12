@@ -1,18 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <title>Main Menu</title>
-    <link rel="stylesheet" type="text/css" href="css/index.css" th:href="/css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/MainMenu.css" th:href="css/MainMenu.css">
 </head>
     <body>
-        <ul>
-            <li><a class="active" href="index.html">Main Menu</a></li>
-            <li><a href="/greeting">Greeting</a></li>
-            <li><a href="/patient_records">Patient Records</a></li>
-            <li><a href="/treatment_plan_progress">Treatment Plan Progress</a></li>
-            <li><a href="/patients">Patients Page</a></li>
-        </ul>
-        <h3>This is the main menu</h3>
+        <ul id="nav">
+			<li><a class="active" href="index.html">Main Menu</a></li>
+            <li><a href="/patient_records_table">Patient Records</a></li>
+			<li><a href="Employees_Table.html">Employee Records (WIP)</a></li>
+            <li><a href="TherapySessions_Table.html">Therapy Sessions (WIP)</a></li>
+            <li><a href="Reports.html">Reports (WIP)</a></li>
+		</ul>
+		<center> <h1>
+		<img src="images/PRS.png" alt="PRS" height="470" width="489"> <br></br>
+		<p>Patient Record System (PRS) is a multi-user application capable of viewing, adding, modifying, and deleting patient information and patient treatment plan progress being stored on an AWS RDS database.</p>
+		</h1> </center>
     </body>
 </html>

@@ -1,7 +1,7 @@
 package com.inolusion.rtc.patient_record_system.controllers;
 
-import com.inolusion.rtc.patient_record_system.entities.PatientEntity;
-import org.springframework.beans.factory.annotation.Autowired;
+
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,13 +17,14 @@ public class PageController {
     return "greeting";
     }
 
-    @GetMapping("/patient_records")
+    @GetMapping("/patient_records_table")
     public String showPatientRecordsPage() {
-        return "patient_records";
+        return "PatientRecords_Table";
     }
-    @GetMapping("/treatment_plan_progress")
-    public String showTreatmentPlanProgressPage(){
-        return "treatment_plan_progress";
+
+    @GetMapping("/add_patient_form")
+    public String showAddPatientFormPage(){
+        return "AddPatientForm";
     }
 
 
@@ -37,6 +38,7 @@ public class PageController {
         md.addAttribute("patients", country);
         md.addAttribute("patients", region); */
 
+        String name;
         return "patients";
     }
 

@@ -4,18 +4,18 @@
     <meta charset="UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Main Menu</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/PatientRecords.css" th:href="../static/css/PatientRecords.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/PatientRecords.css" th:href="@{/css/PatientRecords.css}">
 </head>
     <body>
         <ul id="nav">
-			<li><a href="index.html">Main Menu</a></li>
-            <li><a class="active" href="PatientRecords_Table.html">Patient Records</a></li>
+			<li><a href="/">Main Menu</a></li>
+            <li><a class="active" href="/patient_records_table">Patient Records</a></li>
 			<li><a href="Employees_Table.html">Employee Records</a></li>
             <li><a href="TherapySessions_Table.html">Therapy Sessions</a></li>
             <li><a href="Referrals_Table.html">Reports</a></li>
 		</ul>
 		<h1>
-		<a href="AddPatientForm.html">Add Patient</a>
+		<a href="/add_patient_form">Add Patient</a>
 		</h1>
 		<center> <input style="text-align:center;" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by Patient Name" title="Type Patient's Name"> </center>
 		<center> 
