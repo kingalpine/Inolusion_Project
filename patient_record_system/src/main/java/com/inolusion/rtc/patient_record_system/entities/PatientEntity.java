@@ -115,4 +115,9 @@ public class PatientEntity {
     public int hashCode() {
         return Objects.hash(patientId, patientFname, patientLname, patientAddress, patientEmail, patientDob, patientHphone, patientMphone);
     }
+
+    @Override
+    public String toString() {
+        return getPatientId() +" " + getPatientFname() + " " + getPatientLname();
+    }
 }

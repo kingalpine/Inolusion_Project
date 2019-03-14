@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
@@ -52,6 +53,11 @@
 			<td>Active</td>
 			<td>TCHP</td>
 		</tr>
+                <tr>
+                    <td th:text="${patient_array[0]}">Default ID</td>
+                    <td th:text="${patient_array[1]}">Default First Name</td>
+					<td th:text="${patient_array[2]}">Default Last Name</tr>
+                </tr>
 		</table>
 		</center>
 		<script>
