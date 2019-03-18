@@ -55,6 +55,8 @@ body {
   min-height: 900px;
   min-width:900px;
 }
-h1 {
-	text-align: center;
+
+footer {
+	border-top: 1px solid gray;
 }
+

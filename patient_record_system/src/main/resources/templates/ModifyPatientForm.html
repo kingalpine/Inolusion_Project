@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Modify Patient</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/AddPatientForm.css" th:href="../static/css/AddPatientForm.css">
+</head>
+    <body>
+        <ul id="nav">
+			<li><a href="index.html">Main Menu</a></li>
+            <li><a class="active" href="PatientRecords_Table.html">Patient Records</a></li>
+			<li><a href="Employees_Table.html">Employee Records</a></li>
+            <li><a href="TherapySessions_Table.html">Therapy Sessions</a></li>
+            <li><a href="Reports.html">Reports</a></li>
+		</ul>
+		<br></br>
+		<h1> Modify Patient Form </h1>
+    <center> <form>
+		First name:<br>
+		<input type="text" name="firstname"><br>
+		Last name:<br>
+		<input type="text" name="lastname"></br>
+		Sex:<br>
+		<select name="sex">
+			<option value="male">Male</option>
+			<option value="female">Female</option>
+		</select></br>
+		Address:<br>
+		<input type="text" name="address"></br>
+		Region:<br>
+		<select name="region">
+			<option value="texas">Texas</option>
+			<option value="california">California</option>
+			<option value="newmexico">New Mexico</option>
+		</select></br>
+		Country:<br>
+		<select name="country">
+			<option value="usa">United States</option>
+			<option value="mexico">Mexico</option>
+			<option value="canada">Canada</option>
+		</select></br>
+		Email:<br>
+		<input type="text" name="email"></br>
+		DOB:<br>
+		<input type="text" name="dob"></br>
+		Home Phone:<br>
+		<input type="text" name="hphone"></br>
+		Mobile Phone:<br>
+		<input type="text" name="mphone"></br>
+		Allergies:<br>
+		<select name="allergies">
+			<option value="milk">Milk</option>
+			<option value="peanut">Peanut</option>
+			<option value="latex">Latex</option>
+		</select></br>
+		Medications:<br>
+		<input type="text" name="medications"></br>
+		Patient Status:<br>
+		<select name="patientstatus">
+			<option value="active">Active</option>
+			<option value="inactive">Inactive</option>
+		</select></br>
+		Insurance:<br>
+		<select name="insurance">
+			<option value="tchp">TCHP</option>
+			<option value="chc">CHC</option>
+			<option value="uhc">UHC</option>
+			<option value="cshcn">CSHCN</option>
+			<option value="tmhp">TMHP</option>
+		</select></br> <br></br>
+		<input type="submit" value="Submit">
+	</form> </center> <br></br>
+	<center> <button onclick="goBack()">Exit</button></center>
+		<script>
+			function goBack() {
+				window.history.back();
+			}
+		</script>
+    </body>
+</html>

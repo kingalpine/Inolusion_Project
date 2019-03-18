@@ -23,13 +23,14 @@ public class PageController {
     public String showPatientRecordsPage(Model md) {
 
 
-        for (int x = 1; x <= repository.count(); x++)
+        md.addAttribute("patient_array", repository.findAll());
+       /* for (int x = 1; x <= repository.count(); x++)
         {
             List list = repository.findByPatientId(x);
             String patient_id = list.get(0).toString();
-            String[] words = patient_id.split("\\s+");
+            String [] words = patient_id.split("\\s+");
             md.addAttribute("patient_array", words);
-        }
+        }*/
         return "patient_records_table";
     }
 

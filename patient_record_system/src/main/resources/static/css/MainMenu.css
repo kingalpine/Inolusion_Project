@@ -1,22 +1,45 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+#header{
+	width:100%;
+	height: 80%;
+	background-color: white;
+}
+
 #nav {
 width:1000px;
+height:87px;
 margin:0 auto;
 list-style:none;
 overflow: hidden;
-background-color: #e9e9e9;
+padding-top:30px;
 }
 #nav li {
-float:left;
+	float: left;
 }
+#logo{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 362px;
+	height:117px;
+	background-image:url("../images/logo.png");
+	float:left;
+	background-repeat: no-repeat;
+	
+}
+
 #nav a {
-display:block;
-text-align:center;
-width:160px;
-text-decoration:none;
-color: black;
-text-align: center;
-font-size: 17px;
-padding: 14px 16px;
+	display:block;
+	text-align:center;
+	width:160px;
+	text-decoration:none;
+	color: black;
+	text-align: center;
+	font-size: 17px;
+	padding: 14px 16px;
 }
 #nav a:hover {
   background-color: #ddd;
@@ -29,4 +52,6 @@ padding: 14px 16px;
 body {
   background-image: url("../images/medicalBG.png");
   margin: auto;
+  min-height: 900px;
+  min-width:900px;
 }

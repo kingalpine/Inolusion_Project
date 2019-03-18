@@ -1,22 +1,27 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Main Menu</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/PatientRecords.css" th:href="@{/css/PatientRecords.css}">
+    <title>Patient Records</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/PatientRecords.css" th:href="../static/css/PatientRecords.css">
 </head>
     <body>
+		<div id="header">
+		<div id="logo"></div>
         <ul id="nav">
-			<li><a href="/">Main Menu</a></li>
-            <li><a class="active" href="/patient_records_table">Patient Records</a></li>
+			<li><a href="index.html">Main Menu</a></li>
+            <li><a class="active" href="PatientRecords_Table.html">Patient Records</a></li>
 			<li><a href="Employees_Table.html">Employee Records</a></li>
             <li><a href="TherapySessions_Table.html">Therapy Sessions</a></li>
             <li><a href="Referrals_Table.html">Reports</a></li>
 		</ul>
+		</div>
 		<h1>
-		<a href="/add_patient_form">Add Patient</a>
+		<a href="AddPatientForm.html">Add Patient</a>
+		</h1>
+		<h1>
+		<a href="ModifyPatientTable.html">Modify Patient</a>
 		</h1>
 		<center> <input style="text-align:center;" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by Patient Name" title="Type Patient's Name"> </center>
 		<center> 
@@ -53,11 +58,6 @@
 			<td>Active</td>
 			<td>TCHP</td>
 		</tr>
-                <tr th:each="patient : ${patient_array}">
-                    <td th:text="${patient.getPatientId()}">Default ID</td>
-					<td th:text="${patient.getPatientFname()}">Default ID</td>
-					<td th:text="${patient.getPatientLname()}">Default ID</td>
-                </tr>
 		</table>
 		</center>
 		<script>
