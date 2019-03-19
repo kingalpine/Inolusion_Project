@@ -4,14 +4,13 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "intervention_code", schema = "dbo", catalog = "localspringbootdb")
+@Table(name = "INTERVENTION_CODE", schema = "dbo", catalog = "localspringbootdb")
 public class InterventionCodeEntity {
     private int interventionCodeId;
-    private String interventionCodeName;
-    private String interventionCodeDesc;
+    private String name;
 
     @Id
-    @Column(name = "intervention_code_id")
+    @Column(name = "INTERVENTION_CODE_ID")
     public int getInterventionCodeId() {
         return interventionCodeId;
     }
@@ -21,23 +20,13 @@ public class InterventionCodeEntity {
     }
 
     @Basic
-    @Column(name = "intervention_code_name")
-    public String getInterventionCodeName() {
-        return interventionCodeName;
+    @Column(name = "NAME")
+    public String getName() {
+        return name;
     }
 
-    public void setInterventionCodeName(String interventionCodeName) {
-        this.interventionCodeName = interventionCodeName;
-    }
-
-    @Basic
-    @Column(name = "intervention_code_desc")
-    public String getInterventionCodeDesc() {
-        return interventionCodeDesc;
-    }
-
-    public void setInterventionCodeDesc(String interventionCodeDesc) {
-        this.interventionCodeDesc = interventionCodeDesc;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
@@ -46,12 +35,11 @@ public class InterventionCodeEntity {
         if (o == null || getClass() != o.getClass()) return false;
         InterventionCodeEntity that = (InterventionCodeEntity) o;
         return interventionCodeId == that.interventionCodeId &&
-                Objects.equals(interventionCodeName, that.interventionCodeName) &&
-                Objects.equals(interventionCodeDesc, that.interventionCodeDesc);
+                Objects.equals(name, that.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(interventionCodeId, interventionCodeName, interventionCodeDesc);
+        return Objects.hash(interventionCodeId, name);
     }
 }

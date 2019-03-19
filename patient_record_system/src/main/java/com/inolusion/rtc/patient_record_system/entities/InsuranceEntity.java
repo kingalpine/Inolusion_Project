@@ -4,15 +4,13 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "insurance", schema = "dbo", catalog = "localspringbootdb")
+@Table(name = "INSURANCE", schema = "dbo", catalog = "localspringbootdb")
 public class InsuranceEntity {
     private int insuranceId;
-    private String insuranceName;
-    private Integer insuranceGroupNumber;
-    private Integer insuranceGroupId;
+    private String name;
 
     @Id
-    @Column(name = "insurance_id")
+    @Column(name = "INSURANCE_ID")
     public int getInsuranceId() {
         return insuranceId;
     }
@@ -22,33 +20,13 @@ public class InsuranceEntity {
     }
 
     @Basic
-    @Column(name = "insurance_name")
-    public String getInsuranceName() {
-        return insuranceName;
+    @Column(name = "NAME")
+    public String getName() {
+        return name;
     }
 
-    public void setInsuranceName(String insuranceName) {
-        this.insuranceName = insuranceName;
-    }
-
-    @Basic
-    @Column(name = "insurance_group_number")
-    public Integer getInsuranceGroupNumber() {
-        return insuranceGroupNumber;
-    }
-
-    public void setInsuranceGroupNumber(Integer insuranceGroupNumber) {
-        this.insuranceGroupNumber = insuranceGroupNumber;
-    }
-
-    @Basic
-    @Column(name = "insurance_group_id")
-    public Integer getInsuranceGroupId() {
-        return insuranceGroupId;
-    }
-
-    public void setInsuranceGroupId(Integer insuranceGroupId) {
-        this.insuranceGroupId = insuranceGroupId;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
@@ -57,13 +35,11 @@ public class InsuranceEntity {
         if (o == null || getClass() != o.getClass()) return false;
         InsuranceEntity that = (InsuranceEntity) o;
         return insuranceId == that.insuranceId &&
-                Objects.equals(insuranceName, that.insuranceName) &&
-                Objects.equals(insuranceGroupNumber, that.insuranceGroupNumber) &&
-                Objects.equals(insuranceGroupId, that.insuranceGroupId);
+                Objects.equals(name, that.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(insuranceId, insuranceName, insuranceGroupNumber, insuranceGroupId);
+        return Objects.hash(insuranceId, name);
     }
 }

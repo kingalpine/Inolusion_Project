@@ -4,14 +4,14 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "country", schema = "dbo", catalog = "localspringbootdb")
+@Table(name = "COUNTRY", schema = "dbo", catalog = "localspringbootdb")
 public class CountryEntity {
     private int countryId;
-    private String countryName;
     private String countryCode;
+    private String name;
 
     @Id
-    @Column(name = "country_id")
+    @Column(name = "COUNTRY_ID")
     public int getCountryId() {
         return countryId;
     }
@@ -21,17 +21,7 @@ public class CountryEntity {
     }
 
     @Basic
-    @Column(name = "country_name")
-    public String getCountryName() {
-        return countryName;
-    }
-
-    public void setCountryName(String countryName) {
-        this.countryName = countryName;
-    }
-
-    @Basic
-    @Column(name = "country_code")
+    @Column(name = "COUNTRY_CODE")
     public String getCountryCode() {
         return countryCode;
     }
@@ -40,18 +30,28 @@ public class CountryEntity {
         this.countryCode = countryCode;
     }
 
+    @Basic
+    @Column(name = "NAME")
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CountryEntity that = (CountryEntity) o;
         return countryId == that.countryId &&
-                Objects.equals(countryName, that.countryName) &&
-                Objects.equals(countryCode, that.countryCode);
+                Objects.equals(countryCode, that.countryCode) &&
+                Objects.equals(name, that.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(countryId, countryName, countryCode);
+        return Objects.hash(countryId, countryCode, name);
     }
 }

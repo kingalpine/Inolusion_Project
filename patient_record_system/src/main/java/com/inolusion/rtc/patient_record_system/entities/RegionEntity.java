@@ -4,14 +4,15 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "region", schema = "dbo", catalog = "localspringbootdb")
+@Table(name = "REGION", schema = "dbo", catalog = "localspringbootdb")
 public class RegionEntity {
     private int regionId;
+    private int countryId;
     private String regionCode;
-    private String region;
+    private String name;
 
     @Id
-    @Column(name = "region_id")
+    @Column(name = "REGION_ID")
     public int getRegionId() {
         return regionId;
     }
@@ -21,7 +22,17 @@ public class RegionEntity {
     }
 
     @Basic
-    @Column(name = "region_code")
+    @Column(name = "COUNTRY_ID")
+    public int getCountryId() {
+        return countryId;
+    }
+
+    public void setCountryId(int countryId) {
+        this.countryId = countryId;
+    }
+
+    @Basic
+    @Column(name = "REGION_CODE")
     public String getRegionCode() {
         return regionCode;
     }
@@ -31,13 +42,13 @@ public class RegionEntity {
     }
 
     @Basic
-    @Column(name = "region")
-    public String getRegion() {
-        return region;
+    @Column(name = "NAME")
+    public String getName() {
+        return name;
     }
 
-    public void setRegion(String region) {
-        this.region = region;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
@@ -46,12 +57,13 @@ public class RegionEntity {
         if (o == null || getClass() != o.getClass()) return false;
         RegionEntity that = (RegionEntity) o;
         return regionId == that.regionId &&
+                countryId == that.countryId &&
                 Objects.equals(regionCode, that.regionCode) &&
-                Objects.equals(region, that.region);
+                Objects.equals(name, that.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(regionId, regionCode, region);
+        return Objects.hash(regionId, countryId, regionCode, name);
     }
 }

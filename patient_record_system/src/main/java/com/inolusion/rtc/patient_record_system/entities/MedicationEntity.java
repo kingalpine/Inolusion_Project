@@ -4,13 +4,13 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "medication", schema = "dbo", catalog = "localspringbootdb")
+@Table(name = "MEDICATION", schema = "dbo", catalog = "localspringbootdb")
 public class MedicationEntity {
     private int medicationId;
-    private String medicationName;
+    private String name;
 
     @Id
-    @Column(name = "medication_id")
+    @Column(name = "MEDICATION_ID")
     public int getMedicationId() {
         return medicationId;
     }
@@ -20,13 +20,13 @@ public class MedicationEntity {
     }
 
     @Basic
-    @Column(name = "medication_name")
-    public String getMedicationName() {
-        return medicationName;
+    @Column(name = "NAME")
+    public String getName() {
+        return name;
     }
 
-    public void setMedicationName(String medicationName) {
-        this.medicationName = medicationName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
@@ -35,11 +35,11 @@ public class MedicationEntity {
         if (o == null || getClass() != o.getClass()) return false;
         MedicationEntity that = (MedicationEntity) o;
         return medicationId == that.medicationId &&
-                Objects.equals(medicationName, that.medicationName);
+                Objects.equals(name, that.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(medicationId, medicationName);
+        return Objects.hash(medicationId, name);
     }
 }

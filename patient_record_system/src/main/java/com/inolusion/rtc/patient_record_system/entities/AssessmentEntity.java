@@ -4,13 +4,14 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "assessment", schema = "dbo", catalog = "localspringbootdb")
+@Table(name = "ASSESSMENT", schema = "dbo", catalog = "localspringbootdb")
 public class AssessmentEntity {
     private int assessmentId;
-    private String assessmentSummary;
+    private String treatmentActivity;
+    private String treatmentPlanProgress;
 
     @Id
-    @Column(name = "assessment_id")
+    @Column(name = "ASSESSMENT_ID")
     public int getAssessmentId() {
         return assessmentId;
     }
@@ -20,13 +21,23 @@ public class AssessmentEntity {
     }
 
     @Basic
-    @Column(name = "assessment_summary")
-    public String getAssessmentSummary() {
-        return assessmentSummary;
+    @Column(name = "TREATMENT_ACTIVITY")
+    public String getTreatmentActivity() {
+        return treatmentActivity;
     }
 
-    public void setAssessmentSummary(String assessmentSummary) {
-        this.assessmentSummary = assessmentSummary;
+    public void setTreatmentActivity(String treatmentActivity) {
+        this.treatmentActivity = treatmentActivity;
+    }
+
+    @Basic
+    @Column(name = "TREATMENT_PLAN_PROGRESS")
+    public String getTreatmentPlanProgress() {
+        return treatmentPlanProgress;
+    }
+
+    public void setTreatmentPlanProgress(String treatmentPlanProgress) {
+        this.treatmentPlanProgress = treatmentPlanProgress;
     }
 
     @Override
@@ -35,11 +46,12 @@ public class AssessmentEntity {
         if (o == null || getClass() != o.getClass()) return false;
         AssessmentEntity that = (AssessmentEntity) o;
         return assessmentId == that.assessmentId &&
-                Objects.equals(assessmentSummary, that.assessmentSummary);
+                Objects.equals(treatmentActivity, that.treatmentActivity) &&
+                Objects.equals(treatmentPlanProgress, that.treatmentPlanProgress);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(assessmentId, assessmentSummary);
+        return Objects.hash(assessmentId, treatmentActivity, treatmentPlanProgress);
     }
 }

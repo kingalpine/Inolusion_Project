@@ -4,13 +4,13 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "patient_status", schema = "dbo", catalog = "localspringbootdb")
+@Table(name = "PATIENT_STATUS", schema = "dbo", catalog = "localspringbootdb")
 public class PatientStatusEntity {
     private int patientStatusId;
-    private String patientStatusDesc;
+    private String statusType;
 
     @Id
-    @Column(name = "patient_status_id")
+    @Column(name = "PATIENT_STATUS_ID")
     public int getPatientStatusId() {
         return patientStatusId;
     }
@@ -20,13 +20,13 @@ public class PatientStatusEntity {
     }
 
     @Basic
-    @Column(name = "patient_status_desc")
-    public String getPatientStatusDesc() {
-        return patientStatusDesc;
+    @Column(name = "STATUS_TYPE")
+    public String getStatusType() {
+        return statusType;
     }
 
-    public void setPatientStatusDesc(String patientStatusDesc) {
-        this.patientStatusDesc = patientStatusDesc;
+    public void setStatusType(String statusType) {
+        this.statusType = statusType;
     }
 
     @Override
@@ -35,11 +35,11 @@ public class PatientStatusEntity {
         if (o == null || getClass() != o.getClass()) return false;
         PatientStatusEntity that = (PatientStatusEntity) o;
         return patientStatusId == that.patientStatusId &&
-                Objects.equals(patientStatusDesc, that.patientStatusDesc);
+                Objects.equals(statusType, that.statusType);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(patientStatusId, patientStatusDesc);
+        return Objects.hash(patientStatusId, statusType);
     }
 }

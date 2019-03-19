@@ -5,19 +5,25 @@ import java.sql.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name = "patient", schema = "dbo", catalog = "localspringbootdb")
+@Table(name = "PATIENT", schema = "dbo", catalog = "localspringbootdb")
 public class PatientEntity {
     private int patientId;
-    private String patientFname;
-    private String patientLname;
-    private String patientAddress;
-    private String patientEmail;
-    private Date patientDob;
-    private String patientHphone;
-    private String patientMphone;
+    private String firstName;
+    private String lastName;
+    private int sexId;
+    private String addressLine;
+    private int regionId;
+    private int countryId;
+    private String city;
+    private String zip;
+    private String email;
+    private Date dob;
+    private String homePhone;
+    private String mobilePhone;
+    private int statusId;
 
     @Id
-    @Column(name = "patient_id")
+    @Column(name = "PATIENT_ID")
     public int getPatientId() {
         return patientId;
     }
@@ -27,73 +33,133 @@ public class PatientEntity {
     }
 
     @Basic
-    @Column(name = "patient_fname")
-    public String getPatientFname() {
-        return patientFname;
+    @Column(name = "FIRST_NAME")
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setPatientFname(String patientFname) {
-        this.patientFname = patientFname;
-    }
-
-    @Basic
-    @Column(name = "patient_lname")
-    public String getPatientLname() {
-        return patientLname;
-    }
-
-    public void setPatientLname(String patientLname) {
-        this.patientLname = patientLname;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     @Basic
-    @Column(name = "patient_address")
-    public String getPatientAddress() {
-        return patientAddress;
+    @Column(name = "LAST_NAME")
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setPatientAddress(String patientAddress) {
-        this.patientAddress = patientAddress;
-    }
-
-    @Basic
-    @Column(name = "patient_email")
-    public String getPatientEmail() {
-        return patientEmail;
-    }
-
-    public void setPatientEmail(String patientEmail) {
-        this.patientEmail = patientEmail;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     @Basic
-    @Column(name = "patient_dob")
-    public Date getPatientDob() {
-        return patientDob;
+    @Column(name = "SEX_ID")
+    public int getSexId() {
+        return sexId;
     }
 
-    public void setPatientDob(Date patientDob) {
-        this.patientDob = patientDob;
-    }
-
-    @Basic
-    @Column(name = "patient_hphone")
-    public String getPatientHphone() {
-        return patientHphone;
-    }
-
-    public void setPatientHphone(String patientHphone) {
-        this.patientHphone = patientHphone;
+    public void setSexId(int sexId) {
+        this.sexId = sexId;
     }
 
     @Basic
-    @Column(name = "patient_mphone")
-    public String getPatientMphone() {
-        return patientMphone;
+    @Column(name = "ADDRESS_LINE")
+    public String getAddressLine() {
+        return addressLine;
     }
 
-    public void setPatientMphone(String patientMphone) {
-        this.patientMphone = patientMphone;
+    public void setAddressLine(String addressLine) {
+        this.addressLine = addressLine;
+    }
+
+    @Basic
+    @Column(name = "REGION_ID")
+    public int getRegionId() {
+        return regionId;
+    }
+
+    public void setRegionId(int regionId) {
+        this.regionId = regionId;
+    }
+
+    @Basic
+    @Column(name = "COUNTRY_ID")
+    public int getCountryId() {
+        return countryId;
+    }
+
+    public void setCountryId(int countryId) {
+        this.countryId = countryId;
+    }
+
+    @Basic
+    @Column(name = "CITY")
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    @Basic
+    @Column(name = "ZIP")
+    public String getZip() {
+        return zip;
+    }
+
+    public void setZip(String zip) {
+        this.zip = zip;
+    }
+
+    @Basic
+    @Column(name = "EMAIL")
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Basic
+    @Column(name = "DOB")
+    public Date getDob() {
+        return dob;
+    }
+
+    public void setDob(Date dob) {
+        this.dob = dob;
+    }
+
+    @Basic
+    @Column(name = "HOME_PHONE")
+    public String getHomePhone() {
+        return homePhone;
+    }
+
+    public void setHomePhone(String homePhone) {
+        this.homePhone = homePhone;
+    }
+
+    @Basic
+    @Column(name = "MOBILE_PHONE")
+    public String getMobilePhone() {
+        return mobilePhone;
+    }
+
+    public void setMobilePhone(String mobilePhone) {
+        this.mobilePhone = mobilePhone;
+    }
+
+    @Basic
+    @Column(name = "STATUS_ID")
+    public int getStatusId() {
+        return statusId;
+    }
+
+    public void setStatusId(int statusId) {
+        this.statusId = statusId;
     }
 
     @Override
@@ -102,22 +168,23 @@ public class PatientEntity {
         if (o == null || getClass() != o.getClass()) return false;
         PatientEntity that = (PatientEntity) o;
         return patientId == that.patientId &&
-                Objects.equals(patientFname, that.patientFname) &&
-                Objects.equals(patientLname, that.patientLname) &&
-                Objects.equals(patientAddress, that.patientAddress) &&
-                Objects.equals(patientEmail, that.patientEmail) &&
-                Objects.equals(patientDob, that.patientDob) &&
-                Objects.equals(patientHphone, that.patientHphone) &&
-                Objects.equals(patientMphone, that.patientMphone);
+                sexId == that.sexId &&
+                regionId == that.regionId &&
+                countryId == that.countryId &&
+                statusId == that.statusId &&
+                Objects.equals(firstName, that.firstName) &&
+                Objects.equals(lastName, that.lastName) &&
+                Objects.equals(addressLine, that.addressLine) &&
+                Objects.equals(city, that.city) &&
+                Objects.equals(zip, that.zip) &&
+                Objects.equals(email, that.email) &&
+                Objects.equals(dob, that.dob) &&
+                Objects.equals(homePhone, that.homePhone) &&
+                Objects.equals(mobilePhone, that.mobilePhone);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(patientId, patientFname, patientLname, patientAddress, patientEmail, patientDob, patientHphone, patientMphone);
-    }
-
-    @Override
-    public String toString() {
-        return getPatientId() +" " + getPatientFname() + " " + getPatientLname();
+        return Objects.hash(patientId, firstName, lastName, sexId, addressLine, regionId, countryId, city, zip, email, dob, homePhone, mobilePhone, statusId);
     }
 }

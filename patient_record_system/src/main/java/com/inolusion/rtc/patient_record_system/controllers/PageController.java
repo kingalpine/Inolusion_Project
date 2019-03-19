@@ -2,15 +2,11 @@ package com.inolusion.rtc.patient_record_system.controllers;
 
 
 
-import com.inolusion.rtc.patient_record_system.entities.PatientEntity;
 import com.inolusion.rtc.patient_record_system.repositories.Patient_Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import java.util.List;
 
 
 @Controller
@@ -31,22 +27,31 @@ public class PageController {
             String [] words = patient_id.split("\\s+");
             md.addAttribute("patient_array", words);
         }*/
-        return "patient_records_table";
+        return "PatientRecords_Table";
     }
 
     @GetMapping("/add_patient_form")
     public String showAddPatientFormPage(){
-        return "add_patient_form";
+        return "AddPatientForm";
     }
 
     @GetMapping("/employee_records")
-    public String showEmployeeRecordsPage() { return "employee_records";}
+    public String showEmployeeRecordsPage() { return "Employees_Table";}
 
     @GetMapping("/therapy_session")
-    public String showTherapySessionPage() {return "therapy_session";}
+    public String showTherapySessionPage() {return "TherapySessions_Table";}
 
     @GetMapping("/reports")
     public String showReportsPage() {return "reports";}
+
+    @GetMapping("/modify_patient_form")
+    public String showModifyPatientFormPage() {return "ModifyPatientForm";}
+
+    @GetMapping("/add_therapy_session")
+    public String showAddTherapySession() {return "AddTherapySession";}
+
+    @GetMapping("/add_employee_form")
+    public String showAddEmployeeForm() {return "AddEmployeeForm";}
 
 /*
 

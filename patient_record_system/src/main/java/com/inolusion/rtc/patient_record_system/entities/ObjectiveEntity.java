@@ -4,13 +4,14 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "objective", schema = "dbo", catalog = "localspringbootdb")
+@Table(name = "OBJECTIVE", schema = "dbo", catalog = "localspringbootdb")
 public class ObjectiveEntity {
     private int objectiveId;
-    private String objectiveSummary;
+    private String goals;
+    private String statement;
 
     @Id
-    @Column(name = "objective_id")
+    @Column(name = "OBJECTIVE_ID")
     public int getObjectiveId() {
         return objectiveId;
     }
@@ -20,13 +21,23 @@ public class ObjectiveEntity {
     }
 
     @Basic
-    @Column(name = "objective_summary")
-    public String getObjectiveSummary() {
-        return objectiveSummary;
+    @Column(name = "GOALS")
+    public String getGoals() {
+        return goals;
     }
 
-    public void setObjectiveSummary(String objectiveSummary) {
-        this.objectiveSummary = objectiveSummary;
+    public void setGoals(String goals) {
+        this.goals = goals;
+    }
+
+    @Basic
+    @Column(name = "STATEMENT")
+    public String getStatement() {
+        return statement;
+    }
+
+    public void setStatement(String statement) {
+        this.statement = statement;
     }
 
     @Override
@@ -35,11 +46,12 @@ public class ObjectiveEntity {
         if (o == null || getClass() != o.getClass()) return false;
         ObjectiveEntity that = (ObjectiveEntity) o;
         return objectiveId == that.objectiveId &&
-                Objects.equals(objectiveSummary, that.objectiveSummary);
+                Objects.equals(goals, that.goals) &&
+                Objects.equals(statement, that.statement);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(objectiveId, objectiveSummary);
+        return Objects.hash(objectiveId, goals, statement);
     }
 }

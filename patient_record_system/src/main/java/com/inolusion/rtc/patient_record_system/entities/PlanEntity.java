@@ -4,14 +4,13 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "plan", schema = "dbo", catalog = "localspringbootdb")
+@Table(name = "PLAN", schema = "dbo", catalog = "localspringbootdb")
 public class PlanEntity {
     private int planId;
-    private String planOption;
-    private String planOther;
+    private String planOtherNote;
 
     @Id
-    @Column(name = "plan_id")
+    @Column(name = "PLAN_ID")
     public int getPlanId() {
         return planId;
     }
@@ -21,23 +20,13 @@ public class PlanEntity {
     }
 
     @Basic
-    @Column(name = "plan_option")
-    public String getPlanOption() {
-        return planOption;
+    @Column(name = "PLAN_OTHER_NOTE")
+    public String getPlanOtherNote() {
+        return planOtherNote;
     }
 
-    public void setPlanOption(String planOption) {
-        this.planOption = planOption;
-    }
-
-    @Basic
-    @Column(name = "plan_other")
-    public String getPlanOther() {
-        return planOther;
-    }
-
-    public void setPlanOther(String planOther) {
-        this.planOther = planOther;
+    public void setPlanOtherNote(String planOtherNote) {
+        this.planOtherNote = planOtherNote;
     }
 
     @Override
@@ -46,12 +35,11 @@ public class PlanEntity {
         if (o == null || getClass() != o.getClass()) return false;
         PlanEntity that = (PlanEntity) o;
         return planId == that.planId &&
-                Objects.equals(planOption, that.planOption) &&
-                Objects.equals(planOther, that.planOther);
+                Objects.equals(planOtherNote, that.planOtherNote);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(planId, planOption, planOther);
+        return Objects.hash(planId, planOtherNote);
     }
 }

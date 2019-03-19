@@ -57,7 +57,7 @@ padding-top:30px;
 	margin-right: auto;
 	width: 362px;
 	height:117px;
-	background-image:url("../images/logo.png");
+	background-image:url('../images/logo.png');
 	float:left;
 	background-repeat: no-repeat;
 	
@@ -81,7 +81,7 @@ padding-top:30px;
   color: white;
 }
 body {
-  background-image: url("../images/crossline-lines.png");
+  background-image:url('../images/crossline-lines.png');
   margin: auto;
   min-height: 900px;
   min-width:900px;

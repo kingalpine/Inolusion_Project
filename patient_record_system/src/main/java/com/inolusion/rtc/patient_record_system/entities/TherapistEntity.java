@@ -5,19 +5,18 @@ import java.sql.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name = "therapist", schema = "dbo", catalog = "localspringbootdb")
+@Table(name = "THERAPIST", schema = "dbo", catalog = "localspringbootdb")
 public class TherapistEntity {
     private int therapistId;
-    private String therapistFname;
-    private String therapistLname;
-    private String therapistAddress;
-    private String therapistEmail;
-    private Date therapistDob;
-    private Integer therapistHphone;
-    private Integer therapistMphone;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private Date startDate;
+    private String phone;
+    private int statusId;
 
     @Id
-    @Column(name = "therapist_id")
+    @Column(name = "THERAPIST_ID")
     public int getTherapistId() {
         return therapistId;
     }
@@ -27,73 +26,63 @@ public class TherapistEntity {
     }
 
     @Basic
-    @Column(name = "therapist_fname")
-    public String getTherapistFname() {
-        return therapistFname;
+    @Column(name = "FIRST_NAME")
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setTherapistFname(String therapistFname) {
-        this.therapistFname = therapistFname;
-    }
-
-    @Basic
-    @Column(name = "therapist_lname")
-    public String getTherapistLname() {
-        return therapistLname;
-    }
-
-    public void setTherapistLname(String therapistLname) {
-        this.therapistLname = therapistLname;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     @Basic
-    @Column(name = "therapist_address")
-    public String getTherapistAddress() {
-        return therapistAddress;
+    @Column(name = "LAST_NAME")
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setTherapistAddress(String therapistAddress) {
-        this.therapistAddress = therapistAddress;
-    }
-
-    @Basic
-    @Column(name = "therapist_email")
-    public String getTherapistEmail() {
-        return therapistEmail;
-    }
-
-    public void setTherapistEmail(String therapistEmail) {
-        this.therapistEmail = therapistEmail;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     @Basic
-    @Column(name = "therapist_dob")
-    public Date getTherapistDob() {
-        return therapistDob;
+    @Column(name = "EMAIL")
+    public String getEmail() {
+        return email;
     }
 
-    public void setTherapistDob(Date therapistDob) {
-        this.therapistDob = therapistDob;
-    }
-
-    @Basic
-    @Column(name = "therapist_hphone")
-    public Integer getTherapistHphone() {
-        return therapistHphone;
-    }
-
-    public void setTherapistHphone(Integer therapistHphone) {
-        this.therapistHphone = therapistHphone;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Basic
-    @Column(name = "therapist_mphone")
-    public Integer getTherapistMphone() {
-        return therapistMphone;
+    @Column(name = "START_DATE")
+    public Date getStartDate() {
+        return startDate;
     }
 
-    public void setTherapistMphone(Integer therapistMphone) {
-        this.therapistMphone = therapistMphone;
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    @Basic
+    @Column(name = "PHONE")
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    @Basic
+    @Column(name = "STATUS_ID")
+    public int getStatusId() {
+        return statusId;
+    }
+
+    public void setStatusId(int statusId) {
+        this.statusId = statusId;
     }
 
     @Override
@@ -102,17 +91,16 @@ public class TherapistEntity {
         if (o == null || getClass() != o.getClass()) return false;
         TherapistEntity that = (TherapistEntity) o;
         return therapistId == that.therapistId &&
-                Objects.equals(therapistFname, that.therapistFname) &&
-                Objects.equals(therapistLname, that.therapistLname) &&
-                Objects.equals(therapistAddress, that.therapistAddress) &&
-                Objects.equals(therapistEmail, that.therapistEmail) &&
-                Objects.equals(therapistDob, that.therapistDob) &&
-                Objects.equals(therapistHphone, that.therapistHphone) &&
-                Objects.equals(therapistMphone, that.therapistMphone);
+                statusId == that.statusId &&
+                Objects.equals(firstName, that.firstName) &&
+                Objects.equals(lastName, that.lastName) &&
+                Objects.equals(email, that.email) &&
+                Objects.equals(startDate, that.startDate) &&
+                Objects.equals(phone, that.phone);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(therapistId, therapistFname, therapistLname, therapistAddress, therapistEmail, therapistDob, therapistHphone, therapistMphone);
+        return Objects.hash(therapistId, firstName, lastName, email, startDate, phone, statusId);
     }
 }

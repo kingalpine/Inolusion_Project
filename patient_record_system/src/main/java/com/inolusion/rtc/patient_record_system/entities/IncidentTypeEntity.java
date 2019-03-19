@@ -4,13 +4,13 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "incident_type", schema = "dbo", catalog = "localspringbootdb")
+@Table(name = "INCIDENT_TYPE", schema = "dbo", catalog = "localspringbootdb")
 public class IncidentTypeEntity {
     private int incidentTypeId;
-    private String incidentTypeDesc;
+    private String name;
 
     @Id
-    @Column(name = "incident_type_id")
+    @Column(name = "INCIDENT_TYPE_ID")
     public int getIncidentTypeId() {
         return incidentTypeId;
     }
@@ -20,13 +20,13 @@ public class IncidentTypeEntity {
     }
 
     @Basic
-    @Column(name = "incident_type_desc")
-    public String getIncidentTypeDesc() {
-        return incidentTypeDesc;
+    @Column(name = "NAME")
+    public String getName() {
+        return name;
     }
 
-    public void setIncidentTypeDesc(String incidentTypeDesc) {
-        this.incidentTypeDesc = incidentTypeDesc;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
@@ -35,11 +35,11 @@ public class IncidentTypeEntity {
         if (o == null || getClass() != o.getClass()) return false;
         IncidentTypeEntity that = (IncidentTypeEntity) o;
         return incidentTypeId == that.incidentTypeId &&
-                Objects.equals(incidentTypeDesc, that.incidentTypeDesc);
+                Objects.equals(name, that.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(incidentTypeId, incidentTypeDesc);
+        return Objects.hash(incidentTypeId, name);
     }
 }

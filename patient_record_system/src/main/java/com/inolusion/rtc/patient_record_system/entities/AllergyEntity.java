@@ -4,14 +4,13 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "allergy", schema = "dbo", catalog = "localspringbootdb")
+@Table(name = "ALLERGY", schema = "dbo", catalog = "localspringbootdb")
 public class AllergyEntity {
     private int allergyId;
-    private String allergyName;
-    private String allergyDesc;
+    private String name;
 
     @Id
-    @Column(name = "allergy_id")
+    @Column(name = "ALLERGY_ID")
     public int getAllergyId() {
         return allergyId;
     }
@@ -21,23 +20,13 @@ public class AllergyEntity {
     }
 
     @Basic
-    @Column(name = "allergy_name")
-    public String getAllergyName() {
-        return allergyName;
+    @Column(name = "NAME")
+    public String getName() {
+        return name;
     }
 
-    public void setAllergyName(String allergyName) {
-        this.allergyName = allergyName;
-    }
-
-    @Basic
-    @Column(name = "allergy_desc")
-    public String getAllergyDesc() {
-        return allergyDesc;
-    }
-
-    public void setAllergyDesc(String allergyDesc) {
-        this.allergyDesc = allergyDesc;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
@@ -46,12 +35,11 @@ public class AllergyEntity {
         if (o == null || getClass() != o.getClass()) return false;
         AllergyEntity that = (AllergyEntity) o;
         return allergyId == that.allergyId &&
-                Objects.equals(allergyName, that.allergyName) &&
-                Objects.equals(allergyDesc, that.allergyDesc);
+                Objects.equals(name, that.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(allergyId, allergyName, allergyDesc);
+        return Objects.hash(allergyId, name);
     }
 }

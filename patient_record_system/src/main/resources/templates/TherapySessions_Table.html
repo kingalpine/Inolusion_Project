@@ -4,21 +4,21 @@
     <meta charset="UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Therapy Sessions</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/TherapySessions_Table.css" th:href="../static/css/TherapySessions_Table.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/TherapySessions_Table.css" th:href="@{/css/TherapySessions_Table.css}">
 </head>
     <body>
 		<div id="header">
 		<div id="logo"></div>
         <ul id="nav">
-			<li><a href="index.html">Main Menu</a></li>
-            <li><a href="PatientRecords_Table.html">Patient Records</a></li>
-			<li><a href="Employees_Table.html">Employee Records</a></li>
-            <li><a class="active" href="TherapySessions_Table.html">Therapy Sessions</a></li>
-            <li><a href="Referrals_Table.html">Reports</a></li>
+			<li><a href="/">Main Menu</a></li>
+            <li><a href="/patient_records_table">Patient Records</a></li>
+			<li><a href="/employee_records">Employee Records</a></li>
+            <li><a class="active" href="/therapy_session">Therapy Sessions</a></li>
+            <li><a href="/reports">Reports</a></li>
 		</ul>
 		</div>
 		<h1>
-		<a href="AddTherapySession.html">Add Therapy Session</a>
+		<a href="/add_therapy_session">Add Therapy Session</a>
 		</h1>
 		<center> <input style="text-align:center;" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by Therapist's Name" title="Type Therapist's Name"> </center>
 		<center> 

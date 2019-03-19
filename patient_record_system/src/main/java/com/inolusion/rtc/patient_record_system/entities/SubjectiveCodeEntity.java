@@ -4,19 +4,19 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "SPEECH_CPT_CODE", schema = "dbo", catalog = "localspringbootdb")
-public class SpeechCptCodeEntity {
-    private int speechCptCodeId;
+@Table(name = "SUBJECTIVE_CODE", schema = "dbo", catalog = "localspringbootdb")
+public class SubjectiveCodeEntity {
+    private int subjectiveCodeId;
     private String name;
 
     @Id
-    @Column(name = "SPEECH_CPT_CODE_ID")
-    public int getSpeechCptCodeId() {
-        return speechCptCodeId;
+    @Column(name = "SUBJECTIVE_CODE_ID")
+    public int getSubjectiveCodeId() {
+        return subjectiveCodeId;
     }
 
-    public void setSpeechCptCodeId(int speechCptCodeId) {
-        this.speechCptCodeId = speechCptCodeId;
+    public void setSubjectiveCodeId(int subjectiveCodeId) {
+        this.subjectiveCodeId = subjectiveCodeId;
     }
 
     @Basic
@@ -33,13 +33,13 @@ public class SpeechCptCodeEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        SpeechCptCodeEntity that = (SpeechCptCodeEntity) o;
-        return speechCptCodeId == that.speechCptCodeId &&
+        SubjectiveCodeEntity that = (SubjectiveCodeEntity) o;
+        return subjectiveCodeId == that.subjectiveCodeId &&
                 Objects.equals(name, that.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(speechCptCodeId, name);
+        return Objects.hash(subjectiveCodeId, name);
     }
 }

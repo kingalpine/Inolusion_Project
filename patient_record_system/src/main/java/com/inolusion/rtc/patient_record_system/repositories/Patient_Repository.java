@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @Repository
 public interface Patient_Repository extends CrudRepository<PatientEntity, Long> {
-    List<PatientEntity> findByPatientFname (String firstName);
+    List<PatientEntity> findByFirstName (String firstName);
 
     List<PatientEntity> findByPatientId (int PatientID);
 

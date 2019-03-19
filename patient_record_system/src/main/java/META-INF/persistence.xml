@@ -4,33 +4,36 @@
     <persistence-unit name="NewPersistenceUnit">
         <class>com.inolusion.rtc.patient_record_system.entities.AllergyEntity</class>
         <class>com.inolusion.rtc.patient_record_system.entities.AssessmentEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.CodeForPlanEntity</class>
         <class>com.inolusion.rtc.patient_record_system.entities.CountryEntity</class>
-        <class>com.inolusion.rtc.patient_record_system.entities.DoctorEntity</class>
-        <class>com.inolusion.rtc.patient_record_system.entities.DoctorStatusEntity</class>
-        <class>com.inolusion.rtc.patient_record_system.entities.EvaluationEntity</class>
-        <class>com.inolusion.rtc.patient_record_system.entities.EvaluationStatusEntity</class>
-        <class>com.inolusion.rtc.patient_record_system.entities.FrontDeskEntity</class>
-        <class>com.inolusion.rtc.patient_record_system.entities.FrontDeskStatusEntity</class>
         <class>com.inolusion.rtc.patient_record_system.entities.IncidentEntity</class>
         <class>com.inolusion.rtc.patient_record_system.entities.IncidentStatusEntity</class>
         <class>com.inolusion.rtc.patient_record_system.entities.IncidentTypeEntity</class>
         <class>com.inolusion.rtc.patient_record_system.entities.InsuranceEntity</class>
         <class>com.inolusion.rtc.patient_record_system.entities.InterventionCodeEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.InterventionProgressCodeEntity</class>
         <class>com.inolusion.rtc.patient_record_system.entities.MedicationEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.MedicationHistoryEntity</class>
         <class>com.inolusion.rtc.patient_record_system.entities.ObjectiveEntity</class>
         <class>com.inolusion.rtc.patient_record_system.entities.PatientEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.PatientAllergyEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.PatientIncidentEntity</class>
         <class>com.inolusion.rtc.patient_record_system.entities.PatientStatusEntity</class>
         <class>com.inolusion.rtc.patient_record_system.entities.PlanEntity</class>
-        <class>com.inolusion.rtc.patient_record_system.entities.ReferralEntity</class>
-        <class>com.inolusion.rtc.patient_record_system.entities.ReferralApprovalEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.PlanCodeEntity</class>
         <class>com.inolusion.rtc.patient_record_system.entities.RegionEntity</class>
-        <class>com.inolusion.rtc.patient_record_system.entities.SexEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.SexTypeEntity</class>
         <class>com.inolusion.rtc.patient_record_system.entities.SpeechCptCodeEntity</class>
-        <class>com.inolusion.rtc.patient_record_system.entities.SubjectiveEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.SpeechCptTherapyProgressCodeEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.SubjectiveAnalysisEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.SubjectiveAnalysisCodeEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.SubjectiveCodeEntity</class>
         <class>com.inolusion.rtc.patient_record_system.entities.TherapistEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.TherapistIncidentEntity</class>
         <class>com.inolusion.rtc.patient_record_system.entities.TherapistStatusEntity</class>
         <class>com.inolusion.rtc.patient_record_system.entities.TherapyProgressNoteEntity</class>
         <class>com.inolusion.rtc.patient_record_system.entities.TherapySessionEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.TherapySessionStatusEntity</class>
         <properties>
             <property name="toplink.jdbc.url" value="jdbc:sqlserver://localhost\MSSQLSERVER:1433;database=localspringbootdb"/>
             <property name="toplink.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>

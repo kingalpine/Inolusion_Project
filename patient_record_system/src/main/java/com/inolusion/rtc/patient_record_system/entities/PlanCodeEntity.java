@@ -4,19 +4,19 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "SPEECH_CPT_CODE", schema = "dbo", catalog = "localspringbootdb")
-public class SpeechCptCodeEntity {
-    private int speechCptCodeId;
+@Table(name = "PLAN_CODE", schema = "dbo", catalog = "localspringbootdb")
+public class PlanCodeEntity {
+    private int planCodeId;
     private String name;
 
     @Id
-    @Column(name = "SPEECH_CPT_CODE_ID")
-    public int getSpeechCptCodeId() {
-        return speechCptCodeId;
+    @Column(name = "PLAN_CODE_ID")
+    public int getPlanCodeId() {
+        return planCodeId;
     }
 
-    public void setSpeechCptCodeId(int speechCptCodeId) {
-        this.speechCptCodeId = speechCptCodeId;
+    public void setPlanCodeId(int planCodeId) {
+        this.planCodeId = planCodeId;
     }
 
     @Basic
@@ -33,13 +33,13 @@ public class SpeechCptCodeEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        SpeechCptCodeEntity that = (SpeechCptCodeEntity) o;
-        return speechCptCodeId == that.speechCptCodeId &&
+        PlanCodeEntity that = (PlanCodeEntity) o;
+        return planCodeId == that.planCodeId &&
                 Objects.equals(name, that.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(speechCptCodeId, name);
+        return Objects.hash(planCodeId, name);
     }
 }

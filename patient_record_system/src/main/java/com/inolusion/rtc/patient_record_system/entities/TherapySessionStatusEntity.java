@@ -4,19 +4,19 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "INCIDENT_STATUS", schema = "dbo", catalog = "localspringbootdb")
-public class IncidentStatusEntity {
-    private int incidentStatusId;
+@Table(name = "THERAPY_SESSION_STATUS", schema = "dbo", catalog = "localspringbootdb")
+public class TherapySessionStatusEntity {
+    private int therapySessionStatusId;
     private String statusType;
 
     @Id
-    @Column(name = "INCIDENT_STATUS_ID")
-    public int getIncidentStatusId() {
-        return incidentStatusId;
+    @Column(name = "THERAPY_SESSION_STATUS_ID")
+    public int getTherapySessionStatusId() {
+        return therapySessionStatusId;
     }
 
-    public void setIncidentStatusId(int incidentStatusId) {
-        this.incidentStatusId = incidentStatusId;
+    public void setTherapySessionStatusId(int therapySessionStatusId) {
+        this.therapySessionStatusId = therapySessionStatusId;
     }
 
     @Basic
@@ -33,13 +33,13 @@ public class IncidentStatusEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        IncidentStatusEntity that = (IncidentStatusEntity) o;
-        return incidentStatusId == that.incidentStatusId &&
+        TherapySessionStatusEntity that = (TherapySessionStatusEntity) o;
+        return therapySessionStatusId == that.therapySessionStatusId &&
                 Objects.equals(statusType, that.statusType);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(incidentStatusId, statusType);
+        return Objects.hash(therapySessionStatusId, statusType);
     }
 }
