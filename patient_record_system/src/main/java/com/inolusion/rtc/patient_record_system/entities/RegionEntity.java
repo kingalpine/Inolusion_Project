@@ -7,7 +7,7 @@ import java.util.Objects;
 @Table(name = "REGION", schema = "dbo", catalog = "localspringbootdb")
 public class RegionEntity {
     private int regionId;
-    private int countryId;
+    private CountryEntity countryId;
     private String regionCode;
     private String name;
 
@@ -21,13 +21,13 @@ public class RegionEntity {
         this.regionId = regionId;
     }
 
-    @Basic
-    @Column(name = "COUNTRY_ID")
-    public int getCountryId() {
+    @ManyToOne
+    @JoinColumn(name = "COUNTRY_ID")
+    public CountryEntity getCountryId() {
         return countryId;
     }
 
-    public void setCountryId(int countryId) {
+    public void setCountryId(CountryEntity countryId) {
         this.countryId = countryId;
     }
 
@@ -60,6 +60,11 @@ public class RegionEntity {
                 countryId == that.countryId &&
                 Objects.equals(regionCode, that.regionCode) &&
                 Objects.equals(name, that.name);
+    }
+
+    @Override
+    public String toString() {
+        return regionCode;
     }
 
     @Override

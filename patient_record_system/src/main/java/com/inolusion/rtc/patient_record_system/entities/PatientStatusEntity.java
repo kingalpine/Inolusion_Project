@@ -39,6 +39,11 @@ public class PatientStatusEntity {
     }
 
     @Override
+    public String toString() {
+        return statusType;
+    }
+
+    @Override
     public int hashCode() {
         return Objects.hash(patientStatusId, statusType);
     }

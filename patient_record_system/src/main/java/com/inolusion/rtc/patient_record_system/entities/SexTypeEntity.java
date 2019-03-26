@@ -39,6 +39,11 @@ public class SexTypeEntity {
     }
 
     @Override
+    public String toString() {
+        return sex;
+    }
+
+    @Override
     public int hashCode() {
         return Objects.hash(sexTypeId, sex);
     }

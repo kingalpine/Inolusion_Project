@@ -10,17 +10,17 @@ public class PatientEntity {
     private int patientId;
     private String firstName;
     private String lastName;
-    private int sexId;
+    private SexTypeEntity sexId;
     private String addressLine;
-    private int regionId;
-    private int countryId;
+    private RegionEntity regionId;
+    private CountryEntity countryId;
     private String city;
     private String zip;
     private String email;
     private Date dob;
     private String homePhone;
     private String mobilePhone;
-    private int statusId;
+    private PatientStatusEntity statusId;
 
     @Id
     @Column(name = "PATIENT_ID")
@@ -52,13 +52,13 @@ public class PatientEntity {
         this.lastName = lastName;
     }
 
-    @Basic
-    @Column(name = "SEX_ID")
-    public int getSexId() {
+    @ManyToOne
+    @JoinColumn(name = "SEX_ID")
+    public SexTypeEntity getSexId() {
         return sexId;
     }
 
-    public void setSexId(int sexId) {
+    public void setSexId(SexTypeEntity sexId) {
         this.sexId = sexId;
     }
 
@@ -72,23 +72,23 @@ public class PatientEntity {
         this.addressLine = addressLine;
     }
 
-    @Basic
-    @Column(name = "REGION_ID")
-    public int getRegionId() {
+    @ManyToOne
+    @JoinColumn(name = "REGION_ID")
+    public RegionEntity getRegionId() {
         return regionId;
     }
 
-    public void setRegionId(int regionId) {
+    public void setRegionId(RegionEntity regionId) {
         this.regionId = regionId;
     }
 
-    @Basic
-    @Column(name = "COUNTRY_ID")
-    public int getCountryId() {
+    @ManyToOne
+    @JoinColumn(name = "COUNTRY_ID")
+    public CountryEntity getCountryId() {
         return countryId;
     }
 
-    public void setCountryId(int countryId) {
+    public void setCountryId(CountryEntity countryId) {
         this.countryId = countryId;
     }
 
@@ -152,13 +152,13 @@ public class PatientEntity {
         this.mobilePhone = mobilePhone;
     }
 
-    @Basic
-    @Column(name = "STATUS_ID")
-    public int getStatusId() {
+    @ManyToOne
+    @JoinColumn(name = "STATUS_ID")
+    public PatientStatusEntity getStatusId() {
         return statusId;
     }
 
-    public void setStatusId(int statusId) {
+    public void setStatusId(PatientStatusEntity statusId) {
         this.statusId = statusId;
     }
 
