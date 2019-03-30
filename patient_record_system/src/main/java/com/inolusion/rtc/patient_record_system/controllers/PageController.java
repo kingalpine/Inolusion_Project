@@ -2,6 +2,8 @@ package com.inolusion.rtc.patient_record_system.controllers;
 
 
 
+import com.inolusion.rtc.patient_record_system.entities.MedicationHistoryEntity;
+import com.inolusion.rtc.patient_record_system.repositories.Medical_History_Repository;
 import com.inolusion.rtc.patient_record_system.repositories.Patient_Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,13 +15,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class PageController {
 
     @Autowired
-    private Patient_Repository repository;
+    private Patient_Repository patient_repository;
+
+    @Autowired
+    private Medical_History_Repository medical_history_repository;
 
     @GetMapping("/patient_records_table")
     public String showPatientRecordsPage(Model md) {
 
 
-        md.addAttribute("patient_array", repository.findAll());
+        md.addAttribute("patient_array", patient_repository.findAll());
+        md.addAttribute("medical_array",medical_history_repository.findAll());
        /* for (int x = 1; x <= repository.count(); x++)
         {
             List list = repository.findByPatientId(x);
@@ -42,7 +48,7 @@ public class PageController {
     public String showTherapySessionPage() {return "TherapySessions_Table";}
 
     @GetMapping("/reports")
-    public String showReportsPage() {return "reports";}
+    public String showReportsPage() {return "ReportsPage";}
 
     @GetMapping("/modify_patient_form")
     public String showModifyPatientFormPage() {return "ModifyPatientForm";}

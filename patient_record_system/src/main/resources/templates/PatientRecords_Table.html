@@ -75,9 +75,9 @@
 				<td th:text="${patient.getHomePhone()}">Default Home Phone</td>
 				<td th:text="${patient.getMobilePhone()}">Default Mobile Phone</td>
 				<td>Default Allergies</td>
-				<td>Medication History</td>
+				<td th:text="${}">Medication History</td>
 				<td th:text="${patient.getStatusId()}">Default Status</td>
-				<td>Insurance</td>
+				<td th:text="${patient.getInsuranceId()}">Insurance</td>
             </tr>
 		</table>
 		</center>
