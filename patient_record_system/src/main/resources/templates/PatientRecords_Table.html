@@ -45,7 +45,7 @@
 			<th>Insurance</th>
 		</tr>
 		<tr>
-			<td>001</td>
+			<td>0</td>
 			<td>Maria</td>
 			<td>Anders</td>
 			<td>Female</td>
@@ -61,8 +61,7 @@
 			<td>Active</td>
 			<td>TCHP</td>
 		</tr>
-            </tr>
-            <tr th:each="patient : ${patient_array}">
+            <tr th:each="patient,iter : ${patient_array}">
                 <td th:text="${patient.getPatientId()}">Default ID</td>
                 <td th:text="${patient.getFirstName()}">Default First Name</td>
                 <td th:text="${patient.getLastName()}">Default Last Name</td>
@@ -75,7 +74,7 @@
 				<td th:text="${patient.getHomePhone()}">Default Home Phone</td>
 				<td th:text="${patient.getMobilePhone()}">Default Mobile Phone</td>
 				<td>Default Allergies</td>
-				<td th:text="${}">Medication History</td>
+				<td>Default Medication History</td>
 				<td th:text="${patient.getStatusId()}">Default Status</td>
 				<td th:text="${patient.getInsuranceId()}">Insurance</td>
             </tr>

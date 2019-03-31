@@ -25,20 +25,31 @@
 		<table id="myTable">
 		<tr class="header">
 			<th>Therapist ID</th>
-			<th>Therapist Name</th>
-			<th>Start Date</th>
+			<th>First Name</th>
+			<th>Last Name</th>
 			<th>Email</th>
-			<th>Phone Number</th>
+			<th>Home Phone Number</th>
+			<th>Mobile Phone Number</th>
 			<th>Therapist Status</th>
 		</tr>
 		<tr>
-			<td>001</td>
-			<td>Maria Anders</td>
-			<td>03-25-2018</td>
+			<td>0</td>
+			<td>Maria</td>
+			<td>Anders</td>
 			<td>mariaanders@gmail.com</td>
 			<td>8984516935</td>
+			<td>N/A</td>
 			<td>Active</td>
 		</tr>
+			<tr th:each="employee : ${employee_array}">
+				<td th:text="${employee.getTherapistId()}"></td>
+				<td th:text="${employee.getFirstName()}"></td>
+				<td th:text="${employee.getLastName()}"></td>
+				<td th:text="${employee.getEmail()}"></td>
+				<td th:text="${employee.getHomePhone()}"></td>
+				<td th:text="${employee.getMobilePhone()}"></td>
+				<td th:text="${employee.getStatusId()}"></td>
+			</tr>
 		</table>
 		</center>
 		<script>
