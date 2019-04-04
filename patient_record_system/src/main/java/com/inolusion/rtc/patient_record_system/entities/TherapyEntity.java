@@ -9,16 +9,16 @@ import java.util.Objects;
 @Table(name = "THERAPY", schema = "dbo", catalog = "localspringbootdb")
 public class TherapyEntity {
     private int therapyId;
-    private int patientId;
-    private int objectiveId;
-    private int assessmentId;
+    private PatientEntity patientId;
+    private ObjectiveEntity objectiveId;
+    private AssessmentEntity assessmentId;
     private Date date;
     private LocalTime timeIn;
     private LocalTime timeOut;
-    private int therapyStatusId;
-    private int dischargeId;
+    private TherapistStatusEntity therapyStatusId;
+    private DischargeEntity dischargeId;
     private String therapistSignature;
-    private int therapistId;
+    private TherapistEntity therapistId;
 
     @Id
     @Column(name = "THERAPY_ID")
@@ -30,33 +30,33 @@ public class TherapyEntity {
         this.therapyId = therapyId;
     }
 
-    @Basic
-    @Column(name = "PATIENT_ID")
-    public int getPatientId() {
+    @ManyToOne
+    @JoinColumn(name = "PATIENT_ID")
+    public PatientEntity getPatientId() {
         return patientId;
     }
 
-    public void setPatientId(int patientId) {
+    public void setPatientId(PatientEntity patientId) {
         this.patientId = patientId;
     }
 
-    @Basic
-    @Column(name = "Objective_ID")
-    public int getObjectiveId() {
+    @OneToMany
+    @JoinColumn(name = "Objective_ID")
+    public ObjectiveEntity getObjectiveId() {
         return objectiveId;
     }
 
-    public void setObjectiveId(int objectiveId) {
+    public void setObjectiveId(ObjectiveEntity objectiveId) {
         this.objectiveId = objectiveId;
     }
 
-    @Basic
-    @Column(name = "ASSESSMENT_ID")
-    public int getAssessmentId() {
+    @OneToMany
+    @JoinColumn(name = "ASSESSMENT_ID")
+    public AssessmentEntity getAssessmentId() {
         return assessmentId;
     }
 
-    public void setAssessmentId(int assessmentId) {
+    public void setAssessmentId(AssessmentEntity assessmentId) {
         this.assessmentId = assessmentId;
     }
 
@@ -90,23 +90,23 @@ public class TherapyEntity {
         this.timeOut = timeOut;
     }
 
-    @Basic
-    @Column(name = "THERAPY_STATUS_ID")
-    public int getTherapyStatusId() {
+    @ManyToOne
+    @JoinColumn(name = "THERAPY_STATUS_ID")
+    public TherapistStatusEntity getTherapyStatusId() {
         return therapyStatusId;
     }
 
-    public void setTherapyStatusId(int therapyStatusId) {
+    public void setTherapyStatusId(TherapistStatusEntity therapyStatusId) {
         this.therapyStatusId = therapyStatusId;
     }
 
-    @Basic
-    @Column(name = "DISCHARGE_ID")
-    public int getDischargeId() {
+    @ManyToOne
+    @JoinColumn(name = "DISCHARGE_ID")
+    public DischargeEntity getDischargeId() {
         return dischargeId;
     }
 
-    public void setDischargeId(int dischargeId) {
+    public void setDischargeId(DischargeEntity dischargeId) {
         this.dischargeId = dischargeId;
     }
 
@@ -120,13 +120,13 @@ public class TherapyEntity {
         this.therapistSignature = therapistSignature;
     }
 
-    @Basic
-    @Column(name = "THERAPIST_ID")
-    public int getTherapistId() {
+    @ManyToOne
+    @JoinColumn(name = "THERAPIST_ID")
+    public TherapistEntity getTherapistId() {
         return therapistId;
     }
 
-    public void setTherapistId(int therapistId) {
+    public void setTherapistId(TherapistEntity therapistId) {
         this.therapistId = therapistId;
     }
 

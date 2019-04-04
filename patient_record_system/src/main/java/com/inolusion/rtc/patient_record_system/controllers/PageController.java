@@ -4,10 +4,7 @@ package com.inolusion.rtc.patient_record_system.controllers;
 
 import com.inolusion.rtc.patient_record_system.entities.AllergyEntity;
 import com.inolusion.rtc.patient_record_system.entities.MedicationHistoryEntity;
-import com.inolusion.rtc.patient_record_system.repositories.Allergy_Repository;
-import com.inolusion.rtc.patient_record_system.repositories.Employee_Repository;
-import com.inolusion.rtc.patient_record_system.repositories.Medical_History_Repository;
-import com.inolusion.rtc.patient_record_system.repositories.Patient_Repository;
+import com.inolusion.rtc.patient_record_system.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +19,9 @@ public class PageController {
 
     @Autowired
     private Employee_Repository employee_repository;
+
+    @Autowired
+    private Therapy_Repository therapy_repository;
 
     @GetMapping("/patient_records_table")
     public String showPatientRecordsPage(Model md) {
@@ -45,7 +45,9 @@ public class PageController {
     }
 
     @GetMapping("/therapy_session")
-    public String showTherapySessionPage() {return "TherapySessions_Table";}
+    public String showTherapySessionPage(Model md) {
+        md.addAttribute("therapy_array", therapy_repository.findAll());
+        return "TherapySessions_Table";}
 
     @GetMapping("/reports")
     public String showReportsPage() {return "ReportsPage";}
