@@ -44,7 +44,8 @@
 			<td><button id="myBtn">View</button></td>
 		</tr>
 			<tr th:each = "therapy : ${therapy_array}">
-				<td th:text=""
+				<td th:text="${therapy.getAssessmentEntities()
+				}"></td>
 			</tr>
 		</table>
 		<div id="myModal" class="modal">

@@ -3,6 +3,8 @@ package com.inolusion.rtc.patient_record_system.entities;
 import javax.persistence.*;
 import java.sql.Date;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -11,7 +13,6 @@ public class TherapyEntity {
     private int therapyId;
     private PatientEntity patientId;
     private ObjectiveEntity objectiveId;
-    private AssessmentEntity assessmentId;
     private Date date;
     private LocalTime timeIn;
     private LocalTime timeOut;
@@ -52,12 +53,15 @@ public class TherapyEntity {
 
     @OneToMany
     @JoinColumn(name = "ASSESSMENT_ID")
-    public AssessmentEntity getAssessmentId() {
-        return assessmentId;
+    private List<AssessmentEntity>  assessmentEntities = new ArrayList<>();
+
+    public List<AssessmentEntity> getAssessmentEntities() {
+        return assessmentEntities;
     }
 
-    public void setAssessmentId(AssessmentEntity assessmentId) {
-        this.assessmentId = assessmentId;
+
+    public void setAssessmentEntities(List<AssessmentEntity> assessmentId) {
+        this.assessmentEntities = assessmentId;
     }
 
     @Basic
@@ -138,7 +142,7 @@ public class TherapyEntity {
         return therapyId == that.therapyId &&
                 patientId == that.patientId &&
                 objectiveId == that.objectiveId &&
-                assessmentId == that.assessmentId &&
+                assessmentEntities == that.assessmentEntities &&
                 therapyStatusId == that.therapyStatusId &&
                 dischargeId == that.dischargeId &&
                 therapistId == that.therapistId &&
@@ -150,6 +154,6 @@ public class TherapyEntity {
 
     @Override
     public int hashCode() {
-        return Objects.hash(therapyId, patientId, objectiveId, assessmentId, date, timeIn, timeOut, therapyStatusId, dischargeId, therapistSignature, therapistId);
+        return Objects.hash(therapyId, patientId, objectiveId, assessmentEntities, date, timeIn, timeOut, therapyStatusId, dischargeId, therapistSignature, therapistId);
     }
 }
