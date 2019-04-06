@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "INCIDENT_TYPE", schema = "dbo", catalog = "localspringbootdb")
+@Table(name = "INCIDENT_TYPE", schema = "dbo", catalog = "LaptopDB")
 public class IncidentTypeEntity {
     private int incidentTypeId;
     private String name;

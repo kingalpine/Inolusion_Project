@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "PATIENT_STATUS", schema = "dbo", catalog = "localspringbootdb")
+@Table(name = "PATIENT_STATUS", schema = "dbo", catalog = "LaptopDB")
 public class PatientStatusEntity {
     private int patientStatusId;
     private String statusType;

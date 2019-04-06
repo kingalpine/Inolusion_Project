@@ -8,11 +8,12 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "THERAPY", schema = "dbo", catalog = "localspringbootdb")
+@Table(name = "THERAPY", schema = "dbo", catalog = "LaptopDB")
 public class TherapyEntity {
     private int therapyId;
     private PatientEntity patientId;
-    private ObjectiveEntity objectiveId;
+    private List<ObjectiveEntity>  objectiveEntities;
+    private List<AssessmentEntity>  assessmentEntities;
     private Date date;
     private LocalTime timeIn;
     private LocalTime timeOut;
@@ -41,27 +42,24 @@ public class TherapyEntity {
         this.patientId = patientId;
     }
 
-    @OneToMany
-    @JoinColumn(name = "Objective_ID")
-    public ObjectiveEntity getObjectiveId() {
-        return objectiveId;
+    @OneToMany(targetEntity = ObjectiveEntity.class, mappedBy = "objectiveId", cascade = CascadeType.ALL)
+
+    public List<ObjectiveEntity> getObjectiveEntities() {
+        return objectiveEntities;
     }
 
-    public void setObjectiveId(ObjectiveEntity objectiveId) {
-        this.objectiveId = objectiveId;
+    public void setObjectiveEntities(List<ObjectiveEntity> objectiveEntities) {
+        this.objectiveEntities = objectiveEntities;
     }
 
-    @OneToMany
-    @JoinColumn(name = "ASSESSMENT_ID")
-    private List<AssessmentEntity>  assessmentEntities = new ArrayList<>();
+    @OneToMany(targetEntity = AssessmentEntity.class, mappedBy = "assessmentId", cascade = CascadeType.ALL)
 
     public List<AssessmentEntity> getAssessmentEntities() {
         return assessmentEntities;
     }
 
-
-    public void setAssessmentEntities(List<AssessmentEntity> assessmentId) {
-        this.assessmentEntities = assessmentId;
+    public void setAssessmentEntities(List<AssessmentEntity> assessmentEntities) {
+        this.assessmentEntities = assessmentEntities;
     }
 
     @Basic
@@ -141,7 +139,7 @@ public class TherapyEntity {
         TherapyEntity that = (TherapyEntity) o;
         return therapyId == that.therapyId &&
                 patientId == that.patientId &&
-                objectiveId == that.objectiveId &&
+                objectiveEntities == that.objectiveEntities &&
                 assessmentEntities == that.assessmentEntities &&
                 therapyStatusId == that.therapyStatusId &&
                 dischargeId == that.dischargeId &&
@@ -154,6 +152,6 @@ public class TherapyEntity {
 
     @Override
     public int hashCode() {
-        return Objects.hash(therapyId, patientId, objectiveId, assessmentEntities, date, timeIn, timeOut, therapyStatusId, dischargeId, therapistSignature, therapistId);
+        return Objects.hash(therapyId, patientId, objectiveEntities, assessmentEntities, date, timeIn, timeOut, therapyStatusId, dischargeId, therapistSignature, therapistId);
     }
 }
