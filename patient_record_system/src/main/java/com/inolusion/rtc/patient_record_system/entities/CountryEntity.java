@@ -52,7 +52,7 @@ public class CountryEntity {
 
     @Override
     public String toString() {
-        return countryAbbreviation;
+        return name;
     }
 
     @Override

@@ -3,53 +3,67 @@
 <head>
     <meta charset="UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Employee Records</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/PatientRecords.css" th:href="@{/css/PatientRecords.css}">
+    <title>Therapist Records</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/Employees_Table.css" th:href="@{/css/Employees_Table.css}">
 </head>
     <body>
 		<div id="header">
 		<div id="logo"></div>
         <ul id="nav">
-			<li><a href="/">Main Menu</a></li>
+			<li><a href="/">Home</a></li>
             <li><a href="/patient_records_table">Patient Records</a></li>
-			<li><a class="active" href="/employee_records">Employee Records</a></li>
+			<li><a class="active" href="/employee_records">Therapist Records</a></li>
             <li><a href="/therapy_session">Therapy Sessions</a></li>
+			<li><a href="/therapy_progress_notes">Therapy Progress Notes</a></li>
+			<li><a href="/incidents_table">Incidents</a></li>
             <li><a href="/reports">Reports</a></li>
 		</ul>
 		</div>
-		<h1>
-		<a href="/add_employee_form">Add Employee</a>
-		</h1>
-		<center> <input style="text-align:center;" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by Employee Name" title="Type Employee's Name"> </center>
+		<div class="row">
+			<div class="box">
+				<h1>
+				<a href="/add_employee_form">Add Therapist</a>
+				</h1> </div>
+			<div class="box">
+				<h1>
+				<a href="ModifyEmployeeTable.html">Modify Therapist</a>
+				</h1></div>
+			<div class="box">
+				<h1>
+				<a href="DeleteEmployeeTable.html">Delete Therapist</a>
+				</h1></div>
+		</div>
+		<center> <input style="text-align:center;" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by Therapist Name" title="Type Therapist's Name"> </center>
 		<center> 
 		<table id="myTable">
 		<tr class="header">
 			<th>Therapist ID</th>
 			<th>First Name</th>
 			<th>Last Name</th>
+			<th>Start Date</th>
 			<th>Email</th>
-			<th>Home Phone Number</th>
-			<th>Mobile Phone Number</th>
+			<th>Phone Number</th>
 			<th>Therapist Status</th>
 		</tr>
 		<tr>
 			<td>0</td>
 			<td>Maria</td>
 			<td>Anders</td>
+			<td>03-25-2018</td>
 			<td>mariaanders@gmail.com</td>
 			<td>8984516935</td>
-			<td>N/A</td>
 			<td>Active</td>
 		</tr>
-			<tr th:each="employee : ${employee_array}">
-				<td th:text="${employee.getTherapistId()}"></td>
-				<td th:text="${employee.getFirstName()}"></td>
-				<td th:text="${employee.getLastName()}"></td>
-				<td th:text="${employee.getEmail()}"></td>
-				<td th:text="${employee.getHomePhone()}"></td>
-				<td th:text="${employee.getMobilePhone()}"></td>
-				<td th:text="${employee.getStatusId()}"></td>
+			<tr th:each="therapist : ${therapist_array}">
+				<td th:text="${therapist.getTherapistId()}">Default TherapistID</td>
+				<td th:text="${therapist.getFirstName()}">Default First Name</td>
+				<td th:text="${therapist.getLastName()}">Default Last Name</td>
+				<td th:text="${therapist.getStartDate()}">Default Start Date</td>
+				<td th:text="${therapist.getEmail()}">Default Email</td>
+				<td th:text="${therapist.getMobilePhone()}">Default Mobile Phone</td>
+				<td th:text="${therapist.getStatusId()}">Default Status ID</td>
 			</tr>
+
 		</table>
 		</center>
 		<script>

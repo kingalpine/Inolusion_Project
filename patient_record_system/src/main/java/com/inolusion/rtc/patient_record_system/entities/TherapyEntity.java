@@ -12,8 +12,8 @@ import java.util.Objects;
 public class TherapyEntity {
     private int therapyId;
     private PatientEntity patientId;
-    private List<ObjectiveEntity>  objectiveEntities;
-    private List<AssessmentEntity>  assessmentEntities;
+    private List<ObjectiveEntity> objectiveEntities = new ArrayList<>();
+    private List<AssessmentEntity>  assessmentEntities = new ArrayList<>();
     private Date date;
     private LocalTime timeIn;
     private LocalTime timeOut;

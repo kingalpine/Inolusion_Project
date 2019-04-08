@@ -64,7 +64,7 @@ public class RegionEntity {
 
     @Override
     public String toString() {
-        return regionAbberviation;
+        return name;
     }
 
     @Override

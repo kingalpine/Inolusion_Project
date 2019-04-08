@@ -1,0 +1,2318 @@
+<!DOCTYPE html>
+<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Report Name</title>
+    <link href="../static/css/TherapySessions_Table.css" rel="stylesheet" type="text/css" th:href="@{/css/TherapySessions_Table.css}">
+</head>
+
+<body>
+<div id="header">
+    <div id="logo"></div>
+    <ul id="nav" style="">
+        <li><a href="/">Home</a></li>
+            <li><a href="/patient_records_table">Patient Records</a></li>
+			<li><a href="/employee_records">Therapist Records</a></li>
+            <li><a href="/therapy_session">Therapy Sessions</a></li>
+			<li><a href="/therapy_progress_notes">Therapy Progress Notes</a></li>
+			<li><a href="/incidents_table">Incidents</a></li>
+            <li><a class="active" href="/reports">Reports</a></li>
+    </ul>
+</div>
+<h1 contenteditable="true">Reports</h1>
+<center></center>
+<center>
+    <table id="myTable">
+        <tbody>
+        <tr class="header">
+            <th>Report Name</th>
+            <th style="">Report Description</th>
+        </tr>
+        <tr>
+            <td><input name="button" type="button" id="ActivePatientButton" value="View "> <label>1) Active Patient Information </label></td>
+            <td style="">&nbsp;</td>
+        </tr>
+        <tr>
+            <td><input name="button" type="button" id="InActivePatientButton" value="View "> <label>2) Inactive Patient Information </label></td>
+            <td style="">&nbsp;</td>
+        </tr>
+        <tr>
+            <td><input name="button" type="button" id="TherapyProgressButton" value="View "> <label>3) Therapy Progress Note </label></td>
+            <td style="">&nbsp;</td>
+        </tr>
+        <tr>
+            <td><input name="button" type="button" id="PatientMedicationButton" value="View "> <label>4) Patient Medication History </label></td>
+            <td style="">&nbsp;</td>
+        </tr>
+        <tr>
+            <td><input name="button" type="button" id="TherapyMonthButton" value="View "> <label>5) Therapy Sessions By Month </label></td>
+            <td style="">&nbsp;</td>
+        </tr>
+        <tr>
+            <td><input name="button" type="button" id="ActiveStatusDateButton" value="View "> <label>6) Patients by Active Status and Date Range </label></td>
+            <td style="">&nbsp;</td>
+        </tr>
+        <tr>
+            <td><input name="button" type="button" id="UnarchivedButton" value="View "> <label>7) Unarchived Inactive Patients </label></td>
+            <td style="">&nbsp;</td>
+        </tr>
+        <tr>
+            <td><input name="button" type="button" id="BlacklistedButton" value="View "> <label>8) Patients with Incidents who are Archived</label></td>
+            <td style="">&nbsp;</td>
+        </tr>
+        <tr>
+            <td><input name="button" type="button" id="HourButton" value="View "> <label>9) Peak Business Hours </label></td>
+            <td style="">&nbsp;</td>
+        </tr>
+
+        <tr>
+            <td><input name="button" type="button" id="TherapistIncidentButton" value="View "> <label>10) Therapist that have Incident </label></td>
+            <td style="">&nbsp;</td>
+        </tr>
+
+        <tr>
+            <td><input name="button" type="button" id="PatientRegionButton" value="View "> <label>11) Active Patient in the Region, ‘Texas.’ </label></td>
+            <td style="">&nbsp;</td>
+        </tr>
+
+        <tr>
+            <td><input name="button" type="button" id="AllergiesButton" value="View "> <label>12) Patient with Allergies </label></td>
+            <td style="">&nbsp;</td>
+        </tr>
+
+
+        <tr>
+            <td><input name="button" type="button" id="IncidentButton" value="View "> <label>13) Patient that have an Incident</label></td>
+            <td style="">&nbsp;</td>
+        </tr>
+
+        <tr>
+            <td><input name="button" type="button" id="TherapyIncidentButton" value="View "> <label>14) Type of Incidents that have occurred in a Therapy Session </label></td>
+            <td style="">&nbsp;</td>
+        </tr>
+
+
+        <tr>
+            <td><input name="button" type="button" id="DischargeButton" value="View "> <label>15) Patients that have Discharge Type for (2 to 3 Weeks) </label></td>
+            <td style="">&nbsp;</td>
+        </tr>
+
+
+        <tr>
+            <td><input name="button" type="button" id="InsuranceButton" value="View "> <label>16) Patients that have (BLUE CROSS BLUE SHIELD) </label></td>
+            <td style="">&nbsp;</td>
+        </tr>
+
+        <tr>
+            <td><input name="button" type="button" id="InactivePatientInTexasButton" value="View "> <label>17) Inactive Patient in the State of Texas </label></td>
+            <td style="">&nbsp;</td>
+        </tr>
+
+        <tr>
+            <td><input name="button" type="button" id="ActiveEmailButton" value="View "> <label>18) Active Patients that have an Email Address</label></td>
+            <td style="">&nbsp;</td>
+        </tr>
+
+        <tr>
+            <td><input name="button" type="button" id="SpecificTherapistReportButton" value="View "> <label>19) Therapy Sessions Conducted by a Specific Therapist Report </label></td>
+            <td style="">&nbsp;</td>
+        </tr>
+
+        <tr>
+            <td><input name="button" type="button" id="PlanReviewButton" value="View "> <label>20) Specific Patient Plan Review Report </label></td>
+            <td style="">&nbsp;</td>
+        </tr>
+
+        <tr>
+            <td><input name="button" type="button" id="ActivityButton" value="View "> <label>21) Specific Patient Activity Assessment Report </label></td>
+            <td style="">&nbsp;</td>
+        </tr>
+
+        <tr>
+            <td><input name="button" type="button" id="ObjectiveButton" value="View "> <label>22) Specific Patient Therapy Objective Report </label></td>
+            <td style="">&nbsp;</td>
+        </tr>
+
+        <tr>
+            <td><input name="button" type="button" id="SubjectiveButton" value="View "> <label>23) Specific Patient Subjective Report </label></td>
+            <td style="">&nbsp;</td>
+        </tr>
+
+
+        </tbody>
+    </table>
+    <!--- Active Patient Button Info Function--->
+    <div class="modal" id="ActivePatient" style="">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <style type="text/css">
+                .tg {
+                    border-collapse: collapse;
+                    border-spacing: 0;
+                }
+
+                .tg td {
+                    font-family: Arial, sans-serif;
+                    font-size: 14px;
+                    padding: 10px 5px;
+                    border-style: solid;
+                    border-width: 1px;
+                    overflow: hidden;
+                    word-break: normal;
+                    border-color: black;
+                }
+
+                .tg th {
+                    font-family: Arial, sans-serif;
+                    font-size: 14px;
+                    font-weight: normal;
+                    padding: 10px 5px;
+                    border-style: solid;
+                    border-width: 1px;
+                    overflow: hidden;
+                    word-break: normal;
+                    border-color: black;
+                }
+
+                .tg .tg-0lax {
+                    text-align: left;
+                    vertical-align: top
+                }
+            </style>
+            <table class="tg">
+                <tr>
+                    <th class="tg-0lax">First Name</th>
+                    <th class="tg-0lax">Last Name</th>
+                    <th class="tg-0lax">Sex</th>
+                    <th class="tg-0lax">Address</th>
+                    <th class="tg-0lax">City</th>
+                    <th class="tg-0lax">Zip/Postal Code</th>
+                    <th class="tg-0lax">Region</th>
+                    <th class="tg-0lax">Country</th>
+                    <th class="tg-0lax">Home Phone</th>
+                    <th class="tg-0lax">Mobile Phone</th>
+                    <th class="tg-0lax">Email</th>
+                    <th class="tg-0lax">DOB</th>
+                    <th class="tg-0lax">Status</th>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!--- Inactive Active Patient Button Function--->
+    <div class="modal" id="InActivePatient" style="">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <style type="text/css">
+                .tg {
+                    border-collapse: collapse;
+                    border-spacing: 0;
+                }
+
+                .tg td {
+                    font-family: Arial, sans-serif;
+                    font-size: 14px;
+                    padding: 10px 5px;
+                    border-style: solid;
+                    border-width: 1px;
+                    overflow: hidden;
+                    word-break: normal;
+                    border-color: black;
+                }
+
+                .tg th {
+                    font-family: Arial, sans-serif;
+                    font-size: 14px;
+                    font-weight: normal;
+                    padding: 10px 5px;
+                    border-style: solid;
+                    border-width: 1px;
+                    overflow: hidden;
+                    word-break: normal;
+                    border-color: black;
+                }
+
+                .tg .tg-0lax {
+                    text-align: left;
+                    vertical-align: top
+                }
+            </style>
+            <table class="tg">
+                <tr>
+                    <th class="tg-0lax">First Name</th>
+                    <th class="tg-0lax">Last Name</th>
+                    <th class="tg-0lax">Sex</th>
+                    <th class="tg-0lax">Address</th>
+                    <th class="tg-0lax">City</th>
+                    <th class="tg-0lax">Zip/Postal Code</th>
+                    <th class="tg-0lax">Region</th>
+                    <th class="tg-0lax">Country</th>
+                    <th class="tg-0lax">Home Phone</th>
+                    <th class="tg-0lax">Mobile Phone</th>
+                    <th class="tg-0lax">Email</th>
+                    <th class="tg-0lax">DOB</th>
+                    <th class="tg-0lax">Status</th>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <!--- Therapy Progress Note --->
+    <div class="modal" id="TherapyNote" style="">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <style type="text/css">
+                .tg {
+                    border-collapse: collapse;
+                    border-spacing: 0;
+                }
+
+                .tg td {
+                    font-family: Arial, sans-serif;
+                    font-size: 14px;
+                    padding: 10px 5px;
+                    border-style: solid;
+                    border-width: 1px;
+                    overflow: hidden;
+                    word-break: normal;
+                    border-color: black;
+                }
+
+                .tg th {
+                    font-family: Arial, sans-serif;
+                    font-size: 14px;
+                    font-weight: normal;
+                    padding: 10px 5px;
+                    border-style: solid;
+                    border-width: 1px;
+                    overflow: hidden;
+                    word-break: normal;
+                    border-color: black;
+                }
+
+                .tg .tg-0lax {
+                    text-align: left;
+                    vertical-align: top
+                }
+            </style>
+            <table class="tg">
+                <tr>
+                    <th class="tg-0lax">Therapy Date</th>
+                    <th class="tg-0lax">Time-In</th>
+                    <th class="tg-0lax">First Name</th>
+                    <th class="tg-0lax">Last Name</th>
+                    <th class="tg-0lax">Intervention Code</th>
+                    <th class="tg-0lax">Speech CPT </th>
+                    <th class="tg-0lax">Subjective</th>
+                    <th class="tg-0lax">Objective Goals</th>
+                    <th class="tg-0lax">Objective Statement</th>
+                    <th class="tg-0lax">Treatment Activity </th>
+                    <th class="tg-0lax">Treatment Assessment </th>
+                    <th class="tg-0lax">Plan</th>
+                    <th class="tg-0lax">Notes</th>
+                    <th class="tg-0lax">Discharge Plan</th>
+                    <th class="tg-0lax">Medication</th>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!--- Patient Medication History --->
+    <div class="modal" id="MedicationHistory" style="">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <style type="text/css">
+                .tg {
+                    border-collapse: collapse;
+                    border-spacing: 0;
+                }
+
+                .tg td {
+                    font-family: Arial, sans-serif;
+                    font-size: 14px;
+                    padding: 10px 5px;
+                    border-style: solid;
+                    border-width: 1px;
+                    overflow: hidden;
+                    word-break: normal;
+                    border-color: black;
+                }
+
+                .tg th {
+                    font-family: Arial, sans-serif;
+                    font-size: 14px;
+                    font-weight: normal;
+                    padding: 10px 5px;
+                    border-style: solid;
+                    border-width: 1px;
+                    overflow: hidden;
+                    word-break: normal;
+                    border-color: black;
+                }
+
+                .tg .tg-0lax {
+                    text-align: left;
+                    vertical-align: top
+                }
+            </style>
+            <table class="tg">
+                <tr>
+                    <th class="tg-0lax">First Name</th>
+                    <th class="tg-0lax">Last Name</th>
+                    <th class="tg-0lax">Patient Status</th>
+                    <th class="tg-0lax">Medication Start Date</th>
+                    <th class="tg-0lax">Medication</th>
+                    <th class="tg-0lax">Dosage</th>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <!--- Therapy Sessions By Month--->
+    <div class="modal" id="TherapyByMonth" style="">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <style type="text/css">
+                .tg {
+                    border-collapse: collapse;
+                    border-spacing: 0;
+                }
+
+                .tg td {
+                    font-family: Arial, sans-serif;
+                    font-size: 14px;
+                    padding: 10px 5px;
+                    border-style: solid;
+                    border-width: 1px;
+                    overflow: hidden;
+                    word-break: normal;
+                    border-color: black;
+                }
+
+                .tg th {
+                    font-family: Arial, sans-serif;
+                    font-size: 14px;
+                    font-weight: normal;
+                    padding: 10px 5px;
+                    border-style: solid;
+                    border-width: 1px;
+                    overflow: hidden;
+                    word-break: normal;
+                    border-color: black;
+                }
+
+                .tg .tg-0lax {
+                    text-align: left;
+                    vertical-align: top
+                }
+            </style>
+            <table class="tg">
+                <tr>
+                    <th class="tg-0lax">Therapy Date</th>
+                    <th class="tg-0lax">Patient First Name</th>
+                    <th class="tg-0lax">Patient Last Name</th>
+                    <th class="tg-0lax">Start Time</th>
+                    <th class="tg-0lax">End Time</th>
+                    <th class="tg-0lax">Therapist First Name</th>
+                    <th class="tg-0lax">Therapist Last Name</th>
+                    <th class="tg-0lax">Therapy Status</th>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <!--- Patients by Active Status and Date Range --->
+    <div class="modal" id="ActiveStatusDate" style="">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <style type="text/css">
+                .tg  {border-collapse:collapse;border-spacing:0;}
+                .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+                .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+                .tg .tg-0lax{text-align:left;vertical-align:top}
+            </style>
+            <table class="tg">
+                <tr>
+                    <th class="tg-0lax">Patient First Name</th>
+                    <th class="tg-0lax">Patient Last Name</th>
+                    <th class="tg-0lax">Start Date</th>
+                    <th class="tg-0lax">Status</th>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <!--- Unarchived Inactive Patients --->
+    <div class="modal" id="UnarchivedInactivePatient" style="">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <style type="text/css">
+                .tg  {border-collapse:collapse;border-spacing:0;}
+                .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+                .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+                .tg .tg-0lax{text-align:left;vertical-align:top}
+            </style>
+            <table class="tg">
+                <tr>
+                    <th class="tg-0lax">Patient First Name</th>
+                    <th class="tg-0lax">Patient Last Name</th>
+                    <th class="tg-0lax">Status</th>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <!--- Patients with Incidents who Are Archived--->
+    <div class="modal" id="ArchivedIncidents" style="">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <style type="text/css">
+                .tg  {border-collapse:collapse;border-spacing:0;}
+                .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+                .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+                .tg .tg-0lax{text-align:left;vertical-align:top}
+            </style>
+            <table class="tg">
+                <tr>
+                    <th class="tg-0lax">Patient First Name</th>
+                    <th class="tg-0lax">Patient Last Name</th>
+                    <th class="tg-0lax">Status</th>
+                    <th class="tg-0lax">Notes</th>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <!--- Peak Business Hours--->
+    <div class="modal" id="PeakHours" style="">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <style type="text/css">
+                .tg  {border-collapse:collapse;border-spacing:0;}
+                .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+                .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+                .tg .tg-0lax{text-align:left;vertical-align:top}
+            </style>
+            <table class="tg">
+                <tr>
+                    <th class="tg-0lax">Patient First Name</th>
+                    <th class="tg-0lax">Patient Last Name</th>
+                    <th class="tg-0lax">Date</th>
+                    <th class="tg-0lax">Time In </th>
+                    <th class="tg-0lax">Time Out</th>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <!--- Active Therapist that have Incident--->
+    <div class="modal" id="TherapistIncident" style="">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <style type="text/css">
+                .tg  {border-collapse:collapse;border-spacing:0;}
+                .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+                .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+                .tg .tg-0lax{text-align:left;vertical-align:top}
+            </style>
+            <table class="tg">
+                <tr>
+                    <th class="tg-0lax">Incident Date</th>
+                    <th class="tg-0lax">Incident Time</th>
+                    <th class="tg-0lax">Incident Type</th>
+                    <th class="tg-0lax">Incident Status</th>
+                    <th class="tg-0lax">Therapist First Name</th>
+                    <th class="tg-0lax">Therapist Last Name</th>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <!--- Active Patients in the State of Texas--->
+    <div class="modal" id="ActivePatientTexas" style="">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <style type="text/css">
+                .tg  {border-collapse:collapse;border-spacing:0;}
+                .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+                .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+                .tg .tg-0lax{text-align:left;vertical-align:top}
+            </style>
+            <table class="tg">
+                <tr>
+                    <th class="tg-0lax">Patient ID</th>
+                    <th class="tg-0lax">Patient First Name</th>
+                    <th class="tg-0lax">Patient Last Name</th>
+                    <th class="tg-0lax">SEX</th>
+                    <th class="tg-0lax">State</th>
+                    <th class="tg-0lax">Country</th>
+                    <th class="tg-0lax">Status</th>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <!--- Patients with Allergies--->
+    <div class="modal" id="PatientAllergies" style="">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <style type="text/css">
+                .tg  {border-collapse:collapse;border-spacing:0;}
+                .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+                .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+                .tg .tg-0lax{text-align:left;vertical-align:top}
+            </style>
+            <table class="tg">
+                <tr>
+                    <th class="tg-0lax">Patient First Name</th>
+                    <th class="tg-0lax">Patient Last Name</th>
+                    <th class="tg-0lax">Allergy Name</th>
+                    <th class="tg-0lax">Allergy Description</th>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <!--- Patient Incident Type --->
+    <div class="modal" id="PatientIncident" style="">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <style type="text/css">
+                .tg  {border-collapse:collapse;border-spacing:0;}
+                .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+                .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+                .tg .tg-0lax{text-align:left;vertical-align:top}
+            </style>
+            <table class="tg">
+                <tr>
+                    <th class="tg-0lax">Incident Date</th>
+                    <th class="tg-0lax">Incident Time</th>
+                    <th class="tg-0lax">Incident Type</th>
+                    <th class="tg-0lax">Incident Status</th>
+                    <th class="tg-0lax">Patient First Name</th>
+                    <th class="tg-0lax">Patient Last Name</th>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <!--- Type of Incident that have occured in a Therapy Session --->
+    <div class="modal" id="TherapyIncident" style="">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <style type="text/css">
+                .tg  {border-collapse:collapse;border-spacing:0;}
+                .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+                .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+                .tg .tg-0lax{text-align:left;vertical-align:top}
+            </style>
+            <table class="tg">
+                <tr>
+                    <th class="tg-0lax">Therapy Session</th>
+                    <th class="tg-0lax">Type of Incident</th>
+                    <th class="tg-0lax">Incident Notes</th>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <!--- Patients that have Discharge Type for (2 to 3 Weeks)--->
+    <div class="modal" id="PatientDischarge" style="">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <style type="text/css">
+                .tg  {border-collapse:collapse;border-spacing:0;}
+                .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+                .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+                .tg .tg-0lax{text-align:left;vertical-align:top}
+            </style>
+            <table class="tg">
+                <tr>
+                    <th class="tg-0lax">Therapy ID</th>
+                    <th class="tg-0lax">Patient First Name</th>
+                    <th class="tg-0lax">Patient Last Name</th>
+                    <th class="tg-0lax">SEX</th>
+                    <th class="tg-0lax">Start_Date</th>
+                    <th class="tg-0lax">State</th>
+                    <th class="tg-0lax">Discharge Plan</th>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <!---  Patients that have (BLUE CROSS BLUE SHIELD)--->
+    <div class="modal" id="PatientBlueCross" style="">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <style type="text/css">
+                .tg  {border-collapse:collapse;border-spacing:0;}
+                .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+                .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+                .tg .tg-0lax{text-align:left;vertical-align:top}
+            </style>
+            <table class="tg">
+                <tr>
+                    <th class="tg-0lax">Patient ID</th>
+                    <th class="tg-0lax">Patient First Name</th>
+                    <th class="tg-0lax">Patient Last Name</th>
+                    <th class="tg-0lax">State</th>
+                    <th class="tg-0lax">Country</th>
+                    <th class="tg-0lax">Insurance</th>
+                    <th class="tg-0lax">Insurance Number</th>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <!--- Inactive Patients in the State of Texas--->
+    <div class="modal" id="InActivePatientTexas" style="">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <style type="text/css">
+                .tg  {border-collapse:collapse;border-spacing:0;}
+                .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+                .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+                .tg .tg-0lax{text-align:left;vertical-align:top}
+            </style>
+            <table class="tg">
+                <tr>
+                    <th class="tg-0lax">Patient ID</th>
+                    <th class="tg-0lax">Patient First Name</th>
+                    <th class="tg-0lax">Patient Last Name</th>
+                    <th class="tg-0lax">SEX</th>
+                    <th class="tg-0lax">State</th>
+                    <th class="tg-0lax">Country</th>
+                    <th class="tg-0lax">Status</th>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <!--- List of Patients with their Email Address --->
+    <div class="modal" id="PatientEmail" style="">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <style type="text/css">
+                .tg  {border-collapse:collapse;border-spacing:0;}
+                .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+                .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+                .tg .tg-0lax{text-align:left;vertical-align:top}
+            </style>
+            <table class="tg">
+                <tr>
+                    <th class="tg-0lax">Patient ID</th>
+                    <th class="tg-0lax">Patient First Name</th>
+                    <th class="tg-0lax">Patient Last Name</th>
+                    <th class="tg-0lax">State</th>
+                    <th class="tg-0lax">Country</th>
+                    <th class="tg-0lax">Email</th>
+                    <th class="tg-0lax">Status</th>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <!--- Therapy Sessions Conducted by a Specific Therapist Report--->
+    <div class="modal" id="SpecificTherapist" style="">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <style type="text/css">
+                .tg  {border-collapse:collapse;border-spacing:0;}
+                .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+                .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+                .tg .tg-0lax{text-align:left;vertical-align:top}
+            </style>
+            <table class="tg">
+                <tr>
+                    <th class="tg-0lax">Therapist First Name</th>
+                    <th class="tg-0lax">Therapist Last Name</th>
+                    <th class="tg-0lax">Intervention Code </th>
+                    <th class="tg-0lax">Intervention Code Desc</th>
+                    <th class="tg-0lax">CPT Code</th>
+                    <th class="tg-0lax">Therapist Email </th>
+                    <th class="tg-0lax">Therapist Phone Number </th>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <!---  Specific Patient Plan Review Report--->
+    <div class="modal" id="SpecificPatient" style="">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <style type="text/css">
+                .tg  {border-collapse:collapse;border-spacing:0;}
+                .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+                .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+                .tg .tg-0lax{text-align:left;vertical-align:top}
+            </style>
+            <table class="tg">
+                <tr>
+                    <th class="tg-0lax">Therapy ID </th>
+                    <th class="tg-0lax">Date</th>
+                    <th class="tg-0lax">Patient First Name</th>
+                    <th class="tg-0lax">Patient Last Name</th>
+                    <th class="tg-0lax">Plan </th>
+                    <th class="tg-0lax">Note</th>
+                    <th class="tg-0lax">Therapist First Name</th>
+                    <th class="tg-0lax">Therapist Last Name</th>
+                    <th class="tg-0lax">Therapist Phone Number</th>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <!--- Specific Patient Activity Assessment Report--->
+    <div class="modal" id="SpecificActivity" style="">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <style type="text/css">
+                .tg  {border-collapse:collapse;border-spacing:0;}
+                .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+                .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+                .tg .tg-0lax{text-align:left;vertical-align:top}
+            </style>
+            <table class="tg">
+                <tr>
+                    <th class="tg-0lax">Therapy ID </th>
+                    <th class="tg-0lax">Date</th>
+                    <th class="tg-0lax">Patient First Name</th>
+                    <th class="tg-0lax">Patient Last Name</th>
+                    <th class="tg-0lax">Activity</th>
+                    <th class="tg-0lax">Assessment</th>
+                    <th class="tg-0lax">Therapist First Name</th>
+                    <th class="tg-0lax">Therapist Last Name</th>
+                    <th class="tg-0lax">Therapist Phone Number</th>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <!--- Specific Patient Therapy Objective Report--->
+    <div class="modal" id="SpecificObjective" style="">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <style type="text/css">
+                .tg  {border-collapse:collapse;border-spacing:0;}
+                .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+                .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+                .tg .tg-0lax{text-align:left;vertical-align:top}
+            </style>
+            <table class="tg">
+                <tr>
+                    <th class="tg-0lax">Therapy ID </th>
+                    <th class="tg-0lax">Date</th>
+                    <th class="tg-0lax">Patient First Name</th>
+                    <th class="tg-0lax">Patient Last Name</th>
+                    <th class="tg-0lax">Objective Goals</th>
+                    <th class="tg-0lax">Statement</th>
+                    <th class="tg-0lax">Therapist First Name</th>
+                    <th class="tg-0lax">Therapist Last Name</th>
+                    <th class="tg-0lax">Therapist Phone Number</th>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <!--- Specific Patient Subjective Report--->
+    <div class="modal" id="SpecificSubjective" style="">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <style type="text/css">
+                .tg  {border-collapse:collapse;border-spacing:0;}
+                .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+                .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+                .tg .tg-0lax{text-align:left;vertical-align:top}
+            </style>
+            <table class="tg">
+                <tr>
+                    <th class="tg-0lax">Therapy ID </th>
+                    <th class="tg-0lax">Date</th>
+                    <th class="tg-0lax">Patient First Name</th>
+                    <th class="tg-0lax">Patient Last Name</th>
+                    <th class="tg-0lax">Subjective Code</th>
+                    <th class="tg-0lax">Subjective Note</th>
+                    <th class="tg-0lax">Therapist First Name</th>
+                    <th class="tg-0lax">Therapist Last Name</th>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+
+
+</center>
+<script>
+    function myFunction() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[1];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
+<!-- ActivePatientButton Script -->
+<script>
+    var ActivePatient = document.getElementById('ActivePatient');
+    var btn = document.getElementById("ActivePatientButton");
+    var span = document.getElementsByClassName("close")[0];
+    btn.onclick = function() {
+        ActivePatient.style.display = "block";
+    }
+    span.onclick = function() {
+        model.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            ActivePatient.style.display = "none";
+        }
+    }
+</script>
+
+
+
+<!-- InActivePatientButton Script -->
+<script>
+    var InActivePatient = document.getElementById('InActivePatient');
+    var btn = document.getElementById("InActivePatientButton");
+    var span = document.getElementsByClassName("close")[0];
+    btn.onclick = function() {
+        InActivePatient.style.display = "block";
+    }
+    span.onclick = function() {
+        InActivePatient.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            InActivePatient.style.display = "none";
+        }
+    }
+</script>
+
+
+<!-- TherapyProgressButton -->
+<script>
+    var TherapyNote = document.getElementById('TherapyNote');
+    var btn = document.getElementById("TherapyProgressButton");
+    var span = document.getElementsByClassName("close")[0];
+    btn.onclick = function() {
+        TherapyNote.style.display = "block";
+    }
+    span.onclick = function() {
+        TherapyNote.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            TherapyNote.style.display = "none";
+        }
+    }
+</script>
+
+
+
+<!-- PatientMedicationButton -->
+<script>
+    var MedicationHistory = document.getElementById('MedicationHistory');
+    var btn = document.getElementById("PatientMedicationButton");
+    var span = document.getElementsByClassName("close")[0];
+    btn.onclick = function() {
+        MedicationHistory.style.display = "block";
+    }
+    span.onclick = function() {
+        MedicationHistory.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            MedicationHistory.style.display = "none";
+        }
+    }
+</script>
+
+
+
+<!-- TherapyMonthButton -->
+<script>
+    var TherapyByMonth = document.getElementById('TherapyByMonth');
+    var btn = document.getElementById("TherapyMonthButton");
+    var span = document.getElementsByClassName("close")[0];
+    btn.onclick = function() {
+        TherapyByMonth.style.display = "block";
+    }
+    span.onclick = function() {
+        TherapyByMonth.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            TherapyByMonth.style.display = "none";
+        }
+    }
+</script>
+
+
+
+<!-- ActiveStatusDateButton -->
+<script>
+    var ActiveStatusDate = document.getElementById('ActiveStatusDate');
+    var btn = document.getElementById("ActiveStatusDateButton");
+    var span = document.getElementsByClassName("close")[0];
+    btn.onclick = function() {
+        ActiveStatusDate.style.display = "block";
+    }
+    span.onclick = function() {
+        ActiveStatusDate.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            ActiveStatusDate.style.display = "none";
+        }
+    }
+</script>
+
+
+
+<!-- UnarchivedButton -->
+<script>
+    var UnarchivedInactivePatient = document.getElementById('UnarchivedInactivePatient');
+    var btn = document.getElementById("UnarchivedButton");
+    var span = document.getElementsByClassName("close")[0];
+    btn.onclick = function() {
+        UnarchivedInactivePatient.style.display = "block";
+    }
+    span.onclick = function() {
+        UnarchivedInactivePatient.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            UnarchivedInactivePatient.style.display = "none";
+        }
+    }
+</script>
+
+
+
+<!-- BlacklistedButton -->
+<script>
+    var ArchivedIncidents = document.getElementById('ArchivedIncidents');
+    var btn = document.getElementById("BlacklistedButton");
+    var span = document.getElementsByClassName("close")[0];
+    btn.onclick = function() {
+        ArchivedIncidents.style.display = "block";
+    }
+    span.onclick = function() {
+        ArchivedIncidents.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            ArchivedIncidents.style.display = "none";
+        }
+    }
+</script>
+
+
+
+<!-- HourButton -->
+<script>
+    var PeakHours = document.getElementById('PeakHours');
+    var btn = document.getElementById("HourButton");
+    var span = document.getElementsByClassName("close")[0];
+    btn.onclick = function() {
+        PeakHours.style.display = "block";
+    }
+    span.onclick = function() {
+        PeakHours.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            PeakHours.style.display = "none";
+        }
+    }
+</script>
+
+
+
+<!-- TherapistIncidentButton -->
+<script>
+    var TherapistIncident = document.getElementById('TherapistIncident');
+    var btn = document.getElementById("TherapistIncidentButton");
+    var span = document.getElementsByClassName("close")[0];
+    btn.onclick = function() {
+        TherapistIncident.style.display = "block";
+    }
+    span.onclick = function() {
+        TherapistIncident.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            TherapistIncident.style.display = "none";
+        }
+    }
+</script>
+
+
+
+<!-- PatientRegionButton -->
+<script>
+    var ActivePatientTexas = document.getElementById('ActivePatientTexas');
+    var btn = document.getElementById("PatientRegionButton");
+    var span = document.getElementsByClassName("close")[0];
+    btn.onclick = function() {
+        ActivePatientTexas.style.display = "block";
+    }
+    span.onclick = function() {
+        ActivePatientTexas.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            ActivePatientTexas.style.display = "none";
+        }
+    }
+</script>
+
+
+
+<!-- AllergiesButton -->
+<script>
+    var PatientAllergies = document.getElementById('PatientAllergies');
+    var btn = document.getElementById("AllergiesButton");
+    var span = document.getElementsByClassName("close")[0];
+    btn.onclick = function() {
+        PatientAllergies.style.display = "block";
+    }
+    span.onclick = function() {
+        PatientAllergies.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            PatientAllergies.style.display = "none";
+        }
+    }
+</script>
+
+
+
+<!-- IncidentButton -->
+<script>
+    var PatientIncident = document.getElementById('PatientIncident');
+    var btn = document.getElementById("IncidentButton");
+    var span = document.getElementsByClassName("close")[0];
+    btn.onclick = function() {
+        PatientIncident.style.display = "block";
+    }
+    span.onclick = function() {
+        PatientIncident.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            PatientIncident.style.display = "none";
+        }
+    }
+</script>
+
+
+
+
+
+
+<!-- TherapyIncidentButton -->
+<script>
+    var TherapyIncident = document.getElementById('TherapyIncident');
+    var btn = document.getElementById("TherapyIncidentButton");
+    var span = document.getElementsByClassName("close")[0];
+    btn.onclick = function() {
+        TherapyIncident.style.display = "block";
+    }
+    span.onclick = function() {
+        TherapyIncident.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            TherapyIncident.style.display = "none";
+        }
+    }
+</script>
+
+
+
+<!-- DischargeButton -->
+<script>
+    var PatientDischarge = document.getElementById('PatientDischarge');
+    var btn = document.getElementById("DischargeButton");
+    var span = document.getElementsByClassName("close")[0];
+    btn.onclick = function() {
+        PatientDischarge.style.display = "block";
+    }
+    span.onclick = function() {
+        PatientDischarge.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            PatientDischarge.style.display = "none";
+        }
+    }
+</script>
+
+
+
+<!-- InsuranceButton -->
+<script>
+    var PatientBlueCross = document.getElementById('PatientBlueCross');
+    var btn = document.getElementById("InsuranceButton");
+    var span = document.getElementsByClassName("close")[0];
+    btn.onclick = function() {
+        PatientBlueCross.style.display = "block";
+    }
+    span.onclick = function() {
+        PatientBlueCross.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            PatientBlueCross.style.display = "none";
+        }
+    }
+</script>
+
+
+
+<!-- InActivePatientTexasButton -->
+<script>
+    var InActivePatientTexas = document.getElementById('InActivePatientTexas');
+    var btn = document.getElementById("InactivePatientInTexasButton");
+    var span = document.getElementsByClassName("close")[0];
+    btn.onclick = function() {
+        InActivePatientTexas.style.display = "block";
+    }
+    span.onclick = function() {
+        InActivePatientTexas.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            InActivePatientTexas.style.display = "none";
+        }
+    }
+</script>
+
+
+
+<!-- ActiveEmailButton -->
+<script>
+    var PatientEmail = document.getElementById('PatientEmail');
+    var btn = document.getElementById("ActiveEmailButton");
+    var span = document.getElementsByClassName("close")[0];
+    btn.onclick = function() {
+        PatientEmail.style.display = "block";
+    }
+    span.onclick = function() {
+        PatientEmail.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            PatientEmail.style.display = "none";
+        }
+    }
+</script>
+
+
+
+<!-- SpecificTherapistReportButton -->
+<script>
+    var SpecificTherapist = document.getElementById('SpecificTherapist');
+    var btn = document.getElementById("SpecificTherapistReportButton");
+    var span = document.getElementsByClassName("close")[0];
+    btn.onclick = function() {
+        SpecificTherapist.style.display = "block";
+    }
+    span.onclick = function() {
+        SpecificTherapist.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            SpecificTherapist.style.display = "none";
+        }
+    }
+</script>
+
+
+
+<!-- PlanReviewButton -->
+<script>
+    var SpecificPatient = document.getElementById('SpecificPatient');
+    var btn = document.getElementById("PlanReviewButton");
+    var span = document.getElementsByClassName("close")[0];
+    btn.onclick = function() {
+        SpecificPatient.style.display = "block";
+    }
+    span.onclick = function() {
+        SpecificPatient.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            SpecificPatient.style.display = "none";
+        }
+    }
+</script>
+
+
+
+<!-- ActivityButton -->
+<script>
+    var SpecificActivity = document.getElementById('SpecificActivity');
+    var btn = document.getElementById("ActivityButton");
+    var span = document.getElementsByClassName("close")[0];
+    btn.onclick = function() {
+        SpecificActivity.style.display = "block";
+    }
+    span.onclick = function() {
+        SpecificActivity.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            SpecificActivity.style.display = "none";
+        }
+    }
+</script>
+
+
+
+<!-- ObjectiveButton -->
+<script>
+    var SpecificObjective = document.getElementById('SpecificObjective');
+    var btn = document.getElementById("ObjectiveButton");
+    var span = document.getElementsByClassName("close")[0];
+    btn.onclick = function() {
+        SpecificObjective.style.display = "block";
+    }
+    span.onclick = function() {
+        SpecificObjective.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            SpecificObjective.style.display = "none";
+        }
+    }
+</script>
+
+
+
+<!-- SubjectiveButton -->
+<script>
+    var SpecificSubjective = document.getElementById('SpecificSubjective');
+    var btn = document.getElementById("SubjectiveButton");
+    var span = document.getElementsByClassName("close")[0];
+    btn.onclick = function() {
+        SpecificSubjective.style.display = "block";
+    }
+    span.onclick = function() {
+        SpecificSubjective.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            SpecificSubjective.style.display = "none";
+        }
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+    .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/ opacity */
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        /* Could be more or less, depending on screen size */
+    }
+
+    /* The Close Button */
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
+
+
+</body></html>
