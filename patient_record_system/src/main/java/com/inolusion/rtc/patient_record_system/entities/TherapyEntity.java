@@ -12,7 +12,8 @@ import java.util.Objects;
 public class TherapyEntity {
     private int therapyId;
     private PatientEntity patientId;
-    private ObjectiveEntity objectiveId;
+    private List<ObjectiveEntity> objectiveEntities = new ArrayList<>();
+    private List<AssessmentEntity>  assessmentEntities = new ArrayList<>();
     private Date date;
     private LocalTime timeIn;
     private LocalTime timeOut;
@@ -43,17 +44,17 @@ public class TherapyEntity {
 
     @OneToMany
     @JoinColumn(name = "Objective_ID")
-    public ObjectiveEntity getObjectiveId() {
-        return objectiveId;
+
+    public List<ObjectiveEntity> getObjectiveEntities() {
+        return objectiveEntities;
     }
 
-    public void setObjectiveId(ObjectiveEntity objectiveId) {
-        this.objectiveId = objectiveId;
+    public void setObjectiveEntities(List<ObjectiveEntity> objectiveEntities) {
+        this.objectiveEntities = objectiveEntities;
     }
 
     @OneToMany
     @JoinColumn(name = "ASSESSMENT_ID")
-    private List<AssessmentEntity>  assessmentEntities = new ArrayList<>();
 
     public List<AssessmentEntity> getAssessmentEntities() {
         return assessmentEntities;
@@ -141,7 +142,7 @@ public class TherapyEntity {
         TherapyEntity that = (TherapyEntity) o;
         return therapyId == that.therapyId &&
                 patientId == that.patientId &&
-                objectiveId == that.objectiveId &&
+                objectiveEntities == that.objectiveEntities &&
                 assessmentEntities == that.assessmentEntities &&
                 therapyStatusId == that.therapyStatusId &&
                 dischargeId == that.dischargeId &&
@@ -154,6 +155,6 @@ public class TherapyEntity {
 
     @Override
     public int hashCode() {
-        return Objects.hash(therapyId, patientId, objectiveId, assessmentEntities, date, timeIn, timeOut, therapyStatusId, dischargeId, therapistSignature, therapistId);
+        return Objects.hash(therapyId, patientId, objectiveEntities, assessmentEntities, date, timeIn, timeOut, therapyStatusId, dischargeId, therapistSignature, therapistId);
     }
 }

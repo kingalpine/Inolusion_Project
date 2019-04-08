@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Incidents</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/Incidents_Table.css" th:href="@{/css/Incidents_Table.css}">
+</head>
+    <body>
+		<div id="header">
+		<div id="logo"></div>
+        <ul id="nav">
+		<li><a href="/">Home</a></li>
+			<li><a href="/patient_records_table">Patient Records</a></li>
+			<li><a href="/employee_records">Therapist Records</a></li>
+			<li><a href="/therapy_session">Therapy Sessions</a></li>
+			<li><a href="/therapy_progress_notes">Therapy Progress Notes</a></li>
+			<li><a class="active" href="/incidents_table">Incidents</a></li>
+			<li><a href="/reports">Reports</a></li>
+	</ul>
+		</div>
+		<div class="row">
+			<div class="box">
+				<h1>
+				<a href="AddIncident.html">Add Incident</a>
+				</h1> </div>
+			<div class="box">
+				<h1>
+				<a href="ModifyIncident.html">Modify Incident</a>
+				</h1></div>
+			<div class="box">
+				<h1>
+				<a href="DeleteIncident.html">Delete Incident</a>
+				</h1></div>
+		</div>
+		<center> <input style="text-align:center;" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by Incident Type" title="Type Incident Type"> </center>
+		<center> 
+		<table id="myTable">
+		<tr class="header">
+			<th>Incident ID</th>
+			<th>Incident Type</th>
+			<th>Therapy Session ID</th>
+			<th>Notes</th>
+			<th>Incident Status</th>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>Insubordination</td>
+			<td>4</td>
+			<td>Did not follow orders and rules</td>
+			<td>Closed</td>
+		</tr>
+		</table>
+		</center>
+		<script>
+		function myFunction() {
+			var input, filter, table, tr, td, i, txtValue;
+			input = document.getElementById("myInput");
+			filter = input.value.toUpperCase();
+			table = document.getElementById("myTable");
+			tr = table.getElementsByTagName("tr");
+			for (i = 0; i < tr.length; i++) {
+				td = tr[i].getElementsByTagName("td")[1];
+				if (td) {
+					txtValue = td.textContent || td.innerText;
+					if (txtValue.toUpperCase().indexOf(filter) > -1) {
+						tr[i].style.display = "";
+					} else {
+					  tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+</body>
+</html>

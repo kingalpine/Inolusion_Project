@@ -10,16 +10,29 @@
 		<div id="header">
 		<div id="logo"></div>
         <ul id="nav">
-			<li><a href="/">Main Menu</a></li>
+			<li><a href="/">Home</a></li>
             <li><a href="/patient_records_table">Patient Records</a></li>
-			<li><a href="/employee_records">Employee Records</a></li>
+			<li><a href="/employee_records">Therapist Records</a></li>
             <li><a class="active" href="/therapy_session">Therapy Sessions</a></li>
+			<li><a href="/therapy_progress_notes">Therapy Progress Notes</a></li>
+			<li><a href="/incidents_table">Incidents</a></li>
             <li><a href="/reports">Reports</a></li>
 		</ul>
 		</div>
-		<h1>
-		<a href="/add_therapy_session">Add Therapy Session</a>
-		</h1>
+		<div class="row">
+			<div class="box">
+				<h1>
+				<a href="/add_therapy_session">Add Therapy Session</a>
+				</h1> </div>
+			<div class="box">
+				<h1>
+				<a href="ModifyTherapySession.html">Modify Therapy Session</a>
+				</h1></div>
+			<div class="box">
+				<h1>
+				<a href="DeleteTherapySession.html">Delete Therapy Session</a>
+				</h1></div>
+		</div>
 		<center> <input style="text-align:center;" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by Therapist's Name" title="Type Therapist's Name"> </center>
 		<center> 
 		<table id="myTable">
@@ -34,19 +47,15 @@
 			<th>Progress Note</th>
 		</tr>
 		<tr>
-			<td>0</td>
+			<td>001</td>
 			<td>Maria Anders</td>
-			<td>0</td>
+			<td>001</td>
 			<td>03-12-2019</td>
 			<td>08:43</td>
 			<td>09:30</td>
 			<td>Complete</td>
 			<td><button id="myBtn">View</button></td>
 		</tr>
-			<tr th:each = "therapy : ${therapy_array}">
-				<td th:text="${therapy.getAssessmentEntities()
-				}"></td>
-			</tr>
 		</table>
 		<div id="myModal" class="modal">
 		<div class="modal-content">

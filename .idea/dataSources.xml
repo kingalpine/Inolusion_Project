@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="Inolusion_PRS@remotedb" uuid="ea555997-97c4-42c8-b4be-d301c0f33ee9">
+    <data-source source="LOCAL" name="localspringbootdb@localhost" uuid="133d1378-cf95-4af1-8d75-24326880d974">
       <driver-ref>sqlserver.ms</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
-      <jdbc-url>jdbc:sqlserver://inolusion.serveftp.com;database=Inolusion_PRS</jdbc-url>
+      <jdbc-url>jdbc:sqlserver://localhost:1433;database=localspringbootdb</jdbc-url>
       <driver-properties>
         <property name="applicationName" value="DataGrip" />
       </driver-properties>

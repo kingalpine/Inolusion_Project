@@ -2,173 +2,100 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Modify Patient</title>
     <link rel="stylesheet" type="text/css" href="../static/css/ModifyPatientTable.css" th:href="@{/css/ModifyPatientTable.css}">
 </head>
     <body>
-		<div id="header">
+        <div id="header">
 		<div id="logo"></div>
         <ul id="nav">
-			<li><a href="/">Main Menu</a></li>
-            <li><a class="active" href="/patient_records_table">Patient Records</a></li>
-			<li><a href="/employee_records">Employee Records</a></li>
-            <li><a href="/therapy_session">Therapy Sessions</a></li>
-            <li><a href="/reports">Reports</a></li>
-		</ul>
+			<li><a href="/">Home</a></li>
+			<li><a class="active" href="/patient_records_table">Patient Records</a></li>
+			<li><a href="/employee_records">Therapist Records</a></li>
+			<li><a href="/therapy_session">Therapy Sessions</a></li>
+			<li><a href="/therapy_progress_notes">Therapy Progress Notes</a></li>
+			<li><a href="/incidents_table">Incidents</a></li>
+			<li><a href="/reports">Reports</a></li>
+	</ul>
 		</div>
-		<h1> Select a patient to modify their information </h1>
-		<center> <input style="text-align:center;" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by Patient Name" title="Type Patient's Name"> </center>
-		<center> 
-		<table id="myTable">
-		<tr class="header">
-			<th>Patient ID</th>
-			<th>Patient Name</th>
-			<th>Sex</th>
-			<th>Address</th>
-			<th>Region</th>
-			<th>Country</th>
-			<th>Email</th>
-			<th>DOB</th>
-			<th>Home Phone</th>
-			<th>Mobile Phone</th>
-			<th>Allergies</th>
-			<th>Medication History</th>
-			<th>Patient Status</th>
-			<th>Insurance</th>
-		</tr>
-		<tr>
-			<td>001</td>
-			<td>Maria Anders</td>
-			<td>Female</td>
-			<td>4800 Calhoun Rd, Houston</td>
-			<td>Texas</td>
-			<td>United States</td>
-			<td>mariaanders@gmail.com</td>
-			<td>03-25-1999</td>
-			<td>8984516935</td>
-			<td>2814569832</td>
-			<td>None</td>
-			<td>None</td>
-			<td>Active</td>
-			<td>TCHP</td>
-		</tr>
-		</table>
-		Patient Name:<br>
-		<input type="text" name="patientname"></br>
-		Sex:<br>
-		<select name="sex">
+		<center><form class="modifyPatientID">
+		<center>Patient ID:
+		<input type="text" name="patientID" maxlength="10">&nbsp;&nbsp;&nbsp;<button onclick="modifyPatient()">Modify</button>
+		</form></center>
+    <center> <form class="modifyPatient">
+		<h1> Modify Patient Information </h1><p2><div class="requiredKey">Required</div></p2><br></br>
+		<p1><div class="required">First name:
+		<input type="text" name="firstname" maxlength="50"></div></p1>
+		<p1><div class="required">&nbsp;&nbsp;&nbsp;Last name:
+		<input type="text" name="lastname" maxlength="50"></div></p1>
+		<p1><div class="required">&nbsp;&nbsp;&nbsp;Sex:
+		<select name="sex" placeholder="" maxlength="10">
 			<option value="male">Male</option>
 			<option value="female">Female</option>
-		</select></br>
-		Address:<br>
-		<input type="text" name="address"></br>
-		Region:<br>
-		<select name="region">
+		</select></div></p1>
+		<br></br><p1><div class="required" maxlength="10">Date of Birth:
+		<input type="date" name="dob" size="8"></div></p1>
+		<p1><div class="required">&nbsp;&nbsp;&nbsp;Guardian Name:
+		<input type="text" name="guardian" maxlength="50" size="35"></div></p1>
+		<br></br><p1><div class="required">Start Date:
+		<input type="date" name="startdate" maxlength="10" size="5"></div></p1>
+		<p1><div class="required">&nbsp;&nbsp;&nbsp;Address:
+		<input type="text" name="address" maxlength="255" size="35"></div></p1>
+		<br></br><p1><div class="required">City:
+		<input type="text" name="city" maxlength="100"></div></p1>
+		<p1><div class="required">&nbsp;&nbsp;&nbsp;ZIP Code:
+		<input type="text" name="zipcode" maxlength="6" size="8"></div></p1>
+		<br></br><p1><div class="required">Region:
+		<select name="region" placeholder="Texas" maxlength="10">
 			<option value="texas">Texas</option>
 			<option value="california">California</option>
 			<option value="newmexico">New Mexico</option>
-		</select></br>
-		Country:<br>
-		<select name="country">
+		</select></div></p1>
+		<p1><div class="required">&nbsp;&nbsp;&nbsp;Country:
+		<select name="country" placeholder="United States" maxlength="10">
 			<option value="usa">United States</option>
 			<option value="mexico">Mexico</option>
 			<option value="canada">Canada</option>
-		</select></br>
-		Email:<br>
-		<input type="text" name="email"></br>
-		DOB:<br>
-		<input type="text" name="dob"></br>
-		Home Phone:<br>
-		<input type="text" name="hphone"></br>
-		Mobile Phone:<br>
-		<input type="text" name="mphone"></br>
-		Allergies:<br>
-		<select name="allergies">
-			<option value="milk">Milk</option>
-			<option value="peanut">Peanut</option>
-			<option value="latex">Latex</option>
-		</select></br>
-		Medications:<br>
-		<input type="text" name="medications"></br>
-		Patient Status:<br>
-		<select name="patientstatus">
-			<option value="active">Active</option>
-			<option value="inactive">Inactive</option>
-		</select></br>
-		Insurance:<br>
-		<select name="insurance">
+		</select></div></p1>
+		<p1><div class="required">&nbsp;&nbsp;&nbsp;Email:
+		<input type="text" name="email" maxlength="100"></div></p1>
+		<br></br><p1><div class="required">Primary Phone:
+		<input type="text" name="pphone" placeholder="XXX-XXX-XXXX" maxlength="13"></div></p1>
+		<p1>&nbsp;&nbsp;&nbsp;Secondary Phone:
+		<input type="text" name="sphone" placeholder="XXX-XXX-XXXX" maxlength="13"></p1>
+		<br></br><p1>Allergies:
+		<input type="text" name="allergies" placeholder="None" maxlength="13"></p1>
+		<p1>&nbsp;&nbsp;&nbsp;Medication:
+		<input type="text" name="medication" placeholder="None" maxlength="13"></p1>
+		<p1><div class="required">&nbsp;&nbsp;&nbsp;Insurance:
+		<select name="insurance" placeholder="">
 			<option value="tchp">TCHP</option>
 			<option value="chc">CHC</option>
 			<option value="uhc">UHC</option>
 			<option value="cshcn">CSHCN</option>
 			<option value="tmhp">TMHP</option>
-		</select></br> <br></br>
-        <button onclick="editRow();">Edit Row</button><br><br>
-		</center>
-		 <script> 
-            var table = document.getElementById("myTable"),rIndex;
-            
-            for(var i = 1; i < table.rows.length; i++)
-            {
-                table.rows[i].onclick = function()
-                {
-                    rIndex = this.rowIndex;
-                    console.log(rIndex);
-                    
-                    document.getElementById("patientname").value = this.cells[1].innerHTML;
-                    document.getElementById("sex").value = this.cells[2].innerHTML;
-                    document.getElementById("address").value = this.cells[3].innerHTML;
-					document.getElementById("region").value = this.cells[4].innerHTML;
-					document.getElementById("country").value = this.cells[5].innerHTML;
-					document.getElementById("email").value = this.cells[6].innerHTML;
-					document.getElementById("dob").value = this.cells[7].innerHTML;
-					document.getElementById("hphone").value = this.cells[8].innerHTML;
-					document.getElementById("mphone").value = this.cells[9].innerHTML;
-					document.getElementById("allergies").value = this.cells[10].innerHTML;
-					document.getElementById("medications").value = this.cells[11].innerHTML;
-					document.getElementById("patientstatus").value = this.cells[12].innerHTML;
-					document.getElementById("insurance").value = this.cells[13].innerHTML;
-                };
-            }
-            
-            function editRow()
-            {
-                table.rows[rIndex].cells[1].innerHTML = document.getElementById("patientname").value;
-                table.rows[rIndex].cells[2].innerHTML = document.getElementById("sex").value;
-                table.rows[rIndex].cells[3].innerHTML = document.getElementById("address").value;
-				table.rows[rIndex].cells[4].innerHTML = document.getElementById("region").value;
-				table.rows[rIndex].cells[5].innerHTML = document.getElementById("country").value;
-				table.rows[rIndex].cells[6].innerHTML = document.getElementById("email").value;
-				table.rows[rIndex].cells[7].innerHTML = document.getElementById("dob").value;
-				table.rows[rIndex].cells[8].innerHTML = document.getElementById("hphone").value;
-				table.rows[rIndex].cells[9].innerHTML = document.getElementById("mphone").value;
-				table.rows[rIndex].cells[10].innerHTML = document.getElementById("allergies").value;
-				table.rows[rIndex].cells[11].innerHTML = document.getElementById("medications").value;
-				table.rows[rIndex].cells[12].innerHTML = document.getElementById("patientstatus").value;
-				table.rows[rIndex].cells[13].innerHTML = document.getElementById("insurance").value;
-            }
-            
-        </script>    
+		</select></div></p1>
+		<br></br><center><div class="required">Patient Status:
+		<select name="patientstatus" placeholder="active" maxlength="10">
+			<option value="active">Active</option>
+			<option value="inactive">Inactive</option>
+		</select></div></center><br></br>
+		<center><input type="submit" value="Submit"></center>
+		</form></center>
+		<center><button class="exitButton" onclick="goBack()">Exit</button><center>
 		<script>
-		function myFunction() {
-			var input, filter, table, tr, td, i, txtValue;
-			input = document.getElementById("myInput");
-			filter = input.value.toUpperCase();
-			table = document.getElementById("myTable");
-			tr = table.getElementsByTagName("tr");
-			for (i = 0; i < tr.length; i++) {
-				td = tr[i].getElementsByTagName("td")[1];
-				if (td) {
-					txtValue = td.textContent || td.innerText;
-					if (txtValue.toUpperCase().indexOf(filter) > -1) {
-						tr[i].style.display = "";
-					} else {
-					  tr[i].style.display = "none";
-      }
-    }       
-  }
-}
-</script>
+			function modifyPatient() {
+				
+			}
+		</script>
+		<script>
+			function goBack() {
+				window.open("PatientRecords_Table.html", "_self");
+			}
+		</script>
+		<script>
+			var dateControl = document.querySelector('input[type="date"]');
+			dateControl.value = 'YYYY/MM/DD';
+		</script>
     </body>
 </html>

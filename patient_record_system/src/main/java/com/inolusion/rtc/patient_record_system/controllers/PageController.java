@@ -18,7 +18,7 @@ public class PageController {
     private Patient_Repository patient_repository;
 
     @Autowired
-    private Employee_Repository employee_repository;
+    private Therapist_Repository therapist_repository;
 
     @Autowired
     private Therapy_Repository therapy_repository;
@@ -40,7 +40,7 @@ public class PageController {
     @GetMapping("/employee_records")
     public String showEmployeeRecordsPage(Model md) {
 
-        md.addAttribute("employee_array", employee_repository.findAll());
+        md.addAttribute("therapist_array", therapist_repository.findAll());
         return "Employees_Table";
     }
 
@@ -50,16 +50,28 @@ public class PageController {
         return "TherapySessions_Table";}
 
     @GetMapping("/reports")
-    public String showReportsPage() {return "ReportsPage";}
-
-    @GetMapping("/modify_patient_form")
-    public String showModifyPatientFormPage() {return "ModifyPatientForm";}
+    public String showReportsPage() {return "Reports";}
 
     @GetMapping("/add_therapy_session")
     public String showAddTherapySession() {return "AddTherapySession";}
 
     @GetMapping("/add_employee_form")
     public String showAddEmployeeForm() {return "AddEmployeeForm";}
+
+    @GetMapping("/delete_patient_table")
+    public String showDeletePatientTable() {return "DeletePatientTable";}
+
+    @GetMapping("/incidents_table")
+    public String showIncidentTable() {return "Incidents_Table";}
+
+    @GetMapping("/therapy_progress_notes")
+    public String showTherapyProgressTable() {return "TherapyProgressNotes_Table";}
+
+    @GetMapping("/modify_patient_table")
+    public String showModifyPatientTable() {return "ModifyPatientTable";}
+
+    @GetMapping("/modify_patient_form")
+    public String showModifyPatientForm() {return "ModifyPatientForm";}
 
 
 }

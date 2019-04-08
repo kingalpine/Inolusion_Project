@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
@@ -11,20 +10,30 @@
 		<div id="header">
 		<div id="logo"></div>
         <ul id="nav">
-			<li><a href="/">Main Menu</a></li>
-            <li><a class="active" href="/patient_records_table">Patient Records</a></li>
-			<li><a href="/employee_records">Employee Records</a></li>
-            <li><a href="/therapy_session">Therapy Sessions</a></li>
-            <li><a href="/reports">Reports</a></li>
-		</ul>
+		<li><a href="/">Home</a></li>
+			<li><a class="active" href="/patient_records_table">Patient Records</a></li>
+			<li><a href="/employee_records">Therapist Records</a></li>
+			<li><a href="/therapy_session">Therapy Sessions</a></li>
+			<li><a href="/therapy_progress_notes">Therapy Progress Notes</a></li>
+			<li><a href="/incidents_table">Incidents</a></li>
+  	        <li><a href="/reports">Reports</a></li>
+	</ul>
 		</div>
-		<h1>
-		<a href="/add_patient_form">Add Patient</a>
-		</h1>
-		<h1>
-		<a href="/modify_patient_form">Modify Patient</a>
-		</h1>
-		<center> <input style="text-align:center;" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by Patient Name" title="Type Patient's Name"> </center>
+		<center><div class="row">
+			<div class="box">
+				<h1>
+				<a href="/add_patient_form">Add Patient</a>
+				</h1> </div>
+			<div class="box">
+				<h1>
+				<a href="/modify_patient_form">Modify Patient</a>
+				</h1></div>
+			<div class="box">
+				<h1>
+				<a href="/delete_patient_table">Delete Patient</a>
+				</h1></div>
+		</div></center>
+		<center><input class="searchBar" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by Patient Name" title="Type Patient's Name"></center>
 		<center> 
 		<table id="myTable">
 		<tr class="header">
@@ -32,40 +41,61 @@
 			<th>First Name</th>
 			<th>Last Name</th>
 			<th>Sex</th>
+			<th>Start Date</th>
 			<th>Address</th>
+			<th>City</th>
+			<th>ZIP</th>
 			<th>Region</th>
 			<th>Country</th>
 			<th>Email</th>
 			<th>DOB</th>
-			<th>Home Phone</th>
-			<th>Mobile Phone</th>
+			<th>Primary Phone</th>
+			<th>Secondary Phone</th>
+			<th>Allergies</th>
+			<th>Medication</th>
+			<th>Insurance</th>
+			<th>Patient Status</th>
 		</tr>
 		<tr>
 			<td>0</td>
 			<td>Maria</td>
 			<td>Anders</td>
 			<td>Female</td>
+			<td>04/05/2019</td>
 			<td>4800 Calhoun Rd, Houston</td>
+			<td>Houston</td>
+			<td>77004</td>
 			<td>Texas</td>
 			<td>United States</td>
 			<td>mariaanders@gmail.com</td>
 			<td>03-25-1999</td>
 			<td>8984516935</td>
 			<td>2814569832</td>
+			<td>None</td>
+			<td>None</td>
+			<td>TCHP</td>
+			<td>Active</td>
 		</tr>
-            <tr th:each="patient,iter : ${patient_array}">
-                <td th:text="${patient.getPatientId()}">Default ID</td>
-                <td th:text="${patient.getFirstName()}">Default First Name</td>
-                <td th:text="${patient.getLastName()}">Default Last Name</td>
-				<td th:text="${patient.getSexId()}">Default Sex</td>
-				<td th:text="${patient.getAddressLine()}">Default Address</td>
-				<td th:text="${patient.getRegionId()}">Default Region</td>
-				<td th:text="${patient.getCountryId()}">Default Country</td>
-				<td th:text="${patient.getEmail()}">Default Email</td>
-				<td th:text="${patient.getDob()}">Default DOB</td>
-				<td th:text="${patient.getHomePhone()}">Default Home Phone</td>
-				<td th:text="${patient.getMobilePhone()}">Default Mobile Phone</td>
-            </tr>
+		<tr th:each="patient : ${patient_array}">
+			<td th:text="${patient.getPatientId()}">Default ID</td>
+			<td th:text="${patient.getFirstName()}">Default First Name</td>
+			<td th:text="${patient.getLastName()}">Default Last Name</td>
+			<td th:text="${patient.getSexId()}">Default Sex</td>
+			<td th:text="${patient.getStartDate()}">Default Start Date</td>
+			<td th:text="${patient.getAddressLine()}">Default Address</td>
+			<td th:text="${patient.getCity()}">Default City</td>
+			<td th:text="${patient.getZipcode()}">Default Zipcode</td>
+			<td th:text="${patient.getRegionId()}">Default Region</td>
+			<td th:text="${patient.getCountryId()}">Default Country</td>
+			<td th:text="${patient.getEmail()}">Default Email</td>
+			<td th:text="${patient.getDob()}">Default DOB</td>
+			<td th:text="${patient.getHomePhone()}">Default Home Phone</td>
+			<td th:text="${patient.getMobilePhone()}">Default Mobile Phone</td>
+			<td>None</td>
+			<td>None</td>
+			<td th:text="${patient.getInsuranceId()}">Default Insurance</td>
+			<td th:text="${patient.getStatusId()}">Default Status</td>
+		</tr>
 		</table>
 		</center>
 		<script>

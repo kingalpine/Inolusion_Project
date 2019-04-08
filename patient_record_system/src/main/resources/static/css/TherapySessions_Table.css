@@ -13,6 +13,7 @@
   width: 100%;
   border: 1px solid #ddd;
   font-size: 18px;
+  background-color:#f2f2f2;
 }
 
 #myTable th, #myTable td {
@@ -24,11 +25,15 @@
   border-bottom: 1px solid #ddd;
 }
 
-#myTable tr.header, #myTable tr:hover {
-  background-color: #f1f1f1;
+#myTable tr.header{
+  background-image: url("../images/tableheader.jpg");
+}
+#myTable tr:hover{
+	background-image: url("../images/mainmenuButtonBG.jpg");
 }
 h1 {
-  text-align: center;
+	font-size: 22px;
+	text-align: center;
 }
 *{
 	margin: 0px;
@@ -65,12 +70,12 @@ padding-top:30px;
 #nav a {
 	display:block;
 	text-align:center;
-	width:160px;
+	width:120px;
 	text-decoration:none;
 	color: black;
 	text-align: center;
-	font-size: 17px;
-	padding: 14px 16px;
+	font-size: 18px;
+	padding: 12px 10px;
 }
 #nav a:hover {
   background-color: #ddd;
@@ -80,8 +85,29 @@ padding-top:30px;
   background-color: green;
   color: white;
 }
+.row {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	margin-right: -15px;
+	margin-left: -15px;
+	text-align: center;
+}
+.box {
+	align: center;
+	max-width: 400px;
+	text-align: center;
+	border-radius: 25px;
+	border: 3px solid green;
+	margin: 25px;
+	padding: 20px;
+	background-image:url("../images/mainmenuButtonBG.jpg");
+	margin-bottom: 30px;
+	color: #313437;
+}
 body {
-  background-image: url("../images/crossline-lines.png");
+  background-image: url("../images/medicalBG.png");
   margin: auto;
   min-height: 900px;
   min-width:900px;

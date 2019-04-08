@@ -2,23 +2,49 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>Main Menu</title>
+    <title>Home</title>
     <link rel="stylesheet" type="text/css" href="css/MainMenu.css" th:href="@{/css/MainMenu.css}">
 </head>
     <body>
 		<div id="header">
 		<div id="logo"></div>
         <ul id="nav">
-			<li><a class="active" href="/">Main Menu</a></li>
+			<li><a class="active" href="/">Home</a></li>
             <li><a href="/patient_records_table">Patient Records</a></li>
-			<li><a href="/employee_records">Employee Records</a></li>
+			<li><a href="/employee_records">Therapist Records</a></li>
             <li><a href="/therapy_session">Therapy Sessions</a></li>
+			<li><a href="/therapy_progress_notes">Therapy Progress Notes</a></li>
+			<li><a href="/incidents_table">Incidents</a></li>
             <li><a href="/reports">Reports</a></li>
 		</ul>
 		</div>
-		<center> <h1>
-		<img src="images/PRS.png" alt="PRS" height="470" width="489"> <br></br>
-		<p>Patient Record System (PRS) is a multi-user application capable of viewing, adding, modifying, and deleting patient information and patient treatment plan progress being stored on an AWS RDS database.</p>
-		</h1> </center>
+		<center>
+		<img src="images/PRS.png" alt="PRS" height="176" width="183"> <br></br>
+		</center>
+		<div class="intro">
+			<p class="text-center">Patient Record System has the functionality to view, add, modify, and delete patient records, employee records, therapy sessions, therapy progress notes, and incidents. PRS is also capable of generating reports such as a therapy progress
+				note, active patient personal information, therapy sessions conducted by month, and incidents by patient.</p>
+		</div>
+		<br></br>
+		<div class="row">
+			<div class="box">
+					<h3>Patient Records</h3>
+					<p class="description">Track all patients and their personal information as well as medication and allergies.</p><a href="../templates/PatientRecords_Table.html" class="learn-more">View »</a></div>
+			<div class="box">
+					<h3>Therapy Sessions</h3>
+					<p class="description">Track therapy sessions and their information such as date, start time, end time, and medication.</p><a href="../templates/TherapySessions_Table.html" class="learn-more">View »</a></div>
+			<div class="box">
+					<h3>Employee Records</h3>
+					<p class="description">Track all therapists and their personal information as well as <br /></p><a href="../templates/Employees_Table.html" class="learn-more">View »</a></div>
+			<div class="box">
+					<h3 class="name">Therapy Progress Notes</h3>
+					<p class="description">Able to create, modify, or delete SOAP notes for a therapy session.</p><a href="../templates/TherapySessions_Table.html" class="learn-more">View »</a></div>
+			<div class="box">
+					<h3 class="name">Incidents</h3>
+					<p class="description">Track patient and employee incidents as well as date and time of an incident.</p><a href="Incidents.html" class="learn-more">View »</a></div>
+			<div class="box">
+					<h3 class="name">Reports</h3>
+					<p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p><a href="../templates/Reports.html" class="learn-more">View »</a></div>
+		</div>
     </body>
 </html>
