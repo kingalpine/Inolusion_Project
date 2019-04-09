@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Therapy Progress Notes</title>
+    <title>Therapy Notes</title>
     <link rel="stylesheet" type="text/css" href="../static/css/TherapyProgressNotes_Table.css" th:href="@{/css/TherapyProgressNotes_Table.css}">
 </head>
     <body>
@@ -11,39 +11,59 @@
 		<div id="logo"></div>
         <ul id="nav">
 			<li><a href="/">Home</a></li>
-            <li><a href="/patient_records_table">Patient Records</a></li>
+			<li><a href="/patient_records_table">Patient Records</a></li>
 			<li><a href="/employee_records">Therapist Records</a></li>
-            <li><a href="/therapy_session">Therapy Sessions</a></li>
-			<li><a class="active" href="/therapy_progress_notes">Therapy Progress Notes</a></li>
+			<li><a href="/therapy_session">Therapy Sessions</a></li>
+			<li><a class="active" href="/therapy_progress_notes">Therapy Notes</a></li>
 			<li><a href="/incidents_table">Incidents</a></li>
-            <li><a href="/reports">Reports</a></li>
+			<li><a href="/reports">Reports</a></li>
 		</ul>
 		</div>
-		<div class="row">
-			<div class="box">
-				<h1>
-				<a href="AddIncident.html">Add Therapy Progress Note</a>
-				</h1> </div>
-			<div class="box">
-				<h1>
-				<a href="ModifyIncident.html">Modify Therapy Progress Note</a>
-				</h1></div>
-			<div class="box">
-				<h1>
-				<a href="DeleteIncident.html">Delete Therapy Progress Note</a>
-				</h1></div>
-		</div>
+		<center><div class="row">
+			<div onclick="location.href='AddTherapyProgressNotes.html';">
+				<div class="box">
+					<img src="../static/images/add.png" height="30" width="30"><h1>Add Therapy Note</h1></div></div>
+		</div></center>
 		<center> <input style="text-align:center;" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by Therapy Session ID" title="Type Therapy Session ID"> </center>
 		<center> 
 		<table id="myTable">
 		<tr class="header">
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
+			<th>Therapy Note ID</th>
+			<th>Date</th>
+			<th>Time In</th>
+			<th>Time Out</th>
+			<th>Therapy ID</th>
+			<th>Patient First Name</th>
+			<th>Patient Last Name</th>
+			<th>Intervention</th>
+			<th>CPT Code</th>
+			<th>Subjective</th>
+			<th>Subjective Notes</th>
+			<th>Objective</th>
+			<th>Objective Notes</th>
+			<th>Assessment</th>
+			<th>Assessment Notes</th>
+			<th>Plan</th>
+			<th>Plan Notes</th>
+			<th>Medication</th>
+			<th>Discharge Plan</th>
+			<th>Therapist Signature</th>
 		</tr>
 		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
 			<td></td>
 			<td></td>
 			<td></td>

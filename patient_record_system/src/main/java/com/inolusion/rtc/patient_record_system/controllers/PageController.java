@@ -4,11 +4,19 @@ package com.inolusion.rtc.patient_record_system.controllers;
 
 import com.inolusion.rtc.patient_record_system.entities.AllergyEntity;
 import com.inolusion.rtc.patient_record_system.entities.MedicationHistoryEntity;
+import com.inolusion.rtc.patient_record_system.entities.PatientEntity;
+import com.inolusion.rtc.patient_record_system.entities.TherapistEntity;
 import com.inolusion.rtc.patient_record_system.repositories.*;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import javax.validation.Valid;
 
 
 @Controller
@@ -31,11 +39,34 @@ public class PageController {
 
         return "PatientRecords_Table";
     }
-
     @GetMapping("/add_patient_form")
     public String showAddPatientFormPage(){
         return "AddPatientForm";
     }
+    @PostMapping("/add_patient")
+    public String addPatient (@Valid PatientEntity patient, BindingResult result, Model model){
+        if (result.hasErrors()){
+            return "AddPatientForm";
+        }
+        patient_repository.save(patient);
+        model.addAttribute("patient_array", patient_repository.findAll());
+        return "PatientRecords_Table";
+    }
+    @GetMapping("/delete_patient_table/{id}")
+    public String showDeletePatientTable(@PathVariable("id") int id, Model md) {
+        PatientEntity patient = patient_repository.findByPatientId(id);
+        md.addAttribute("patient", patient);
+        return "DeletePatientTable";
+    }
+
+    @GetMapping("/modify_patient_table/{id}")
+    public String showModifyPatientTable(@PathVariable("id") int id, Model md) {
+        PatientEntity patient = patient_repository.findByPatientId(id);
+        md.addAttribute("patient", patient);
+        return "ModifyPatientTable";
+    }
+
+
 
     @GetMapping("/employee_records")
     public String showEmployeeRecordsPage(Model md) {
@@ -43,35 +74,54 @@ public class PageController {
         md.addAttribute("therapist_array", therapist_repository.findAll());
         return "Employees_Table";
     }
+    @GetMapping("/add_employee_form")
+    public String showAddEmployeeForm() {return "AddEmployeeForm";}
+    @GetMapping("modify_employee_form/{id}")
+    public String showModifyEmployeeForm(@PathVariable("id") int id, Model md){
+        TherapistEntity therapist = therapist_repository.findByTherapistId(id);
+        md.addAttribute("therapist", therapist);
+        return "ModifyTherapistForm";
+    }
+    @GetMapping("/delete_employee_form/{id}")
+    public String showDeleteEmployeeForm(@PathVariable("id") int id, Model md){
+        TherapistEntity therapist = therapist_repository.findByTherapistId(id);
+        md.addAttribute("therapist", therapist);
+        return "DeleteTherapistForm";
+    }
+
 
     @GetMapping("/therapy_session")
     public String showTherapySessionPage(Model md) {
         md.addAttribute("therapy_array", therapy_repository.findAll());
         return "TherapySessions_Table";}
+    @GetMapping("/add_therapy_session")
+    public String showAddTherapySession() {return "AddTherapySession";}
+    @GetMapping("/delete_therapy_session/{id}")
+    public String showDeleteTherapySession(@PathVariable("id") int id, Model md) {return "DeleteTherapySessionForm";}
+    @GetMapping("/modify_therapy_session{id}")
+    public String showModifyTherapySession(@PathVariable("id") int id, Model md) {return "ModifyTherapySessionNotes";}
+
+
+    @GetMapping("/therapy_progress_notes")
+    public String showTherapyProgressTable() {return "TherapyProgressNotes_Table";}
+    @GetMapping("/add_therapy_progress_notes")
+    public String showAddTherapyProgressForm() {return "AddTherapyProgressNotes";}
+    @GetMapping("/delete_therapy_progress_notes/{id}")
+    public String showDeleteTherapyProgressForm(@PathVariable("id") int id, Model md) {return "DeleteTherapyNotes";}
+    @GetMapping("/modify_therapy_progress_notes/{id}")
+    public String showModifyTherapyProgressForm(@PathVariable("id") int id, Model md) {return "ModifyTherapyNotes";}
+
 
     @GetMapping("/reports")
     public String showReportsPage() {return "Reports";}
 
-    @GetMapping("/add_therapy_session")
-    public String showAddTherapySession() {return "AddTherapySession";}
-
-    @GetMapping("/add_employee_form")
-    public String showAddEmployeeForm() {return "AddEmployeeForm";}
-
-    @GetMapping("/delete_patient_table")
-    public String showDeletePatientTable() {return "DeletePatientTable";}
 
     @GetMapping("/incidents_table")
     public String showIncidentTable() {return "Incidents_Table";}
 
-    @GetMapping("/therapy_progress_notes")
-    public String showTherapyProgressTable() {return "TherapyProgressNotes_Table";}
 
-    @GetMapping("/modify_patient_table")
-    public String showModifyPatientTable() {return "ModifyPatientTable";}
 
-    @GetMapping("/modify_patient_form")
-    public String showModifyPatientForm() {return "ModifyPatientForm";}
+
 
 
 }

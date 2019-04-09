@@ -28,16 +28,16 @@
 	background-image:url("../images/logo.png");
 	float:left;
 	background-repeat: no-repeat;
-
+	
 }
-.addTherapy{
-	max-width: 450px;
-	background: #FAFAFA;
-	padding: 30px;
-	margin: 50px auto;
-	box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
-	border-radius: 10px;
-	border: 6px solid green;
+.deletePatient{
+		max-width: 450px;
+		background: #FAFAFA;
+		padding: 30px;
+		margin: 50px auto;
+		box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+		border-radius: 10px;
+		border: 6px solid green;
 }
 .exitButton{
 	background-image:url("../images/mainmenuButtonBG.jpg");
@@ -52,12 +52,12 @@
 	margin: 4px 2px;
 	cursor: pointer;
 }
-.required:after {
-	content:" *";
+.required:after { 
+	content:" *"; 
 	color: red;
 }
-.requiredKey:before {
-	content:" *";
+.requiredKey:before { 
+	content:" *"; 
 	color: red;
 }
 #nav a {
@@ -71,18 +71,18 @@
 	padding: 12px 10px;
 }
 #nav a:hover {
-	background-color: #ddd;
-	color: black;
+  background-color: #ddd;
+  color: black;
 }
 #nav a.active {
-	background-color: green;
-	color: white;
+  background-color: green;
+  color: white;
 }
 body {
-	background-image: url("../images/medicalBG.png");
-	margin: auto;
-	min-height: 900px;
-	min-width:900px;
+  background-image: url("../images/medicalBG.png");
+  margin: auto;
+  min-height: 900px;
+  min-width:900px;
 }
 p1 {
 	float: left;

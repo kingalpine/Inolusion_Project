@@ -11,58 +11,41 @@
 		<div id="logo"></div>
         <ul id="nav">
 			<li><a href="/">Home</a></li>
-            <li><a href="/patient_records_table">Patient Records</a></li>
+			<li><a href="/patient_records_table">Patient Records</a></li>
 			<li><a href="/employee_records">Therapist Records</a></li>
-            <li><a class="active" href="/therapy_session">Therapy Sessions</a></li>
-			<li><a href="/therapy_progress_notes">Therapy Progress Notes</a></li>
+			<li><a class="active" href="/therapy_session">Therapy Sessions</a></li>
+			<li><a href="/therapy_progress_notes">Therapy Notes</a></li>
 			<li><a href="/incidents_table">Incidents</a></li>
-            <li><a href="/reports">Reports</a></li>
+			<li><a href="/reports">Reports</a></li>
 		</ul>
 		</div>
-		<div class="row">
-			<div class="box">
-				<h1>
-				<a href="/add_therapy_session">Add Therapy Session</a>
-				</h1> </div>
-			<div class="box">
-				<h1>
-				<a href="ModifyTherapySession.html">Modify Therapy Session</a>
-				</h1></div>
-			<div class="box">
-				<h1>
-				<a href="DeleteTherapySession.html">Delete Therapy Session</a>
-				</h1></div>
-		</div>
+		<center><div class="row">
+			<div onclick="location.href='AddTherapySession.html';">
+				<div class="box">
+					<img src="../static/images/add.png" height="30" width="30"><h1>Add Therapy Session</h1></div></div>
+		</div></center>
 		<center> <input style="text-align:center;" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by Therapist's Name" title="Type Therapist's Name"> </center>
 		<center> 
 		<table id="myTable">
 		<tr class="header">
-			<th>Therapy Session ID</th>
+			<th>Therapy ID</th>
 			<th>Therapist Name</th>
-			<th>Therapist ID</th>
+			<th>Patient Name</th>
 			<th>Session Date</th>
 			<th>Session Start</th>
 			<th>Session End</th>
 			<th>Session Status</th>
-			<th>Progress Note</th>
 		</tr>
 		<tr>
-			<td>001</td>
+			<td>1</td>
 			<td>Maria Anders</td>
-			<td>001</td>
+			<td>Tom Winkleman</td>
 			<td>03-12-2019</td>
 			<td>08:43</td>
 			<td>09:30</td>
 			<td>Complete</td>
-			<td><button id="myBtn">View</button></td>
 		</tr>
 		</table>
-		<div id="myModal" class="modal">
-		<div class="modal-content">
-			<span class="close">&times;</span>
-				<p>This is where Therapy Progress Note goes</p>
-		</div>
-		</div>
 		</center>
 		<script>
 		function myFunction() {
@@ -84,59 +67,5 @@
   }
 }
 </script>
-<script>
-var modal = document.getElementById('myModal');
-var btn = document.getElementById("myBtn");
-var span = document.getElementsByClassName("close")[0];
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-span.onclick = function() {
-  modal.style.display = "none";
-}
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-</script>
-<style type="text/css">
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-}
-
-/* The Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-</style>
-    </body>
+	</body>
 </html>

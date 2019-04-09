@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface Therapist_Repository extends CrudRepository<TherapistEntity, Long> {
-
+    TherapistEntity findByTherapistId (int TherapistID);
 }
