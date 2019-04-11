@@ -1,6 +1,7 @@
 package com.inolusion.rtc.patient_record_system.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.sql.Date;
 import java.util.Objects;
 
@@ -25,6 +26,7 @@ public class PatientEntity {
     private PatientStatusEntity statusId;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "PATIENT_ID")
     public int getPatientId() {
         return patientId;
@@ -35,6 +37,7 @@ public class PatientEntity {
     }
 
     @Basic
+    @NotNull
     @Column(name = "FIRST_NAME")
     public String getFirstName() {
         return firstName;

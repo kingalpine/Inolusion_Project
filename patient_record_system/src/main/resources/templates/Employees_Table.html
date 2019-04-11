@@ -24,34 +24,34 @@
 				<h1>
 				<a href="/add_employee_form">Add Therapist</a>
 				</h1> </div>
-			<div class="box">
-				<h1>
-				<a href="/">Modify Therapist</a>
-				</h1></div>
-			<div class="box">
-				<h1>
-				<a href="DeleteEmployeeTable.html">Delete Therapist</a>
-				</h1></div>
 		</div>
 		<center> <input style="text-align:center;" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by Therapist Name" title="Type Therapist's Name"> </center>
 		<center> 
 		<table id="myTable">
 		<tr class="header">
 			<th>Therapist ID</th>
-			<th>Therapist Name</th>
+			<th>Therapist First Name</th>
+			<th>Therapist Last Name</th>
 			<th>Start Date</th>
 			<th>Email</th>
-			<th>Phone Number</th>
+			<th>Home Phone Number</th>
+			<th>Mobile Phone Number</th>
 			<th>Therapist Status</th>
+			<th>Modify</th>
+			<th>Delete</th>
 		</tr>
-		<tr>
-			<td>001</td>
-			<td>Maria Anders</td>
-			<td>03-25-2018</td>
-			<td>mariaanders@gmail.com</td>
-			<td>8984516935</td>
-			<td>Active</td>
-		</tr>
+			<tr th:each="therapist : ${therapist_array}">
+				<td th:text="${therapist.getTherapistId()}">Default ID</td>
+				<td th:text="${therapist.getFirstName()}">Default First Name</td>
+				<td th:text="${therapist.getLastName()}">Default Last Name</td>
+				<td th:text="${therapist.getStartDate()}">Default Start Date</td>
+				<td th:text="${therapist.getEmail()}">Default Email</td>
+				<td th:text="${therapist.getHomePhone()}">Default Home Number</td>
+				<td th:text="${therapist.getMobilePhone()}">Default Mobile Number</td>
+				<td th:text="${therapist.getStatusId()}">Default Status</td>
+				<td th:href="@{/modify_employee_form/{id}(id=${therapist.getTherapistId()})}">Edit</td>
+				<td th:href="@{/delete_employee_form/{id}(id=${therapist.getTherapistId()})}">Delete</td>
+			</tr>
 		</table>
 		</center>
 		<script>

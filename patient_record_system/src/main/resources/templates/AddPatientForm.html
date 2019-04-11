@@ -18,69 +18,60 @@
 		<li><a href="/reports">Reports</a></li>
 	</ul>
 </div>
-<center> <form class="addPatient">
+<center> <form class="addPatient" th:action="@{/add_patient}" th:object="${patient}" method="post">
 	<h1> Intake Form </h1><p2><div class="requiredKey">Required</div></p2><br></br>
 	<p1><div class="required">First name:
-		<input type="text" name="firstname" maxlength="50"></div></p1>
+		<input type="text" name="firstName" th:field="*{firstName}" maxlength="50"></div></p1>
 	<p1><div class="required">&nbsp;&nbsp;&nbsp;Last name:
-		<input type="text" name="lastname" maxlength="50"></div></p1>
+		<input type="text" name="lastname" th:field="*{lastName}" maxlength="50"></div></p1>
 	<p1><div class="required">&nbsp;&nbsp;&nbsp;Sex:
-		<select name="sex" placeholder="" maxlength="10">
-			<option value="male">Male</option>
-			<option value="female">Female</option>
+		<select name="sex"  placeholder="" th:field="*{sexId}"maxlength="10">
+			<option th:each="sex : ${sex_array}" th:value="${sex.getSexTypeId()}" th:text="${sex.getSex()}">Male</option>
 		</select></div></p1>
 	<br></br><p1><div class="required" maxlength="10">Date of Birth:
-	<input type="date" name="dob" size="8"></div></p1>
+	<input type="date" name="dob" th:field="*{dob}" size="8"></div></p1>
 	<p1><div class="required">&nbsp;&nbsp;&nbsp;Guardian Name:
 		<input type="text" name="guardian" maxlength="50" size="35"></div></p1>
 	<br></br><p1><div class="required">Start Date:
-	<input type="date" name="startdate" maxlength="10" size="5"></div></p1>
+	<input type="date" name="startdate" th:field="*{startDate}" maxlength="10" size="5"></div></p1>
 	<p1><div class="required">&nbsp;&nbsp;&nbsp;Address:
-		<input type="text" name="address" maxlength="255" size="35"></div></p1>
+		<input type="text" name="address" th:field="*{addressLine}" maxlength="255" size="35"></div></p1>
 	<br></br><p1><div class="required">City:
-	<input type="text" name="city" maxlength="100"></div></p1>
+	<input type="text" name="city" th:field="*{city}" maxlength="100"></div></p1>
 	<p1><div class="required">&nbsp;&nbsp;&nbsp;ZIP Code:
-		<input type="text" name="zipcode" maxlength="6" size="8"></div></p1>
+		<input type="text" name="zipcode" th:field="*{zipcode}" maxlength="6" size="8"></div></p1>
 	<br></br><p1><div class="required">Region:
-	<select name="region" placeholder="Texas" maxlength="10">
-		<option value="texas">Texas</option>
-		<option value="california">California</option>
-		<option value="newmexico">New Mexico</option>
+	<select name="region" placeholder="Texas" th:field="*{regionId}" maxlength="10">
+		<option  th:each="region : ${region_array}" th:value="${region.getRegionId()}" th:text="${region.getName()}">Texas</option>
 	</select></div></p1>
 	<p1><div class="required">&nbsp;&nbsp;&nbsp;Country:
-		<select name="country" placeholder="United States" maxlength="10">
-			<option value="usa">United States</option>
-			<option value="mexico">Mexico</option>
-			<option value="canada">Canada</option>
+		<select name="country" placeholder="United States" th:field="*{countryId}" maxlength="10">
+			<option   th:each="country :  ${country_array}" th:value="${country.getCountryId()}" th:text="${country.getName()}">United States</option>
 		</select></div></p1>
 	<p1><div class="required">&nbsp;&nbsp;&nbsp;Email:
-		<input type="email" name="email" maxlength="100"></div></p1>
+		<input type="email" name="email" th:field="*{email}" maxlength="100"></div></p1>
 	<br></br><p1><div class="required">Primary Phone:
-	<input type="tel" name="pphone" placeholder="XXX-XXX-XXXX" maxlength="13"></div></p1>
+	<input type="tel" name="hphone" th:field="*{homePhone}" placeholder="XXX-XXX-XXXX" maxlength="13"></div></p1>
 	<p1>&nbsp;&nbsp;&nbsp;Secondary Phone:
-		<input type="tel" name="sphone" placeholder="XXX-XXX-XXXX" maxlength="13"></p1>
+		<input type="tel" name="cphone" th:field="*{mobilePhone}" placeholder="XXX-XXX-XXXX" maxlength="13"></p1>
 	<br></br><p1>Allergies:
-	<input type="text" name="allergies" placeholder="None" maxlength="13"></p1>
+	<input type="text" name="allergies"  placeholder="None" maxlength="13"></p1>
 	<p1>&nbsp;&nbsp;&nbsp;Medication:
-		<input type="text" name="medication" placeholder="None" maxlength="13"></p1>
+		<input type="text" name="medication"  placeholder="None" maxlength="13"></p1>
 	<p1>&nbsp;&nbsp;&nbsp;Medication Notes:
-		<input type="text" name="medicationnotes" placeholder="None" maxlength="250"></p1>
+		<input type="text" name="medicationnotes"  placeholder="None" maxlength="250"></p1>
 	<p1><div class="required">&nbsp;&nbsp;&nbsp;Insurance:
-		<select name="insurance" placeholder="">
-			<option value="tchp">TCHP</option>
-			<option value="chc">CHC</option>
-			<option value="uhc">UHC</option>
-			<option value="cshcn">CSHCN</option>
-			<option value="tmhp">TMHP</option>
+		<select name="insurance" placeholder="" th:field="*{insuranceId}">
+			<option th:each="insurance : ${insurance_array}" th:value="${insurance.getInsuranceId()}" th:text="${insurance.getName()}" th:field="*{insuranceId}">TCHP</option>
 		</select></div></p1>
 	<br></br><p1><div class="required">INSURANCE GROUP NUMBER:
 	<input type="text" name="INSURANCEGROUPNUMBER" placeholder="XXXXXXXXXX" maxlength="13"></div></p1>
 	<br></br><p1><div class="required">INSURANCE MEMBER ID NUMBER:
 	<input type="text" name="INSURANCEMEMBERIDNUMBER" placeholder="XXXXXXXXX" maxlength="13"></div></p1>
 	<br></br><center><div class="required">Patient Status:
-	<select name="patientstatus" placeholder="active" maxlength="10">
-		<option value="active">Active</option>
-		<option value="inactive">Inactive</option>
+	<select name="patientstatus" placeholder="active" maxlength="10" th:field="*{statusId}">
+		<option value="1" >Active</option>
+		<option value="2" >Inactive</option>
 	</select></div></center><br></br>
 	<center><input type="submit" value="Submit"></center>
 </form></center>

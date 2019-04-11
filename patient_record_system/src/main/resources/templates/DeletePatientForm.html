@@ -18,10 +18,10 @@
             <li><a href="/reports">Reports</a></li>
 		</ul>
 		</div>
-		<form class="deletePatient">
+		<form class="deletePatient" action="#" th:action="@{/delete_patient/{id}(id=${patient.getPatientId()})}" th:object="${patient}" method="post">
 		<center><h1> Delete Patient Form</h1></center><p2><div class="requiredKey">Required</div></p2><br></br>
 		<div class="required">Patient ID:
-		<input type="text" name="patientID"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="text" th:name="patientID" th:value="${patient.patientId}" ></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<input type="submit" value="Delete">
 		</form>
 		<center><button class="exitButton" onclick="goBack()">Exit</button></center>
