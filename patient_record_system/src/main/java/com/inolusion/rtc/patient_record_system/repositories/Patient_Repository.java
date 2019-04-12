@@ -11,7 +11,7 @@ import java.util.Optional;
 public interface Patient_Repository extends CrudRepository<PatientEntity, Long> {
     List<PatientEntity> findByFirstName (String firstName);
 
-    List<PatientEntity> findByPatientId (int PatientID);
+    PatientEntity findByPatientId (int PatientID);
 
     @Override
     long count();

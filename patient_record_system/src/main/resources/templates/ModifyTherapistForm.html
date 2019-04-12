@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Modify Patient</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/ModifyTherapistForm.css" th:href="@{/css/ModifyTherapistForm.css}">
+</head>
+<body>
+<div id="header">
+    <div id="logo"></div>
+    <ul id="nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/patient_records_table">Patient Records</a></li>
+        <li><a class="active" href="/employee_records">Therapist Records</a></li>
+        <li><a href="/therapy_session">Therapy Sessions</a></li>
+        <li><a href="/therapy_progress_notes">Therapy Notes</a></li>
+        <li><a href="/incidents_table">Incidents</a></li>
+        <li><a href="/reports">Reports</a></li>
+    </ul>
+</div>
+<center><form class="modifyTherapistID">
+    <center>Therapist ID:
+        <input type="text" name="TherapistID" maxlength="10">&nbsp;&nbsp;&nbsp;<button onclick="modifyTherapist()">Modify</button>
+</form></center>
+<center> <form class="modifyTherapist">
+    <h1> Modify Therapist Info</h1><p2><div class="requiredKey">Required</div></p2><br><br>
+    <p1><div class="required">First name:
+        <input name="firstname" type="text" maxlength="50"></div></p1>
+    <p1><div class="required">&nbsp;&nbsp;&nbsp;Last name:
+        <input name="lastname" type="text" maxlength="50"></div></p1>
+    <br><br><p1><div class="required">Start Date:
+    <input name="startdate" type="date" size="10" maxlength="10"></div></p1>
+    <p1><div class="required">&nbsp;&nbsp;&nbsp;Email:
+        <input name="email" type="email" maxlength="100"></div></p1>
+    <br><br><p1><div class="required">Primary Phone:
+    <input name="pphone" type="tel" placeholder="XXX-XXX-XXXX" maxlength="13"></div></p1>
+    <p1>&nbsp;&nbsp;&nbsp;Secondary Phone:
+        <input name="sphone" type="tel" placeholder="XXX-XXX-XXXX" maxlength="13"></p1>
+    <br><br><center><div class="required">Therapist Status:
+    <select name="Therapiststatus" placeholder="active" maxlength="10">
+        <option value="active">Active</option>
+        <option value="inactive">Inactive</option>
+    </select></div></center><br><br>
+    <center><input type="submit" value="Submit"></center>
+</form></center>
+<center><button class="exitButton" onclick="goBack()">Exit</button><center>
+    <script>
+        function modifyTherapist() {
+
+        }
+    </script>
+    <script>
+        function goBack() {
+            window.open("Therapist_Table.html", "_self");
+        }
+    </script>
+    <script>
+        var dateControl = document.querySelector('input[type="date"]');
+        dateControl.value = 'YYYY/MM/DD';
+    </script>
+</body>
+</html>

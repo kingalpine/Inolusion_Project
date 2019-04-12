@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Delete Patient</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/DeleteTherapistForm.css" th:href="@{/css/DeleteTherapistForm.css}">
+</head>
+<body>
+<div id="header">
+    <div id="logo"></div>
+    <ul id="nav">
+        <li><a href="/">Home</a></li>
+        <li><a  href="/patient_records_table">Patient Records</a></li>
+        <li><a class="active" href="/employee_records">Therapist Records</a></li>
+        <li><a href="/therapy_session">Therapy Sessions</a></li>
+        <li><a href="/therapy_progress_notes">Therapy Notes</a></li>
+        <li><a href="/incidents_table">Incidents</a></li>
+        <li><a href="/reports">Reports</a></li>
+    </ul>
+</div>
+<form class="deleteTherapist">
+    <center><h1> Delete Therapist Form</h1></center><p2><div class="requiredKey">Required</div></p2><br></br>
+    <div class="required">Therapy ID:
+        <input type="text" name="TherapistID"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="submit" value="Delete">
+</form>
+<center><button class="exitButton" onclick="goBack()">Exit</button></center>
+<script>
+    function goBack() {
+        window.open("Therapist_Table.html", "_self");
+    }
+</script>
+</body>
+</html>
