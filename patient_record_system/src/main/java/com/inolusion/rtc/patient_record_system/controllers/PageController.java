@@ -2,21 +2,18 @@ package com.inolusion.rtc.patient_record_system.controllers;
 
 
 
-import com.inolusion.rtc.patient_record_system.entities.AllergyEntity;
-import com.inolusion.rtc.patient_record_system.entities.MedicationHistoryEntity;
 import com.inolusion.rtc.patient_record_system.entities.PatientEntity;
 import com.inolusion.rtc.patient_record_system.entities.TherapistEntity;
 import com.inolusion.rtc.patient_record_system.repositories.*;
-import com.sun.org.apache.xpath.internal.operations.Mod;
+import com.inolusion.rtc.patient_record_system.services.SexService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
-import javax.validation.Valid;
 
 
 @Controller
@@ -31,23 +28,44 @@ public class PageController {
     @Autowired
     private Therapy_Repository therapy_repository;
 
-    @GetMapping("/patient_records_table")
-    public String showPatientRecordsPage(Model md) {
+    @Autowired
+    private Region_Repository region_repository;
 
+    @Autowired
+    private Country_Repository country_repository;
 
-        md.addAttribute("patient_array", patient_repository.findAll());
+    @Autowired
+    private Insurance_repository insurance_repository;
+
+    @Autowired
+    private Sex_Repository sex_repository;
+
+    @Autowired
+    private PatientStatus_Repository patientStatus_repository;
+
+        @GetMapping("/patient_records_table")
+        public String showPatientRecordsPage(Model md) {
+
+            md.addAttribute("patient_array", patient_repository.findAll());
 
         return "PatientRecords_Table";
     }
     @GetMapping("/add_patient_form")
-    public String showAddPatientFormPage(){
+    public String showAddPatientFormPage(Model model){
+        PatientEntity patient = new PatientEntity();
+        model.addAttribute("region_array", region_repository.findAll());
+        model.addAttribute("country_array", country_repository.findAll());
+        model.addAttribute("insurance_array", insurance_repository.findAll());
+        model.addAttribute("sex_array", sex_repository.findAll());
+        model.addAttribute("patient_status_array", patientStatus_repository.findAll());
+        model.addAttribute("patient", patient);
+
         return "AddPatientForm";
     }
     @PostMapping("/add_patient")
-    public String addPatient (@Valid PatientEntity patient, BindingResult result, Model model){
-        if (result.hasErrors()){
-            return "AddPatientForm";
-        }
+    public String addPatient (@ModelAttribute("patient") PatientEntity patient, BindingResult result, Model model){
+
+
         patient_repository.save(patient);
         model.addAttribute("patient_array", patient_repository.findAll());
         return "PatientRecords_Table";
@@ -56,7 +74,15 @@ public class PageController {
     public String showDeletePatientTable(@PathVariable("id") int id, Model md) {
         PatientEntity patient = patient_repository.findByPatientId(id);
         md.addAttribute("patient", patient);
-        return "DeletePatientTable";
+        System.out.println(patient.getPatientId());
+        return "DeletePatientForm";
+    }
+    @PostMapping("/delete_patient/{id}")
+    public String deletePatient(@PathVariable("id") int id, Model md){
+        PatientEntity patient = patient_repository.findByPatientId(id);
+        patient_repository.delete(patient);
+        md.addAttribute("patient_array", patient_repository.findAll());
+        return "PatientRecords_Table";
     }
 
     @GetMapping("/modify_patient_table/{id}")
@@ -76,7 +102,7 @@ public class PageController {
     }
     @GetMapping("/add_employee_form")
     public String showAddEmployeeForm() {return "AddEmployeeForm";}
-    @GetMapping("modify_employee_form/{id}")
+    @GetMapping("/modify_employee_form/{id}")
     public String showModifyEmployeeForm(@PathVariable("id") int id, Model md){
         TherapistEntity therapist = therapist_repository.findByTherapistId(id);
         md.addAttribute("therapist", therapist);

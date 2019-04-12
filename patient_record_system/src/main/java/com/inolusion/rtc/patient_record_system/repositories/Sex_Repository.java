@@ -10,6 +10,5 @@ import java.util.List;
 @Repository
 public interface Sex_Repository extends CrudRepository<SexTypeEntity,Long> {
 
-    @Override
-    long count();
+    SexTypeEntity findBySexTypeId (int sexId);
 }

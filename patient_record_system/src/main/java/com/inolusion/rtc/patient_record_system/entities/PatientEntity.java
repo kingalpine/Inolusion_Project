@@ -1,6 +1,7 @@
 package com.inolusion.rtc.patient_record_system.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.sql.Date;
 import java.util.Objects;
 
@@ -19,12 +20,13 @@ public class PatientEntity {
     private CountryEntity countryId;
     private String email;
     private Date dob;
-    private String homePhone;
-    private String mobilePhone;
-    private InsuranceEntity insuranceId;
+    private String primaryPhone;
+    private String secondaryPhone;
+    private String guardianName;
     private PatientStatusEntity statusId;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "PATIENT_ID")
     public int getPatientId() {
         return patientId;
@@ -35,6 +37,7 @@ public class PatientEntity {
     }
 
     @Basic
+    @NotNull
     @Column(name = "FIRST_NAME")
     public String getFirstName() {
         return firstName;
@@ -145,34 +148,31 @@ public class PatientEntity {
     }
 
     @Basic
-    @Column(name = "HOME_PHONE")
-    public String getHomePhone() {
-        return homePhone;
+    @Column(name = "PRIMARY_PHONE")
+    public String getPrimaryPhone() {
+        return primaryPhone;
     }
 
-    public void setHomePhone(String homePhone) {
-        this.homePhone = homePhone;
+    public void setPrimaryPhone(String homePhone) {
+        this.primaryPhone = homePhone;
     }
 
     @Basic
-    @Column(name = "MOBILE_PHONE")
-    public String getMobilePhone() {
-        return mobilePhone;
+    @Column(name = "SECONDARY_PHONE")
+    public String getSecondaryPhone() {
+        return secondaryPhone;
     }
 
-    public void setMobilePhone(String mobilePhone) {
-        this.mobilePhone = mobilePhone;
+    public void setSecondaryPhone(String mobilePhone) {
+        this.secondaryPhone = mobilePhone;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "INSURANCE_ID")
-    public InsuranceEntity getInsuranceId() {
-        return insuranceId;
-    }
+    @Basic
+    @Column(name = "GUARDIAN_NAME")
+    public String getGuardianName(){return guardianName;}
 
-    public void setInsuranceId(InsuranceEntity insuranceId) {
-        this.insuranceId = insuranceId;
-    }
+    public void setGuardianName(String guardianName){this.guardianName = guardianName;}
+
 
     @ManyToOne
     @JoinColumn(name = "STATUS_ID")
@@ -193,7 +193,6 @@ public class PatientEntity {
                 sexId == that.sexId &&
                 regionId == that.regionId &&
                 countryId == that.countryId &&
-                insuranceId == that.insuranceId &&
                 statusId == that.statusId &&
                 Objects.equals(firstName, that.firstName) &&
                 Objects.equals(lastName, that.lastName) &&
@@ -203,12 +202,14 @@ public class PatientEntity {
                 Objects.equals(zipcode, that.zipcode) &&
                 Objects.equals(email, that.email) &&
                 Objects.equals(dob, that.dob) &&
-                Objects.equals(homePhone, that.homePhone) &&
-                Objects.equals(mobilePhone, that.mobilePhone);
+                Objects.equals(primaryPhone, that.primaryPhone) &&
+                Objects.equals(secondaryPhone, that.secondaryPhone) &&
+                Objects.equals(guardianName, that.guardianName);
+
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(patientId, firstName, lastName, startDate, sexId, addressLine, city, zipcode, regionId, countryId, email, dob, homePhone, mobilePhone, insuranceId, statusId);
+        return Objects.hash(patientId, firstName, lastName, startDate, sexId, addressLine, city, zipcode, regionId, countryId, email, dob, primaryPhone, secondaryPhone, guardianName, statusId);
     }
 }
