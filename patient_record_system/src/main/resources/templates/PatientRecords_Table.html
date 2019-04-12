@@ -44,7 +44,6 @@
 			<th>Secondary Phone</th>
 			<th>Allergies</th>
 			<th>Medication</th>
-			<th>Insurance</th>
 			<th>Patient Status</th>
 		</tr>
 			<tr th:each="patient : ${patient_array}">
@@ -60,11 +59,10 @@
 				<td th:text="${patient.getCountryId()}">Default Country</td>
 				<td th:text="${patient.getEmail()}">Default Email</td>
 				<td th:text="${patient.getDob()}">Default DOB</td>
-				<td th:text="${patient.getHomePhone()}">Default Home Phone</td>
-				<td th:text="${patient.getMobilePhone()}">Default Mobile Phone</td>
+				<td th:text="${patient.getPrimaryPhone()}">Default Home Phone</td>
+				<td th:text="${patient.getSecondaryPhone()}">Default Mobile Phone</td>
 				<td>None</td>
 				<td>None</td>
-				<td th:text="${patient.getInsuranceId()}">Default Insurance</td>
 				<td th:text="${patient.getStatusId()}">Default Status</td>
 				<td><a th:href="@{/modify_patient_table/{id}(id=${patient.getPatientId()})}">Edit</a></td>
 				<td><a th:href="@{/delete_patient_table/{id}(id=${patient.getPatientId()})}">Delete</a></td>

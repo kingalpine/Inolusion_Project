@@ -40,11 +40,13 @@ public class PageController {
     @Autowired
     private Sex_Repository sex_repository;
 
-    @GetMapping("/patient_records_table")
-    public String showPatientRecordsPage(Model md) {
+    @Autowired
+    private PatientStatus_Repository patientStatus_repository;
 
+        @GetMapping("/patient_records_table")
+        public String showPatientRecordsPage(Model md) {
 
-        md.addAttribute("patient_array", patient_repository.findAll());
+            md.addAttribute("patient_array", patient_repository.findAll());
 
         return "PatientRecords_Table";
     }
@@ -55,6 +57,7 @@ public class PageController {
         model.addAttribute("country_array", country_repository.findAll());
         model.addAttribute("insurance_array", insurance_repository.findAll());
         model.addAttribute("sex_array", sex_repository.findAll());
+        model.addAttribute("patient_status_array", patientStatus_repository.findAll());
         model.addAttribute("patient", patient);
 
         return "AddPatientForm";
@@ -79,7 +82,7 @@ public class PageController {
         PatientEntity patient = patient_repository.findByPatientId(id);
         patient_repository.delete(patient);
         md.addAttribute("patient_array", patient_repository.findAll());
-        return "index";
+        return "PatientRecords_Table";
     }
 
     @GetMapping("/modify_patient_table/{id}")

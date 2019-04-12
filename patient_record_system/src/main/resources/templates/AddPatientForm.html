@@ -31,7 +31,7 @@
 	<br></br><p1><div class="required" maxlength="10">Date of Birth:
 	<input type="date" name="dob" th:field="*{dob}" size="8"></div></p1>
 	<p1><div class="required">&nbsp;&nbsp;&nbsp;Guardian Name:
-		<input type="text" name="guardian" maxlength="50" size="35"></div></p1>
+		<input type="text" name="guardian" maxlength="50" size="35" th:field="*{guardianName}"></div></p1>
 	<br></br><p1><div class="required">Start Date:
 	<input type="date" name="startdate" th:field="*{startDate}" maxlength="10" size="5"></div></p1>
 	<p1><div class="required">&nbsp;&nbsp;&nbsp;Address:
@@ -51,9 +51,9 @@
 	<p1><div class="required">&nbsp;&nbsp;&nbsp;Email:
 		<input type="email" name="email" th:field="*{email}" maxlength="100"></div></p1>
 	<br></br><p1><div class="required">Primary Phone:
-	<input type="tel" name="hphone" th:field="*{homePhone}" placeholder="XXX-XXX-XXXX" maxlength="13"></div></p1>
+	<input type="tel" name="hphone" th:field="*{primaryPhone}" placeholder="XXX-XXX-XXXX" maxlength="13"></div></p1>
 	<p1>&nbsp;&nbsp;&nbsp;Secondary Phone:
-		<input type="tel" name="cphone" th:field="*{mobilePhone}" placeholder="XXX-XXX-XXXX" maxlength="13"></p1>
+		<input type="tel" name="cphone" th:field="*{secondaryPhone}" placeholder="XXX-XXX-XXXX" maxlength="13"></p1>
 	<br></br><p1>Allergies:
 	<input type="text" name="allergies"  placeholder="None" maxlength="13"></p1>
 	<p1>&nbsp;&nbsp;&nbsp;Medication:
@@ -61,8 +61,8 @@
 	<p1>&nbsp;&nbsp;&nbsp;Medication Notes:
 		<input type="text" name="medicationnotes"  placeholder="None" maxlength="250"></p1>
 	<p1><div class="required">&nbsp;&nbsp;&nbsp;Insurance:
-		<select name="insurance" placeholder="" th:field="*{insuranceId}">
-			<option th:each="insurance : ${insurance_array}" th:value="${insurance.getInsuranceId()}" th:text="${insurance.getName()}" th:field="*{insuranceId}">TCHP</option>
+		<select name="insurance" placeholder="" >
+			<option th:each="insurance : ${insurance_array}" th:value="${insurance.getInsuranceId()}" th:text="${insurance.getName()}">TCHP</option>
 		</select></div></p1>
 	<br></br><p1><div class="required">INSURANCE GROUP NUMBER:
 	<input type="text" name="INSURANCEGROUPNUMBER" placeholder="XXXXXXXXXX" maxlength="13"></div></p1>
@@ -70,8 +70,7 @@
 	<input type="text" name="INSURANCEMEMBERIDNUMBER" placeholder="XXXXXXXXX" maxlength="13"></div></p1>
 	<br></br><center><div class="required">Patient Status:
 	<select name="patientstatus" placeholder="active" maxlength="10" th:field="*{statusId}">
-		<option value="1" >Active</option>
-		<option value="2" >Inactive</option>
+		<option th:each="patient_status : ${patient_status_array}" th:value="${patient_status.getPatientStatusId()}" th:text="${patient_status.getStatusType()}" >Active</option>
 	</select></div></center><br></br>
 	<center><input type="submit" value="Submit"></center>
 </form></center>
