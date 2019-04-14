@@ -12,11 +12,12 @@ public class TherapistEntity {
     private String lastName;
     private String email;
     private Date startDate;
-    private String homePhone;
-    private String mobilePhone;
+    private String primaryPhone;
+    private String secondaryPhone;
     private TherapistStatusEntity statusId;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "THERAPIST_ID")
     public int getTherapistId() {
         return therapistId;
@@ -67,23 +68,23 @@ public class TherapistEntity {
     }
 
     @Basic
-    @Column(name = "HOME_PHONE")
-    public String getHomePhone() {
-        return homePhone;
+    @Column(name = "PRIMARY_PHONE")
+    public String getPrimaryPhone() {
+        return primaryPhone;
     }
 
-    public void setHomePhone(String homePhone) {
-        this.homePhone = homePhone;
+    public void setPrimaryPhone(String primaryPhone) {
+        this.primaryPhone = primaryPhone;
     }
 
     @Basic
-    @Column(name = "MOBILE_PHONE")
-    public String getMobilePhone() {
-        return mobilePhone;
+    @Column(name = "SECONDARY_PHONE")
+    public String getSecondaryPhone() {
+        return secondaryPhone;
     }
 
-    public void setMobilePhone(String mobilePhone) {
-        this.mobilePhone = mobilePhone;
+    public void setSecondaryPhone(String secondaryPhone) {
+        this.secondaryPhone = secondaryPhone;
     }
 
     @ManyToOne
@@ -107,12 +108,17 @@ public class TherapistEntity {
                 Objects.equals(lastName, that.lastName) &&
                 Objects.equals(email, that.email) &&
                 Objects.equals(startDate, that.startDate) &&
-                Objects.equals(homePhone, that.homePhone) &&
-                Objects.equals(mobilePhone, that.mobilePhone);
+                Objects.equals(primaryPhone, that.primaryPhone) &&
+                Objects.equals(secondaryPhone, that.secondaryPhone);
+    }
+
+    @Override
+    public String toString() {
+        return firstName + ' ' + lastName;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(therapistId, firstName, lastName, email, startDate, homePhone, mobilePhone, statusId);
+        return Objects.hash(therapistId, firstName, lastName, email, startDate, primaryPhone, secondaryPhone, statusId);
     }
 }

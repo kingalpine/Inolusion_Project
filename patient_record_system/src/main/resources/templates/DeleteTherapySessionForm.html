@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Delete Therapy Session </title>
-    <link rel="stylesheet" type="text/css" href="../static/css/DeleteTherapySessionForm.css" th:href="@{/css/DeleteTherapySession.css}">
+    <link rel="stylesheet" type="text/css" href="../static/css/DeleteTherapySessionForm.css" th:href="@{/css/DeleteTherapySessionForm.css}">
 </head>
 <body>
 <div id="header">
@@ -13,15 +13,14 @@
         <li><a  href="/patient_records_table">Patient Records</a></li>
         <li><a  href="/employee_records">Therapist Records</a></li>
         <li><a class="active" href="/therapy_session">Therapy Sessions</a></li>
-        <li><a href="/therapy_progress_notes">Therapy Notes</a></li>
         <li><a href="/incidents_table">Incidents</a></li>
         <li><a href="/reports">Reports</a></li>
     </ul>
 </div>
-<form class="deleteTherapySession">
+<form class="deleteTherapySession" th:action="@{/delete_therapy_session/{id} (id=${therapy.getTherapyId()})}" th:object="${therapy}" method="post">
     <center><h1> Delete Therapy Form</h1></center><p2><div class="requiredKey">Required</div></p2><br></br>
-    <div class="required">Therapist ID:
-        <input type="text" name="TherapyID"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="required">Therapy ID:
+        <input type="text" name="TherapyID" th:field="*{therapyId}"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <input type="submit" value="Delete">
 </form>
 <center><button class="exitButton" onclick="goBack()">Exit</button></center>

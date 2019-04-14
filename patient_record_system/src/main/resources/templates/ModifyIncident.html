@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Therapy Progress Note</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/ModifyIncident.css" th:href="@{/css/ModifyIncident.css}">
+</head>
+<body>
+<div id="header">
+    <div id="logo"></div>
+    <ul id="nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/patient_records_table"> Patient Records</a></li>
+        <li><a href="/employee_records"> Therapist Records</a></li>
+        <li><a href="/therapy_session"> Therapy Sessions</a></li>
+        <li><a class="active" href="/incidents_table">Incidents</a></li>
+        <li><a href="/reports">Reports</a></li>
+    </ul>
+</div>
+<center>
+    <form class="ModifyIncident">
+        <h1> Therapy Incident </h1>
+        <p2>
+            <div class="requiredKey">Required</div>
+        </p2><br><br>
+        <p1>
+            <div class="required">&nbsp;&nbsp;&nbsp;Therapy ID:
+                <select name="TherapyID" placeholder="">
+                </select></div>
+        </p1>
+        <p1>
+            <div>&nbsp;&nbsp;&nbsp;Therapist Name:
+                <select name="TherapistName" placeholder="">
+                </select></div>
+        </p1>
+        <p1>&nbsp;&nbsp;&nbsp;Notes pertaining the Therapist Incident:
+            <input type="text" name="Therapistnotes" placeholder="None" maxlength="250"></p1>
+        <p1>
+            <div>&nbsp;&nbsp;&nbsp;Patient Name:
+                <select name="PatientName" placeholder="">
+                </select></div>
+        </p1>
+        <p1>&nbsp;&nbsp;&nbsp;Notes pertaining the Patient Incident :
+            <input type="text" name="Patientnotes" placeholder="None" maxlength="250"></p1>
+        <p1>
+            <div>&nbsp;&nbsp;&nbsp;Incident Type:
+                <select name="IncidentType" placeholder="">
+                </select></div>
+        </p1>
+        <br><br>
+        <p1>
+            <div class="required">Incident Date:
+                <input name="Incidentdate" type="date" size="5" maxlength="10"></div>
+        </p1>
+        <br><br>
+        <p1>
+            <div class="required">Time of Incident :
+                <input name="Incidenttime" type="time" size="5" maxlength="10"></div>
+        </p1>
+        <br><br>
+        <center>
+            <div class="required">Incident Status:
+                <select name="Therapiststatus" placeholder="active" maxlength="10">
+                    <option value="active">Closed</option>
+                </select></div>
+        </center><br><br>
+        <center><input type="submit" value="Submit"></center>
+    </form>
+</center>
+<center><button class="exitButton" onclick="goBack()">Exit</button>
+    <center>
+        <script>
+            function goBack() {
+                window.open("TherapySessions_Table.html", "_self");
+            }
+        </script>
+        <script>
+            var dateControl = document.querySelector('input[type="date"]');
+            dateControl.value = 'YYYY/MM/DD';
+        </script>
+
+    </center>
+</center>
+</body></html>

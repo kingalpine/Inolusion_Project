@@ -13,37 +13,32 @@
 			<li><a href="/patient_records_table">Patient Records</a></li>
 			<li><a href="/employee_records">Therapist Records</a></li>
 			<li><a href="/therapy_session">Therapy Sessions</a></li>
-			<li><a href="/therapy_progress_notes">Therapy Progress Notes</a></li>
 			<li><a href="/incidents_table">Incidents</a></li>
 			<li><a href="/reports">Reports</a></li>
 		</ul>
 	</div>
 		<center>
-		<img src="../static/images/PRS.png" alt="PRS" height="176" width="183"> <br></br>
+		<img th:src="@{/images/PRS.png}" alt="PRS" height="176" width="183"> <br></br>
 		</center>
 		<br></br>
 		<div class="row">
-			<div onclick="location.href='PatientRecords_Table.html';">
+			<div onclick="location.href='/patient_records_table';">
 				<div class="box">
 					<h3>Patient Records</h3>
 					<p class="description">Track patients and their personal information as well as medication, allergies, and status.<br></br></p></div></div>
-			<div onclick="location.href='Therapist_Table.html';">
+			<div onclick="location.href='/employee_records';">
 				<div class="box">
 					<h3>Therapist Records</h3>
 					<p class="description">Track therapists and their personal information as well as their status.<br></br></p></div></div>
-			<div onclick="location.href='TherapySessions_Table.html';">
+			<div onclick="location.href='therapy_session';">
 				<div class="box">
 					<h3>Therapy Sessions</h3>
 					<p class="description">Track therapy sessions and their information such as date, start time, end time, and medication.<br></br></p></div></div>
-			<div onclick="location.href='TherapyProgressNotes_Table.html';">
-				<div class="box">
-					<h3 class="name">Therapy Notes</h3>
-					<p class="description">Track therapy notes for a therapy session such as inverention and Speech CPT, therapy SOAP notes, and discharge plan.<br></br></p></div></div>
-			<div onclick="location.href='Incidents_Table.html';">
+			<div onclick="location.href='/incidents_table';">
 				<div class="box">
 					<h3 class="name">Incidents</h3>
-					<p class="description">Track patient and therapist incidents that occured in a therapy session as well as date and time of an incident.<br></br></p></div></div>
-			<div onclick="location.href='Reports.html';">
+					<p class="description">Track patient and therapist incidents that occurred in a therapy session as well as date and time of an incident.<br></br></p></div></div>
+			<div onclick="location.href='/reports';">
 				<div class="box">
 					<h3 class="name">Reports</h3>
 					<p class="description">Generate reports used by the business based off Patient Records, Therapist Records, Therapy Sessions, Therapy Notes, and Incidents.</p></div></div>

@@ -14,7 +14,6 @@
             <li><a href="/patient_records_table">Patient Records</a></li>
 			<li><a class="active" href="/employee_records">Therapist Records</a></li>
             <li><a href="/therapy_session">Therapy Sessions</a></li>
-			<li><a href="/therapy_progress_notes">Therapy Progress Notes</a></li>
 			<li><a href="/incidents_table">Incidents</a></li>
             <li><a href="/reports">Reports</a></li>
 		</ul>
@@ -34,8 +33,8 @@
 			<th>Therapist Last Name</th>
 			<th>Start Date</th>
 			<th>Email</th>
-			<th>Home Phone Number</th>
-			<th>Mobile Phone Number</th>
+			<th>Primary Phone Number</th>
+			<th>Secondary Phone Number</th>
 			<th>Therapist Status</th>
 			<th>Modify</th>
 			<th>Delete</th>
@@ -46,11 +45,11 @@
 				<td th:text="${therapist.getLastName()}">Default Last Name</td>
 				<td th:text="${therapist.getStartDate()}">Default Start Date</td>
 				<td th:text="${therapist.getEmail()}">Default Email</td>
-				<td th:text="${therapist.getHomePhone()}">Default Home Number</td>
-				<td th:text="${therapist.getMobilePhone()}">Default Mobile Number</td>
+				<td th:text="${therapist.getPrimaryPhone()}">Default Home Number</td>
+				<td th:text="${therapist.getSecondaryPhone()}">Default Mobile Number</td>
 				<td th:text="${therapist.getStatusId()}">Default Status</td>
-				<td th:href="@{/modify_employee_form/{id}(id=${therapist.getTherapistId()})}">Edit</td>
-				<td th:href="@{/delete_employee_form/{id}(id=${therapist.getTherapistId()})}">Delete</td>
+				<td><a th:href="@{/modify_employee_form/{id}(id=${therapist.getTherapistId()})}">Edit</a></td>
+				<td><a th:href="@{/delete_employee_form/{id}(id=${therapist.getTherapistId()})}">Delete</a></td>
 			</tr>
 		</table>
 		</center>

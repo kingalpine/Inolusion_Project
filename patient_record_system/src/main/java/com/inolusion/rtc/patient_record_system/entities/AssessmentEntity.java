@@ -4,40 +4,26 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "ASSESSMENT", schema = "dbo", catalog = "localspringbootdb")
+@Table(name = "ASSESSMENT_PROGRESS", schema = "dbo", catalog = "localspringbootdb")
 public class AssessmentEntity {
-    private int assessmentId;
-    private String treatmentActivity;
-    private String treatmentAssesment;
+    private int assessmentProgressId;
+    private String name;
+
 
     @Id
-    @Column(name = "ASSESSMENT_ID")
-    public int getAssessmentId() {
-        return assessmentId;
-    }
+    @Column(name = "ASSESSMENT_PROGRESS_ID")
+    public int getAssessmentProgressId() { return assessmentProgressId;}
 
-    public void setAssessmentId(int assessmentId) {
-        this.assessmentId = assessmentId;
-    }
-
-    @Basic
-    @Column(name = "TREATMENT_ACTIVITY")
-    public String getTreatmentActivity() {
-        return treatmentActivity;
-    }
-
-    public void setTreatmentActivity(String treatmentActivity) {
-        this.treatmentActivity = treatmentActivity;
+    public void setAssessmentProgressId(int assessmentProgressId) {
+        this.assessmentProgressId = assessmentProgressId;
     }
 
     @Basic
-    @Column(name = "TREATMENT_ASSESMENT")
-    public String getTreatmentAssesment() {
-        return treatmentAssesment;
-    }
+    @Column(name = "NAME")
+    public String getName(){return name;}
 
-    public void setTreatmentAssesment(String treatmentAssesment) {
-        this.treatmentAssesment = treatmentAssesment;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
@@ -45,13 +31,12 @@ public class AssessmentEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         AssessmentEntity that = (AssessmentEntity) o;
-        return assessmentId == that.assessmentId &&
-                Objects.equals(treatmentActivity, that.treatmentActivity) &&
-                Objects.equals(treatmentAssesment, that.treatmentAssesment);
+        return assessmentProgressId == that.assessmentProgressId &&
+                Objects.equals(name, that.name) ;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(assessmentId, treatmentActivity, treatmentAssesment);
+        return Objects.hash(assessmentProgressId, name);
     }
 }

@@ -209,6 +209,11 @@ public class PatientEntity {
     }
 
     @Override
+    public String toString() {
+        return firstName + ' ' + lastName;
+    }
+
+    @Override
     public int hashCode() {
         return Objects.hash(patientId, firstName, lastName, startDate, sexId, addressLine, city, zipcode, regionId, countryId, email, dob, primaryPhone, secondaryPhone, guardianName, statusId);
     }

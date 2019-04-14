@@ -11,42 +11,41 @@
 		<li><a href="/patient_records_table"> Patient Records</a></li>
 		<li><a href="/employee_records"> Therapist Records</a></li>
 		<li><a class="active" href="/therapy_session"> Therapy Sessions</a></li>
-		<li><a href="/therapy_progress_notes">Therapy Notes</a></li>
 		<li><a href="/incidents_table">Incidents</a></li>
 		<li><a href="/reports">Reports</a></li>
 	</ul>
 </div>
-<center> <form class="addTherapy">
+<center> <form class="addTherapy" th:action="@{/add_therapy_session}" th:object="${therapy}" method="post">
 	<h1> Therapy Session </h1><p2><div class="requiredKey">Required</div></p2><br><br>
-	<p1><div class="required">&nbsp;&nbsp;&nbsp;Therapist Name:
-		<select name="TherapistName" placeholder="">
-		</select></div></p1>
-	<p1><div class="required">&nbsp;&nbsp;&nbsp;Patient Name:
-		<select name="TherapistName" placeholder="">
-		</select></div></p1>
+	<p1><div class="required">Therapist ID:
+		<input name="TherapistName" type="text" th:field="*{therapistId}" placeholder="Enter Therapist ID" >
+		</input></div></p1>
+	<p1><div class="required">Patient ID:
+		<input name="PatientName" type="text" th:field="*{patientId}" placeholder="Enter Patient ID" >
+		</input></div></p1>
 	<br><br><p1><div class="required">Session Date:
-	<input name="Sessiondate" type="date" size="5" maxlength="10"></div></p1>
+	<input name="Sessiondate" type="date" th:field="*{date}" size="5" maxlength="10"></div></p1>
 	<br><br><p1><div class="required">Session Start Time:
-	<input name="Starttime" type="time" size="5" maxlength="10"></div></p1>
+	<input name="Starttime" type="time" size="5" th:field="*{timeIn}" maxlength="10"></div></p1>
 	<br><br><p1><div>Session End Time:
-	<input name="EndTime" type="time" size="5" maxlength="10"></div></p1>
+	<input name="EndTime" type="time" size="5" th:field="*{timeOut}" maxlength="10"></div></p1>
 
 	<br><br><center><div class="required">Session Status:
-	<select name="Therapiststatus" placeholder="active" maxlength="10">
-		<option value="active">Active</option>
-		<option value="inactive">Inactive</option>
+	<select name="Therapiststatus" placeholder="active" th:field="*{therapyStatusId}" maxlength="10">
+		<option   th:each="therapy_status : ${therapy_status_array}" th:value="${therapy_status.getTherapyStatusId()}" th:text="${therapy_status.getStatusType()}">Status</option>
 	</select></div></center><br><br>
 	<center><input type="submit" value="Submit"></center>
+
 </form></center>
 <center><button class="exitButton" onclick="goBack()">Exit</button><center>
 	<script>
-        function goBack() {
-            window.open("TherapySessions_Table.html", "_self");
-        }
+		function goBack() {
+			window.open("TherapySessions_Table.html", "_self");
+		}
 	</script>
 	<script>
-        var dateControl = document.querySelector('input[type="date"]');
-        dateControl.value = 'YYYY/MM/DD';
+		var dateControl = document.querySelector('input[type="date"]');
+		dateControl.value = 'YYYY/MM/DD';
 	</script>
 
 </center></center></body></html>

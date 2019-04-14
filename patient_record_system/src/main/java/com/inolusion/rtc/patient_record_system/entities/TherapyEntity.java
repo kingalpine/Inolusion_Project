@@ -12,17 +12,21 @@ import java.util.Objects;
 public class TherapyEntity {
     private int therapyId;
     private PatientEntity patientId;
-    private List<ObjectiveEntity> objectiveEntities = new ArrayList<>();
-    private List<AssessmentEntity>  assessmentEntities = new ArrayList<>();
+    private String objectiveGoals;
+    private String objectiveStatement;
+    private String assessmentTreatmentActivity;
+    private String assessmentTreatment;
+    private AssessmentEntity assessmentProgressId;
     private Date date;
     private LocalTime timeIn;
     private LocalTime timeOut;
-    private TherapistStatusEntity therapyStatusId;
+    private TherapyStatusEntity therapyStatusId;
     private DischargeEntity dischargeId;
     private String therapistSignature;
     private TherapistEntity therapistId;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "THERAPY_ID")
     public int getTherapyId() {
         return therapyId;
@@ -42,29 +46,44 @@ public class TherapyEntity {
         this.patientId = patientId;
     }
 
-    @OneToMany
-    @JoinColumn(name = "Objective_ID")
+    @Basic
+    @Column(name = "OBJECTIVE_GOALS")
+    public String getObjectiveGoals(){return objectiveGoals;}
 
-    public List<ObjectiveEntity> getObjectiveEntities() {
-        return objectiveEntities;
+    public void setObjectiveGoals(String objectiveGoals) {
+        this.objectiveGoals = objectiveGoals;
     }
 
-    public void setObjectiveEntities(List<ObjectiveEntity> objectiveEntities) {
-        this.objectiveEntities = objectiveEntities;
+    @Basic
+    @Column(name = "OBJECTIVE_STATEMENT")
+    public String getObjectiveStatement(){return objectiveStatement;}
+
+    public void setObjectiveStatement(String objectiveStatement) {
+        this.objectiveStatement = objectiveStatement;
     }
 
-    @OneToMany
-    @JoinColumn(name = "ASSESSMENT_ID")
+    @Basic
+    @Column(name = "ASSESSMENT_TREATMENT_ACTIVITY")
+    public String getAssessmentTreatmentActivity(){return assessmentTreatmentActivity;}
 
-    public List<AssessmentEntity> getAssessmentEntities() {
-        return assessmentEntities;
+    public void setAssessmentTreatmentActivity(String assessmentTreatmentActivity) {
+        this.assessmentTreatmentActivity = assessmentTreatmentActivity;
     }
 
+    @Basic
+    @Column(name = "ASSESSMENT_TREATMENT")
+    public String getAssessmentTreatment(){return assessmentTreatment;}
 
-    public void setAssessmentEntities(List<AssessmentEntity> assessmentId) {
-        this.assessmentEntities = assessmentId;
+    public void setAssessmentTreatment(String assessmentTreatment) {
+        this.assessmentTreatment = assessmentTreatment;
     }
+    @ManyToOne
+    @JoinColumn(name = "ASSESSMENT_PROGRESS_ID")
+    public AssessmentEntity getAssessmentProgressId() {return assessmentProgressId;}
 
+    public void setAssessmentProgressId(AssessmentEntity assessmentProgressId) {
+        this.assessmentProgressId = assessmentProgressId;
+    }
     @Basic
     @Column(name = "DATE")
     public Date getDate() {
@@ -97,11 +116,11 @@ public class TherapyEntity {
 
     @ManyToOne
     @JoinColumn(name = "THERAPY_STATUS_ID")
-    public TherapistStatusEntity getTherapyStatusId() {
+    public TherapyStatusEntity getTherapyStatusId() {
         return therapyStatusId;
     }
 
-    public void setTherapyStatusId(TherapistStatusEntity therapyStatusId) {
+    public void setTherapyStatusId(TherapyStatusEntity therapyStatusId) {
         this.therapyStatusId = therapyStatusId;
     }
 
@@ -142,19 +161,22 @@ public class TherapyEntity {
         TherapyEntity that = (TherapyEntity) o;
         return therapyId == that.therapyId &&
                 patientId == that.patientId &&
-                objectiveEntities == that.objectiveEntities &&
-                assessmentEntities == that.assessmentEntities &&
+                assessmentProgressId == that.assessmentProgressId &&
                 therapyStatusId == that.therapyStatusId &&
                 dischargeId == that.dischargeId &&
                 therapistId == that.therapistId &&
                 Objects.equals(date, that.date) &&
                 Objects.equals(timeIn, that.timeIn) &&
                 Objects.equals(timeOut, that.timeOut) &&
-                Objects.equals(therapistSignature, that.therapistSignature);
+                Objects.equals(therapistSignature, that.therapistSignature) &&
+                Objects.equals(objectiveGoals, that.objectiveGoals) &&
+                Objects.equals(objectiveStatement, that.objectiveStatement) &&
+                Objects.equals(assessmentTreatmentActivity, that.assessmentTreatmentActivity) &&
+                Objects.equals(assessmentTreatment, that.assessmentTreatment);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(therapyId, patientId, objectiveEntities, assessmentEntities, date, timeIn, timeOut, therapyStatusId, dischargeId, therapistSignature, therapistId);
+        return Objects.hash(therapyId, patientId, objectiveGoals, objectiveStatement,assessmentTreatmentActivity,assessmentTreatment,assessmentProgressId, date, timeIn, timeOut, therapyStatusId, dischargeId, therapistSignature, therapistId);
     }
 }

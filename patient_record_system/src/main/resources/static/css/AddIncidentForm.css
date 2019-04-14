@@ -30,7 +30,7 @@
     background-repeat: no-repeat;
 
 }
-.addTherapy{
+.addIncident{
     max-width: 450px;
     background: #FAFAFA;
     padding: 30px;
@@ -51,11 +51,6 @@
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-}
-.NextButton{
-    background-color: #4CAF50;
-    color: white;
-    border-radius: 50%;
 }
 .required:after {
     content:" *";

@@ -13,76 +13,66 @@
             <li><a href="/patient_records_table">Patient Records</a></li>
 			<li><a href="/employee_records">Therapist Records</a></li>
             <li><a href="/therapy_session">Therapy Sessions</a></li>
-			<li><a class="active" href="/therapy_progress_notes">Therapy Notes</a></li>
 			<li><a href="/incidents_table">Incidents</a></li>
             <li><a href="/reports">Reports</a></li>
 		</ul>
 		</div>
-    <center> <form class="addTherapyNotes">
-		<h1> Therapy Progress Note </h1><p2><div class="requiredKey">Required</div></p2><br></br>
-		<p1><div class="required">Date:
-		<input type="date" name="TPNdate" maxlength="50"></div></p1>
-		<p1><div class="required">&nbsp;&nbsp;&nbsp;Time In:
-		<input type="time" name="timeIN" maxlength="8" size="8"></div></p1>
-		<p1><div class="required">&nbsp;&nbsp;&nbsp;Time Out:
-		<input type="time" name="timeOUT" maxlength="8" size="8"></div></p1>
-		<p1><div class="required" maxlength="10">&nbsp;&nbsp;&nbsp;Therapy ID:
-		<input type="text" name="therapyID" size="8"></div></p1>
-		<br></br><p1><div class="required">Patient First Name:
-		<input type="text" name="firstname" maxlength="50" size="20"></div></p1>
-		<p1><div class="required">&nbsp;&nbsp;&nbsp;Patient Last Name:
-		<input type="text" name="lastname" maxlength="50" size="20"></div></p1>
-		<br></br><p1><div class="required">Intervention:
-		<select name="intervention" placeholder="Default" maxlength="10">
-			<option value="stuff">Stuff</option>
-		</select></div></p1>
-		<p1><div class="required">&nbsp;&nbsp;&nbsp;CPT Code:
-		<select name="cptcode" placeholder="Default" maxlength="10">
-			<option value="stuff">Stuff</option>
-		</select></div></p1>
-		<br></br><center><div class="required">Subjective:
-		<select name="subjective" placeholder="Default" maxlength="10">
-			<option value="stuff">Stuff</option>
-		</select></div></center><br></br>
-		<p1>&nbsp;&nbsp;&nbsp;Subjective Notes:
-		<input type="text" name="subjectivenotes" maxlength="100" size="100"></p1>
-		<br></br><center><div class="required">Objective:
-		<select name="objective" placeholder="Default" maxlength="10">
-			<option value="stuff">Stuff</option>
-		</select></div></center><br></br>
-		<p1>&nbsp;&nbsp;&nbsp;Objective Notes:
-		<input type="text" name="objectivenotes" maxlength="100" size="100"></p1>
-		<br></br><center><div class="required">Assessment:
-		<select name="assessment" placeholder="Default" maxlength="10">
-			<option value="stuff">Stuff</option>
-		</select></div></center><br></br>
-		<p1>&nbsp;&nbsp;&nbsp;Assessment Notes:
-		<input type="text" name="assessmentnotes" maxlength="100" size="100"></p1>
-		<br></br><center><div class="required">Plan:
-		<select name="plan" placeholder="Default" maxlength="10">
-			<option value="stuff">Stuff</option>
-		</select></div></center><br></br>
-		<p1>&nbsp;&nbsp;&nbsp;Plan Notes:
-		<input type="text" name="plannotes" maxlength="100" size="100"></p1>
-		<p1>Medication:
-		<input type="text" name="medication" placeholder="None" maxlength="13"></p1>
-		<p1><div class="required">&nbsp;&nbsp;&nbsp;Discharge Plan:
-		<select name="dischargeplan" placeholder="active" maxlength="10">
-			<option value="option1">2-3 Weeks</option>
-		</select></div></p1>
-		<br></br><p1>Therapist Signature:
-		<input type="text" name="therapistsig" maxlength="100"></p1><br></br>
-		<center><input type="submit" value="Submit"></center>
+		<center> <form class="addTherapyNotes">
+			<h1> Therapy Progress Note </h1><p2><div class="requiredKey">Required</div></p2><br></br>
+			<br></br><p1><div align="left" class="required">Intervention:
+			<select name="intervention" placeholder="Default" maxlength="10">
+				<option value="stuff">Stuff</option>
+			</select></div></p1>
+			<p>    <div align="right" class="required">&nbsp;&nbsp;&nbsp;CPT Code:
+			<select name="cptcode" placeholder="Default" maxlength="10">
+				<option value="stuff">Stuff</option>
+			</select></div></p1>
+			<br></br><center><div align="center" class="required">Subjective:
+			<select name="subjective" placeholder="Default" maxlength="10">
+				<option value="stuff">Stuff</option>
+			</select></div></center>
+			<p align="left"> Subjective Notes:
+				<textarea name="subjectivenotes" maxlength="500" size="100" cols="120" rows="5"></textarea>
+				<br><br>
+			<p align="left"> Objective Goals:
+				<textarea name="objectivegoals" placeholder="Goals" maxlength="500" size="100" cols="120" rows="5"></textarea>
+				<br><br>
+			<p align="left"> Objective Statement:
+				<textarea name="objectivestatement" maxlength="500" size="100" cols="120" rows="5"></textarea>
+				<br></br><center><div class="required">Assessment Progress Stage:
+			<select name="assessment" placeholder="Default" maxlength="10">
+				<option value="stuff">Stuff</option>
+			</select></div></center>
+			<p align="left">Assessment Notes:
+				<textarea name="assessmentnotes" maxlength="100" size="100"cols="120" rows="5"></textarea>
+				<br></br><center><div class="required">Plan:
+			<select name="Plan" placeholder="Default" maxlength="10">
+				<option value="stuff">Stuff</option>
+			</select></div></center>
+			<p align="left">Plan Notes:
+				<textarea name="Plannotes" maxlength="100" size="100"cols="120" rows="5"></textarea>
+				<br></br>
+				<p1>Medication:
+					<textarea name="medication" placeholder="List of Medication" maxlength="255" cols="120" rows="2"></textarea>
+					<br></br>
+					<p1><div align="left" class="required">&nbsp;&nbsp;&nbsp;Discharge Plan:
+						<select name="dischargeplan" placeholder="active" maxlength="10">
+							<option value="option1">2-3 Weeks</option>
+						</select></div></p1>
+					<br></br><p align="right">Therapist Signature:
+			<input name="therapistsig" placeholder="Therapist Name" maxlength="100" autocomplete="on"></p><br></br>
+
+			<center><center></center><input type="submit" align="Center" value="Submit "></center>
 		</form></center>
 		<center><button class="exitButton" onclick="goBack()">Exit</button><center>
-		<script>
-			function goBack() {
-				window.open("TherapyProgressNotes_Table.html", "_self");
-			}
-		</script>
-		<script>
-			var dateControl = document.querySelector('input[type="date"]');
-			dateControl.value = 'YYYY/MM/DD';
-		</script>
-    </body>
+			<script>
+				function goBack() {
+					window.open("TherapySessions_Table.html", "_self");
+				}
+			</script>
+			<script>
+				var dateControl = document.querySelector('input[type="date"]');
+				dateControl.value = 'YYYY/MM/DD';
+			</script>
+	</body>
 </html>

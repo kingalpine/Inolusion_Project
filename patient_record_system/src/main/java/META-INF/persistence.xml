@@ -34,6 +34,7 @@
         <class>com.inolusion.rtc.patient_record_system.entities.TherapyEntity</class>
         <class>com.inolusion.rtc.patient_record_system.entities.TherapyMedicationEntity</class>
         <class>com.inolusion.rtc.patient_record_system.entities.TherapyStatusEntity</class>
+        <class>com.inolusion.rtc.patient_record_system.entities.AssessmentProgressEntity</class>
         <properties>
             <property name="toplink.jdbc.url" value="jdbc:sqlserver://localhost\MSSQLSERVER:1433;database=localspringbootdb"/>
             <property name="toplink.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
