@@ -8,9 +8,9 @@ import java.util.Objects;
 @Table(name = "THERAPY_MEDICATION", schema = "dbo", catalog = "localspringbootdb")
 public class TherapyMedicationEntity {
     private int therapyMedicationId;
-    private int medicationId;
+    private MedicationEntity medicationId;
     private Date startDate;
-    private int therapyId;
+    private TherapyEntity therapyId;
 
     @Id
     @Column(name = "THERAPY_MEDICATION_ID")
@@ -22,13 +22,13 @@ public class TherapyMedicationEntity {
         this.therapyMedicationId = therapyMedicationId;
     }
 
-    @Basic
-    @Column(name = "MEDICATION_ID")
-    public int getMedicationId() {
+    @ManyToOne
+    @JoinColumn(name = "MEDICATION_ID")
+    public MedicationEntity getMedicationId() {
         return medicationId;
     }
 
-    public void setMedicationId(int medicationId) {
+    public void setMedicationId(MedicationEntity medicationId) {
         this.medicationId = medicationId;
     }
 
@@ -42,13 +42,13 @@ public class TherapyMedicationEntity {
         this.startDate = startDate;
     }
 
-    @Basic
-    @Column(name = "THERAPY_ID")
-    public int getTherapyId() {
+    @ManyToOne
+    @JoinColumn(name = "THERAPY_ID")
+    public TherapyEntity getTherapyId() {
         return therapyId;
     }
 
-    public void setTherapyId(int therapyId) {
+    public void setTherapyId(TherapyEntity therapyId) {
         this.therapyId = therapyId;
     }
 

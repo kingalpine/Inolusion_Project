@@ -7,9 +7,9 @@ import java.util.Objects;
 @Table(name = "SUBJECTIVE_ANALYSIS", schema = "dbo", catalog = "localspringbootdb")
 public class SubjectiveAnalysisEntity {
     private int subjectiveAnalysisId;
-    private int subjectiveCodeId;
+    private SubjectiveCodeEntity subjectiveCodeId;
     private String note;
-    private int therapyId;
+    private TherapyEntity therapyId;
 
     @Id
     @Column(name = "SUBJECTIVE_ANALYSIS_ID")
@@ -21,13 +21,13 @@ public class SubjectiveAnalysisEntity {
         this.subjectiveAnalysisId = subjectiveAnalysisId;
     }
 
-    @Basic
-    @Column(name = "SUBJECTIVE_CODE_ID")
-    public int getSubjectiveCodeId() {
+    @ManyToOne
+    @JoinColumn(name = "SUBJECTIVE_CODE_ID")
+    public SubjectiveCodeEntity getSubjectiveCodeId() {
         return subjectiveCodeId;
     }
 
-    public void setSubjectiveCodeId(int subjectiveCodeId) {
+    public void setSubjectiveCodeId(SubjectiveCodeEntity subjectiveCodeId) {
         this.subjectiveCodeId = subjectiveCodeId;
     }
 
@@ -41,13 +41,13 @@ public class SubjectiveAnalysisEntity {
         this.note = note;
     }
 
-    @Basic
-    @Column(name = "THERAPY_ID")
-    public int getTherapyId() {
+    @ManyToOne
+    @JoinColumn(name = "THERAPY_ID")
+    public TherapyEntity getTherapyId() {
         return therapyId;
     }
 
-    public void setTherapyId(int therapyId) {
+    public void setTherapyId(TherapyEntity therapyId) {
         this.therapyId = therapyId;
     }
 

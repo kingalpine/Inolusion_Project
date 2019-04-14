@@ -12,6 +12,7 @@ public class MedicationHistoryEntity {
     private Date startDate;
     private int medicationId;
     private String dosage;
+    private String notes;
 
     @Id
     @Column(name = "MEDICATION_HISTORY_ID")
@@ -63,6 +64,14 @@ public class MedicationHistoryEntity {
         this.dosage = dosage;
     }
 
+    @Basic
+    @Column(name = "NOTES")
+    public String getNotes(){return notes;}
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -72,11 +81,12 @@ public class MedicationHistoryEntity {
                 patientId == that.patientId &&
                 medicationId == that.medicationId &&
                 Objects.equals(startDate, that.startDate) &&
-                Objects.equals(dosage, that.dosage);
+                Objects.equals(dosage, that.dosage) &&
+                Objects.equals(notes, that.notes);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(medicationHistoryId, patientId, startDate, medicationId, dosage);
+        return Objects.hash(medicationHistoryId, patientId, startDate, medicationId, dosage, notes);
     }
 }

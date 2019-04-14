@@ -7,7 +7,6 @@ import java.util.Objects;
 @Table(name = "SPEECH_CPT_CODE", schema = "dbo", catalog = "localspringbootdb")
 public class SpeechCptCodeEntity {
     private int speechCptCodeId;
-    private int code;
     private String name;
 
     @Id
@@ -18,16 +17,6 @@ public class SpeechCptCodeEntity {
 
     public void setSpeechCptCodeId(int speechCptCodeId) {
         this.speechCptCodeId = speechCptCodeId;
-    }
-
-    @Basic
-    @Column(name = "CODE")
-    public int getCode() {
-        return code;
-    }
-
-    public void setCode(int code) {
-        this.code = code;
     }
 
     @Basic
@@ -46,12 +35,11 @@ public class SpeechCptCodeEntity {
         if (o == null || getClass() != o.getClass()) return false;
         SpeechCptCodeEntity that = (SpeechCptCodeEntity) o;
         return speechCptCodeId == that.speechCptCodeId &&
-                code == that.code &&
                 Objects.equals(name, that.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(speechCptCodeId, code, name);
+        return Objects.hash(speechCptCodeId, name);
     }
 }

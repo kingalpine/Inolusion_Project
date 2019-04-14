@@ -53,6 +53,24 @@ public class PageController {
     @Autowired
     private Incident_Repository incident_repository;
 
+    @Autowired
+    private Discharge_Repository discharge_repository;
+
+    @Autowired
+    private InterventionProgressCode_Repository interventionProgressCode_repository;
+
+    @Autowired
+    private Speech_CPT_TPC_Repository speech_cpt_tpc_repository;
+
+    @Autowired
+    private SubjectiveAnalysis_Repository subjectiveAnalysis_repository;
+
+    @Autowired
+    private Plan_Repository plan_repository;
+
+    @Autowired
+    private TherapyMedication_Repository therapyMedication_repository;
+
         @GetMapping("/patient_records_table")
         public String showPatientRecordsPage(Model md) {
 
@@ -225,6 +243,18 @@ public class PageController {
         therapy_repository.save(therapy);
         md.addAttribute("therapy_array", therapy_repository.findAll());
             return "TherapySessions_Table";
+        }
+        @GetMapping("/view_therapy_note/{id}")
+        public String showTherapyProgressForm(@PathVariable("id") int id, Model md){
+            TherapyEntity therapy = therapy_repository.findByTherapyId(id);
+            md.addAttribute("therapy", therapy);
+            md.addAttribute("medication", therapyMedication_repository.findByTherapyId(therapy));
+            md.addAttribute("subjective", subjectiveAnalysis_repository.findByTherapyId(therapy));
+            md.addAttribute("cpt_code",speech_cpt_tpc_repository.findByTherapyId(therapy));
+            md.addAttribute("intervention_code", interventionProgressCode_repository.findByTherapyId(therapy));
+            md.addAttribute("plan_stuff", plan_repository.findByTherapyId(therapy));
+            md.addAttribute("discharge_array", discharge_repository.findAll());
+            return "ViewTherapyNote";
         }
     @GetMapping("/add_therapy_note_form/{id}")
     public String showAddTherapyProgressForm(@PathVariable("id") int id, Model md) {

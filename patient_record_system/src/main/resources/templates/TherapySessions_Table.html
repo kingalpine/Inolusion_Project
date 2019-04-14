@@ -50,6 +50,7 @@
 				<td th:text="${therapy.getTherapyStatusId()}"></td>
 				<td><a th:href="@{/modify_therapy_session_form/{id} (id=${therapy.getTherapyId()})}">Edit Session</a></td>
 				<td><a th:href="@{/delete_therapy_session_form/{id} (id=${therapy.getTherapyId()})}">Delete Session</a></td>
+				<td><a th:href="@{/view_therapy_note/{id} (id=${therapy.getTherapyId()})}">View Note</a> </td>
 				<td><a th:href="@{/add_therapy_note_form/{id} (id=${therapy.getTherapyId()})}">Add Note</a></td>
 				<td><a th:href="@{/modify_therapy_note_form/{id}(id=${therapy.getTherapyId()})}">Edit Note</a></td>
 				<td><a th:href="@{/delete_therapy_note_form/{id}(id=${therapy.getTherapyId()})}">Delete Note</a></td>

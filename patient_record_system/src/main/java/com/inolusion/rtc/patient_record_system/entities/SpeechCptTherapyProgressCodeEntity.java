@@ -7,9 +7,9 @@ import java.util.Objects;
 @Table(name = "SPEECH_CPT_THERAPY_PROGRESS_CODE", schema = "dbo", catalog = "localspringbootdb")
 public class SpeechCptTherapyProgressCodeEntity {
     private int speechCptTherapyProgressCodeId;
-    private int speechCptCodeId;
+    private SpeechCptCodeEntity speechCptCodeId;
     private String speechCptDesc;
-    private int therapyId;
+    private TherapyEntity therapyId;
 
     @Id
     @Column(name = "SPEECH_CPT_THERAPY_PROGRESS_CODE_ID")
@@ -21,13 +21,13 @@ public class SpeechCptTherapyProgressCodeEntity {
         this.speechCptTherapyProgressCodeId = speechCptTherapyProgressCodeId;
     }
 
-    @Basic
-    @Column(name = "SPEECH_CPT_CODE_ID")
-    public int getSpeechCptCodeId() {
+    @ManyToOne
+    @JoinColumn(name = "SPEECH_CPT_CODE_ID")
+    public SpeechCptCodeEntity getSpeechCptCodeId() {
         return speechCptCodeId;
     }
 
-    public void setSpeechCptCodeId(int speechCptCodeId) {
+    public void setSpeechCptCodeId(SpeechCptCodeEntity speechCptCodeId) {
         this.speechCptCodeId = speechCptCodeId;
     }
 
@@ -41,13 +41,13 @@ public class SpeechCptTherapyProgressCodeEntity {
         this.speechCptDesc = speechCptDesc;
     }
 
-    @Basic
-    @Column(name = "THERAPY_ID")
-    public int getTherapyId() {
+    @ManyToOne
+    @JoinColumn(name = "THERAPY_ID")
+    public TherapyEntity getTherapyId() {
         return therapyId;
     }
 
-    public void setTherapyId(int therapyId) {
+    public void setTherapyId(TherapyEntity therapyId) {
         this.therapyId = therapyId;
     }
 
