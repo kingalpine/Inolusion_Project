@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "REGION", schema = "dbo", catalog = "LaptopDB")
+@Table(name = "REGION", schema = "dbo", catalog = "localspringbootdb")
 public class RegionEntity {
     private int regionId;
     private CountryEntity countryId;

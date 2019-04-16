@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "SPEECH_CPT_CODE", schema = "dbo", catalog = "LaptopDB")
+@Table(name = "SPEECH_CPT_CODE", schema = "dbo", catalog = "localspringbootdb")
 public class SpeechCptCodeEntity {
     private int speechCptCodeId;
     private String name;

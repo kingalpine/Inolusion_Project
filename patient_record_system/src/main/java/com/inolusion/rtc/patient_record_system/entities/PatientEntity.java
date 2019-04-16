@@ -6,7 +6,7 @@ import java.sql.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name = "PATIENT", schema = "dbo", catalog = "LaptopDB")
+@Table(name = "PATIENT", schema = "dbo", catalog = "localspringbootdb")
 public class PatientEntity {
     private int patientId;
     private String firstName;

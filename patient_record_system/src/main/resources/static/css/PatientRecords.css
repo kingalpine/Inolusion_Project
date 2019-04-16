@@ -1,6 +1,17 @@
-#myInput {
+#firstInput {
   background-position: 10px 10px;
   background-repeat: no-repeat;
+  text-align: center;
+  width: 15%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+#secondInput {
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  text-align: center;
   width: 15%;
   font-size: 16px;
   padding: 12px 20px 12px 40px;
@@ -39,8 +50,8 @@ h1 {
 	padding: 0px;
 }
 #header{
-	width: auto;
-	height: 80%;
+	width: 125%;
+	height: 90%;
 	background-color: white;
 }
 

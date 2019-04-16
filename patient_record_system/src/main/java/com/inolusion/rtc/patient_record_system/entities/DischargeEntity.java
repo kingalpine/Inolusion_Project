@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "DISCHARGE", schema = "dbo", catalog = "LaptopDB")
+@Table(name = "DISCHARGE", schema = "dbo", catalog = "localspringbootdb")
 public class DischargeEntity {
     private int dischargeId;
     private String dischargePlan;

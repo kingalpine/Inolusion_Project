@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "THERAPY", schema = "dbo", catalog = "LaptopDB")
+@Table(name = "THERAPY", schema = "dbo", catalog = "localspringbootdb")
 public class TherapyEntity {
     private int therapyId;
     private PatientEntity patientId;

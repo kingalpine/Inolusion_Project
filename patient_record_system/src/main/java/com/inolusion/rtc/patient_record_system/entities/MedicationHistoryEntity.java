@@ -5,7 +5,7 @@ import java.sql.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name = "MEDICATION_HISTORY", schema = "dbo", catalog = "LaptopDB")
+@Table(name = "MEDICATION_HISTORY", schema = "dbo", catalog = "localspringbootdb")
 public class MedicationHistoryEntity {
     private int medicationHistoryId;
     private int patientId;
