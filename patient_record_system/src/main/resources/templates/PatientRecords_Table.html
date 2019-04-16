@@ -23,7 +23,7 @@
 				<div class="box">
 					<img th:src="@{/images/add.png}" height="30" width="30"><h1>Add Patient</h1></div></div>
 		</div></center>
-		<center><input class="searchBar" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by Patient Name" title="Type Patient's Name"></center>
+		<center><input class="searchBar" type="text" id="firstInput" onkeyup="firstName()" placeholder="Search by Patient's First Name" title="Type Patient's Name">&nbsp;&nbsp;&nbsp;<input class="searchBar" type="text" id="secondInput" onkeyup="lastName()" placeholder="Search by Patient's Last Name" title="Type Patient's Name"></center>
 		<center> 
 		<table id="myTable">
 		<tr class="header">
@@ -69,9 +69,9 @@
 		</table>
 		</center>
 		<script>
-		function myFunction() {
+		function firstName() {
 			var input, filter, table, tr, td, i, txtValue;
-			input = document.getElementById("myInput");
+			input = document.getElementById("firstInput");
 			filter = input.value.toUpperCase();
 			table = document.getElementById("myTable");
 			tr = table.getElementsByTagName("tr");
@@ -88,5 +88,25 @@
   }
 }
 </script>
+		<script>
+			function lastName() {
+				var input, filter, table, tr, td, i, txtValue;
+				input = document.getElementById("secondInput");
+				filter = input.value.toUpperCase();
+				table = document.getElementById("myTable");
+				tr = table.getElementsByTagName("tr");
+				for (i = 0; i < tr.length; i++) {
+					td = tr[i].getElementsByTagName("td")[2];
+					if (td) {
+						txtValue = td.textContent || td.innerText;
+						if (txtValue.toUpperCase().indexOf(filter) > -1) {
+							tr[i].style.display = "";
+						} else {
+							tr[i].style.display = "none";
+						}
+					}
+				}
+			}
+		</script>
     </body>
 </html>

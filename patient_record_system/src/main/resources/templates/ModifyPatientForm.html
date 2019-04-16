@@ -17,10 +17,6 @@
 			<li><a href="/reports">Reports</a></li>
 		</ul>
 		</div>
-		<center><form class="modifyPatientID">
-		<center>Patient ID:
-		<input type="text" name="patientID" maxlength="10">&nbsp;&nbsp;&nbsp;<button onclick="modifyPatient()">Modify</button>
-		</form></center>
     <center> <form class="modifyPatient">
 		<h1> Modify Patient Information </h1><p2><div class="requiredKey">Required</div></p2><br></br>
 		<p1><div class="required">First name:
@@ -35,11 +31,11 @@
 		<br></br><p1><div class="required" maxlength="10">Date of Birth:
 		<input type="date" name="dob" size="8"></div></p1>
 		<p1><div class="required">&nbsp;&nbsp;&nbsp;Guardian Name:
-			<input type="text" name="guardian" maxlength="50" size="35"></div></p1>
+			<input type="text" name="guardian" maxlength="50" size="50"></div></p1>
 		<br></br><p1><div class="required">Start Date:
 		<input type="date" name="startdate" maxlength="10" size="5"></div></p1>
 		<p1><div class="required">&nbsp;&nbsp;&nbsp;Address:
-			<input type="text" name="address" maxlength="255" size="35"></div></p1>
+			<input type="text" name="address" maxlength="255" size="50"></div></p1>
 		<br></br><p1><div class="required">City:
 		<input type="text" name="city" maxlength="100"></div></p1>
 		<p1><div class="required">&nbsp;&nbsp;&nbsp;ZIP Code:
@@ -57,17 +53,17 @@
 				<option value="canada">Canada</option>
 			</select></div></p1>
 		<p1><div class="required">&nbsp;&nbsp;&nbsp;Email:
-			<input type="email" name="email" maxlength="100"></div></p1>
+			<input type="email" name="email" maxlength="100" size="100"></div></p1>
 		<br></br><p1><div class="required">Primary Phone:
-		<input type="tel" name="pphone" placeholder="XXX-XXX-XXXX" maxlength="13"></div></p1>
+		<input type="tel" name="pphone" placeholder="XXX-XXX-XXXX" maxlength="13" size="13"></div></p1>
 		<p1>&nbsp;&nbsp;&nbsp;Secondary Phone:
-			<input type="tel" name="sphone" placeholder="XXX-XXX-XXXX" maxlength="13"></p1>
+			<input type="tel" name="sphone" placeholder="XXX-XXX-XXXX" maxlength="13" size="13"></p1>
 		<br></br><p1>Allergies:
-		<input type="text" name="allergies" placeholder="None" maxlength="13"></p1>
+		<input type="text" name="allergies" placeholder="None" maxlength="50" size="40"></p1>
 		<p1>&nbsp;&nbsp;&nbsp;Medication:
-			<input type="text" name="medication" placeholder="None" maxlength="13"></p1>
+			<input type="text" name="medication" placeholder="None" maxlength="50" size="40"></p1>
 		<p1>&nbsp;&nbsp;&nbsp;Medication Notes:
-			<input type="text" name="medicationnotes" placeholder="None" maxlength="250"></p1>
+			<input type="text" name="medicationnotes" placeholder="None" maxlength="250" size="50"></p1>
 		<p1><div class="required">&nbsp;&nbsp;&nbsp;Insurance:
 			<select name="insurance" placeholder="">
 				<option value="tchp">TCHP</option>
@@ -76,10 +72,6 @@
 				<option value="cshcn">CSHCN</option>
 				<option value="tmhp">TMHP</option>
 			</select></div></p1>
-		<br></br><p1><div class="required">INSURANCE GROUP NUMBER:
-		<input type="text" name="INSURANCEGROUPNUMBER" placeholder="XXXXXXXXXX" maxlength="13"></div></p1>
-		<br></br><p1><div class="required">INSURANCE MEMBER ID NUMBER:
-		<input type="text" name="INSURANCEMEMBERIDNUMBER" placeholder="XXXXXXXXX" maxlength="13"></div></p1>
 		<br></br><center><div class="required">Patient Status:
 		<select name="patientstatus" placeholder="active" maxlength="10">
 			<option value="active">Active</option>

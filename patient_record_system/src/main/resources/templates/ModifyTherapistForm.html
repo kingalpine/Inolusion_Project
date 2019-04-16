@@ -18,29 +18,29 @@
     </ul>
 </div>
 <center> <form class="modifyTherapist" th:action="@{/modify_employee/{id} (id=${therapist.getTherapistId()})}" th:object="${therapist}" method="post">
-    <h1> Modify Therapist Info</h1><p2><div class="requiredKey">Required</div></p2><br><br>
+    <h1> Modify Therapist Infomation</h1><p2><div class="requiredKey">Required</div></p2><br><br>
     <p1><div class="required">First name:
         <input name="firstname" th:field="*{firstName}" type="text" maxlength="50"></div></p1>
     <p1><div class="required">&nbsp;&nbsp;&nbsp;Last name:
         <input name="lastname" th:field="*{lastName}" type="text" maxlength="50"></div></p1>
-    <br><br><p1><div class="required">Start Date:
+    <br></br><p1><div class="required">Start Date:
     <input name="startdate" type="date" th:field="*{startDate}" size="10" maxlength="10"></div></p1>
     <p1><div class="required">&nbsp;&nbsp;&nbsp;Email:
-        <input name="email" type="email" th:field="*{email}" maxlength="100"></div></p1>
+        <input name="email" type="email" th:field="*{email}" maxlength="100" th:size="50"></div></p1>
     <br><br><p1><div class="required">Primary Phone:
-    <input name="pphone" type="tel" placeholder="XXX-XXX-XXXX" th:field="*{primaryPhone}" maxlength="13"></div></p1>
+    <input name="pphone" type="tel" placeholder="XXX-XXX-XXXX" th:field="*{primaryPhone}" maxlength="13" th:size="13"></div></p1>
     <p1>&nbsp;&nbsp;&nbsp;Secondary Phone:
-        <input name="sphone" type="tel" placeholder="XXX-XXX-XXXX" th:field="*{secondaryPhone}" maxlength="13"></p1>
-    <br><br><center><div class="required">Therapist Status:
+        <input name="sphone" type="tel" placeholder="XXX-XXX-XXXX" th:field="*{secondaryPhone}" maxlength="13" th:size="13"></p1>
+    <div class="required">Therapist Status:
     <select name="Therapiststatus" placeholder="active" th:field="*{statusId}" maxlength="10">
         <option th:each="therapist_status : ${therapist_status_array}" th:value="${therapist_status.getTherapistStatusId()}" th:text="${therapist_status.getStatusType()}"></option>
-    </select></div></center><br><br>
+    </select></div><br></br>
     <center><input type="submit" value="Submit"></center>
 </form></center>
 <center><button class="exitButton" onclick="goBack()">Exit</button><center>
     <script>
         function goBack() {
-            window.open("Therapist_Table.html", "_self");
+            window.open("/therapy_session", "_self");
         }
     </script>
     <script>
