@@ -52,6 +52,11 @@
 	margin: 4px 2px;
 	cursor: pointer;
 }
+.NextButton{
+	background-color: #4CAF50;
+	color: white;
+	border-radius: 50%;
+}
 .required:after {
 	content:" *";
 	color: red;

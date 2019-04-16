@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Delete Patient</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/DeleteIncident.css" th:href="@{/css/DeleteIncident.css}">
+</head>
+<body>
+<div id="header">
+    <div id="logo"></div>
+    <ul id="nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/patient_records_table">Patient Records</a></li>
+        <li><a href="/employee_records">Therapist Records</a></li>
+        <li><a href="/therapy_session">Therapy Sessions</a></li>
+        <li><a class="active" href="/incidents_table">Incidents</a></li>
+        <li><a href="/reports">Reports</a></li>
+    </ul>
+</div>
+<form class="deleteIncident" th:action="@{/delete_incident/{id} (id=${incident.getIncidentId()})}" th:object="incident">
+    <center><h1> Delete Incident Form</h1></center><p2><div class="requiredKey">Required</div></p2><br></br>
+    <div class="required">Incident ID:
+        <input type="text" name="deleteIncidentID" th:field="*{}"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="submit" value="Delete">
+</form>
+<center><button class="exitButton" onclick="goBack()">Exit</button></center>
+<script>
+    function goBack() {
+        window.open("Incidents_Table.html", "_self");
+    }
+</script>
+</body>
+</html>

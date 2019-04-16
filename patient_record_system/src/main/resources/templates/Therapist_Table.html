@@ -14,7 +14,6 @@
 			<li><a href="/patient_records_table">Patient Records</a></li>
 			<li><a href="/employee_records">Therapist Records</a></li>
 			<li><a href="/therapy_session">Therapy Sessions</a></li>
-			<li><a class="active" href="/therapy_progress_notes">Therapy Notes</a></li>
 			<li><a href="/incidents_table">Incidents</a></li>
 			<li><a href="/reports">Reports</a></li>
 		</ul>
@@ -22,7 +21,7 @@
 		<center><div class="row">
 			<div onclick="location.href='AddTherapistForm.html';">
 				<div class="box">
-					<img src="../static/images/add.png" height="30" width="30"><h1>Add Therapist</h1></div></div>
+					<img th:src="@{/images/add.png}" height="30" width="30"><h1>Add Therapist</h1></div></div>
 		</div></center>
 		<center> <input style="text-align:center;" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by Therapist Name" title="Type Therapist's Name"> </center>
 		<center> 

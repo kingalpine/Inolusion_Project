@@ -7,9 +7,9 @@ import java.util.Objects;
 @Table(name = "PLAN", schema = "dbo", catalog = "LaptopDB")
 public class PlanEntity {
     private int planId;
-    private int therapyId;
+    private TherapyEntity therapyId;
     private String note;
-    private int planCodeId;
+    private PlanCodeEntity planCodeId;
 
     @Id
     @Column(name = "PLAN_ID")
@@ -21,13 +21,13 @@ public class PlanEntity {
         this.planId = planId;
     }
 
-    @Basic
-    @Column(name = "THERAPY_ID")
-    public int getTherapyId() {
+    @ManyToOne
+    @JoinColumn(name = "THERAPY_ID")
+    public TherapyEntity getTherapyId() {
         return therapyId;
     }
 
-    public void setTherapyId(int therapyId) {
+    public void setTherapyId(TherapyEntity therapyId) {
         this.therapyId = therapyId;
     }
 
@@ -41,13 +41,13 @@ public class PlanEntity {
         this.note = note;
     }
 
-    @Basic
-    @Column(name = "PLAN_CODE_ID")
-    public int getPlanCodeId() {
+    @ManyToOne
+    @JoinColumn(name = "PLAN_CODE_ID")
+    public PlanCodeEntity getPlanCodeId() {
         return planCodeId;
     }
 
-    public void setPlanCodeId(int planCodeId) {
+    public void setPlanCodeId(PlanCodeEntity planCodeId) {
         this.planCodeId = planCodeId;
     }
 

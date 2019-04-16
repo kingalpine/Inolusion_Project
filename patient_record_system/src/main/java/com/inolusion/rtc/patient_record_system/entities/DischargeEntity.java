@@ -39,6 +39,11 @@ public class DischargeEntity {
     }
 
     @Override
+    public String toString() {
+        return dischargePlan;
+    }
+
+    @Override
     public int hashCode() {
         return Objects.hash(dischargeId, dischargePlan);
     }
