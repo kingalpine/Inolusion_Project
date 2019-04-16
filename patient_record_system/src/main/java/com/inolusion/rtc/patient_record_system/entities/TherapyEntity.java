@@ -176,6 +176,11 @@ public class TherapyEntity {
     }
 
     @Override
+    public String toString() {
+        return Integer.toString(therapyId);
+    }
+
+    @Override
     public int hashCode() {
         return Objects.hash(therapyId, patientId, objectiveGoals, objectiveStatement,assessmentTreatmentActivity,assessmentTreatment,assessmentProgressId, date, timeIn, timeOut, therapyStatusId, dischargeId, therapistSignature, therapistId);
     }

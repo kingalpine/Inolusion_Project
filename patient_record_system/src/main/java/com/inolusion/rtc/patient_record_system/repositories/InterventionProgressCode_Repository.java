@@ -8,5 +8,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface InterventionProgressCode_Repository extends CrudRepository<InterventionProgressCodeEntity, Long> {
-    InterventionCodeEntity findByTherapyId (TherapyEntity therapyId);
+    InterventionProgressCodeEntity findByTherapyId (TherapyEntity therapyId);
+    InterventionProgressCodeEntity findByInterventionProgressCodeId (int ipcId);
 }

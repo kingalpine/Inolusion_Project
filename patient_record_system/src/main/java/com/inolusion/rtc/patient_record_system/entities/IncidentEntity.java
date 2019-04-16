@@ -8,7 +8,7 @@ import java.util.Objects;
 public class IncidentEntity {
     private int incidentId;
     private IncidentTypeEntity incidentTypeId;
-    private int therapyId;
+    private TherapyEntity therapyId;
     private IncidentStatusEntity incidentStatusId;
 
     @Id
@@ -32,13 +32,13 @@ public class IncidentEntity {
         this.incidentTypeId = incidentTypeId;
     }
 
-    @Basic
-    @Column(name = "THERAPY_ID")
-    public int getTherapyId() {
+    @ManyToOne
+    @JoinColumn(name = "THERAPY_ID")
+    public TherapyEntity getTherapyId() {
         return therapyId;
     }
 
-    public void setTherapyId(int therapyId) {
+    public void setTherapyId(TherapyEntity therapyId) {
         this.therapyId = therapyId;
     }
 
