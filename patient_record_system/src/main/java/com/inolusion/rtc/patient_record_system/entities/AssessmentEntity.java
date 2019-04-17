@@ -32,7 +32,7 @@ public class AssessmentEntity {
         if (o == null || getClass() != o.getClass()) return false;
         AssessmentEntity that = (AssessmentEntity) o;
         return assessmentProgressId == that.assessmentProgressId &&
-                Objects.equals(name, that.name) ;
+                Objects.equals(name, that.name);
     }
 
     @Override

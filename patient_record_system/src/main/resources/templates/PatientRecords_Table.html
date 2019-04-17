@@ -6,7 +6,7 @@
     <title>Patient Records</title>
     <link rel="stylesheet" type="text/css" href="../static/css/PatientRecords.css" th:href="@{/css/PatientRecords.css}">
 </head>
-    <body>
+    <br>
 		<div id="header">
 		<div id="logo"></div>
         <ul id="nav">
@@ -23,8 +23,9 @@
 				<div class="box">
 					<img th:src="@{/images/add.png}" height="30" width="30"><h1>Add Patient</h1></div></div>
 		</div></center>
+		<br></br>
 		<center><input class="searchBar" type="text" id="firstInput" onkeyup="firstName()" placeholder="Search by Patient's First Name" title="Type Patient's Name">&nbsp;&nbsp;&nbsp;<input class="searchBar" type="text" id="secondInput" onkeyup="lastName()" placeholder="Search by Patient's Last Name" title="Type Patient's Name"></center>
-		<center> 
+		<center><h4>View Patient Records</h4>
 		<table id="myTable">
 		<tr class="header">
 			<th>Patient ID</th>
@@ -44,6 +45,8 @@
 			<th>Allergies</th>
 			<th>Medication</th>
 			<th>Patient Status</th>
+			<th>Modify</th>
+			<th>Remove</th>
 		</tr>
 			<tr th:each="patient : ${patient_array}">
 				<td th:text="${patient.getPatientId()}">Default ID</td>

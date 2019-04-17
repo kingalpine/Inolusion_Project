@@ -80,6 +80,11 @@ public class PageController {
     @Autowired
     private IncidentStatus_Repository incidentStatus_repository;
 
+    @Autowired
+    private PatientIncident_Repository patientIncident_repository;
+
+    @Autowired
+    private TherapistIncident_Repository therapistIncident_repository;
 
     @GetMapping("/index.html")
     public String showMainMenu(){
@@ -307,8 +312,10 @@ public class PageController {
         @GetMapping("/add_incident_form")
         public String showAddIncidentForm(Model md){
             IncidentEntity incident = new IncidentEntity();
-            md.addAttribute("incident", incident);
+            md.addAttribute("patient_incident", patientIncident_repository.findAll());
+            md.addAttribute("therapist_incident", therapyMedication_repository.findAll());
             md.addAttribute("incident_status_array", incidentStatus_repository.findAll());
+            md.addAttribute("incident", incident);
             return "AddIncidentForm";
         }
         @PostMapping("/add_incident")

@@ -39,6 +39,11 @@ public class MedicationEntity {
     }
 
     @Override
+    public String toString() {
+        return name;
+    }
+
+    @Override
     public int hashCode() {
         return Objects.hash(medicationId, name);
     }

@@ -18,26 +18,26 @@
     </ul>
 </div>
 <center>
-    <form class="addIncident">
+    <form class="addIncident" th:action="@{/add_incident}" th:object="${incident}">
         <h1> Add Therapy Incident </h1>
         <p2>
             <div class="requiredKey">Required</div>
         </p2><br><br>
         <p1>
             <div class="required">&nbsp;&nbsp;&nbsp;Therapy ID:
-                <select name="TherapyID" placeholder="">
+                <select name="TherapyID" th:field="*{therapyId}" placeholder="">
                 </select></div>
         </p1>
         <p1>
-            <div>&nbsp;&nbsp;&nbsp;Therapist Name:
-                <select name="TherapistName" placeholder="">
+            <div>&nbsp;&nbsp;&nbsp;Therapist ID:
+                <select name="TherapistName" placeholder="" th:field="${}">
                 </select></div>
         </p1>
         <p1>&nbsp;&nbsp;&nbsp;Notes pertaining the Therapist Incident:
             <input type="text" name="Therapistnotes" placeholder="None" maxlength="250"></p1>
         <p1>
-            <div>&nbsp;&nbsp;&nbsp;Patient Name:
-                <select name="PatientName" placeholder="">
+            <div>&nbsp;&nbsp;&nbsp;Patient ID:
+                <select name="PatientID" th:field="*{}" placeholder="">
                 </select></div>
         </p1>
         <p1>&nbsp;&nbsp;&nbsp;Notes pertaining the Patient Incident :

@@ -40,6 +40,10 @@
 #myTable tr:hover{
 	background-image: url("../images/mainmenuButtonBG.jpg");
 }
+h4 {
+	font-family: "Arial Black";
+	font-size: 40px;
+}
 h1 {
 	cursor: pointer;
 	font-size: 22px;

@@ -4,7 +4,7 @@
     <meta charset="UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Therapist Records</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/Employees_Table.css" th:href="@{/css/Employees_Table.css}">
+    <link rel="stylesheet" type="text/css" href="../static/css/Employees_Table.css" th:href="@{/css/Therapist_Table.css}">
 </head>
     <body>
 		<div id="header">
@@ -24,8 +24,8 @@
 				<a href="/add_employee_form">Add Therapist</a>
 				</h1> </div>
 		</div>
-		<center> <input style="text-align:center;" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by Therapist Name" title="Type Therapist's Name"> </center>
-		<center> 
+		<center><input class="searchBar" type="text" id="firstInput" onkeyup="firstName()" placeholder="Search by Therapist's First Name" title="Type Therapist's Name">&nbsp;&nbsp;&nbsp;<input class="searchBar" type="text" id="secondInput" onkeyup="lastName()" placeholder="Search by Therapist's Last Name" title="Type Therapist's Name"></center>
+		<center> <h4>View Therapist Records</h4>
 		<table id="myTable">
 		<tr class="header">
 			<th>Therapist ID</th>
@@ -37,7 +37,7 @@
 			<th>Secondary Phone Number</th>
 			<th>Therapist Status</th>
 			<th>Modify</th>
-			<th>Delete</th>
+			<th>Remove</th>
 		</tr>
 			<tr th:each="therapist : ${therapist_array}">
 				<td th:text="${therapist.getTherapistId()}">Default ID</td>
@@ -54,9 +54,9 @@
 		</table>
 		</center>
 		<script>
-		function myFunction() {
+		function firstName() {
 			var input, filter, table, tr, td, i, txtValue;
-			input = document.getElementById("myInput");
+			input = document.getElementById("firstInput");
 			filter = input.value.toUpperCase();
 			table = document.getElementById("myTable");
 			tr = table.getElementsByTagName("tr");
@@ -73,5 +73,25 @@
   }
 }
 </script>
+		<script>
+			function lastName() {
+				var input, filter, table, tr, td, i, txtValue;
+				input = document.getElementById("secondInput");
+				filter = input.value.toUpperCase();
+				table = document.getElementById("myTable");
+				tr = table.getElementsByTagName("tr");
+				for (i = 0; i < tr.length; i++) {
+					td = tr[i].getElementsByTagName("td")[2];
+					if (td) {
+						txtValue = td.textContent || td.innerText;
+						if (txtValue.toUpperCase().indexOf(filter) > -1) {
+							tr[i].style.display = "";
+						} else {
+							tr[i].style.display = "none";
+						}
+					}
+				}
+			}
+		</script>
     </body>
 </html>

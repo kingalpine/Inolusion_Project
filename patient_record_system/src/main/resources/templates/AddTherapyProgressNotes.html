@@ -17,50 +17,50 @@
             <li><a href="/reports">Reports</a></li>
 		</ul>
 		</div>
-		<center> <form class="addTherapyNotes" th:action="@{/add_therapy_note/{id} (id=${therapy.getTherapyId()})}" th:object="therapy">
+		<center> <form class="addTherapyNotes" th:action="@{/add_therapy_note/{id} (id=${therapy.getTherapyId()})}" th:object="${therapy}">
 			<h1> Therapy Progress Note </h1><p2><div class="requiredKey">Required</div></p2><br></br>
 			<br></br><p1><div align="left" class="required">Intervention:
-			<select name="intervention" placeholder="Default" maxlength="10" disabled>
-				<option value="stuff" th:field="*{intervention_code}" th:value="${intervention_code.getInterventionCodeId()}">Stuff</option>
+			<select name="intervention" placeholder="Default" maxlength="10" >
+				<option value="stuff"  th:value="${intervention_code.getInterventionCodeId()}" th:field="${intervention_code.interventionCodeId}">Stuff</option>
 			</select></div></p1>
 			<p>    <div align="right" class="required">&nbsp;&nbsp;&nbsp;CPT Code:
-			<select name="cptcode" placeholder="Default"  maxlength="10" disabled>
-				<option value="stuff" th:text="${cpt_code.getSpeechCptCodeId()}">Stuff</option>
+			<select name="cptcode" placeholder="Default"  maxlength="10" >
+				<option value="stuff" th:text="${cpt_code.getSpeechCptCodeId()}" >Stuff</option>
 			</select></div></p1>
 			<br></br><center><div align="center" class="required">Subjective:
-			<select name="subjective" placeholder="Default" maxlength="10"disabled>
+			<select name="subjective" placeholder="Default" maxlength="10">
 				<option value="stuff" th:text="${subjective.getSubjectiveCodeId().getName()}">Stuff</option>
 			</select></div></center>
 			<p align="left"> Subjective Notes:
-				<textarea name="subjectivenotes" th:text="${subjective.getNote()}" maxlength="500" size="100" cols="120" rows="5" readonly></textarea>
+				<textarea name="subjectivenotes" th:text="${subjective.getNote()}" maxlength="500" size="100" cols="120" rows="5"></textarea>
 				<br><br>
 			<p align="left"> Objective Goals:
-				<textarea name="objectivegoals" th:text="${therapy.getObjectiveGoals()}" placeholder="Goals" maxlength="500" size="100" cols="120" rows="5" readonly></textarea>
+				<textarea name="objectivegoals" th:text="${therapy.getObjectiveGoals()}" placeholder="Goals" maxlength="500" size="100" cols="120" rows="5"></textarea>
 				<br><br>
 			<p align="left"> Objective Statement:
-				<textarea name="objectivestatement" th:text="${therapy.getObjectiveStatement()}" maxlength="500" size="100" cols="120" rows="5" readonly></textarea>
+				<textarea name="objectivestatement" th:text="${therapy.getObjectiveStatement()}" maxlength="500" size="100" cols="120" rows="5"></textarea>
 				<br></br><center><div class="required">Assessment Progress Stage:
-			<select name="assessment" placeholder="Default"  maxlength="10"disabled>
+			<select name="assessment" placeholder="Default"  maxlength="10">
 				<option value="stuff" th:text="${therapy.getAssessmentProgressId().getName()}">Stuff</option>
 			</select></div></center>
 			<p align="left">Assessment Notes:
-				<textarea name="assessmentnotes" maxlength="100" th:text="${therapy.getAssessmentTreatmentActivity()}" size="100"cols="120" rows="5"readonly></textarea>
+				<textarea name="assessmentnotes" maxlength="100" th:field="*{assessmentTreatment}" size="100"cols="120" rows="5"></textarea>
 				<br></br><center><div class="required">Plan:
-			<select name="Plan" placeholder="Default" maxlength="10"disabled>
-				<option value="stuff" th:field="*{plan_stuff.planCodeId}" th:text="${plan_stuff.getPlanCodeId().getName()}">Stuff</option>
+			<select name="Plan" placeholder="Default" maxlength="10">
+				<option value="stuff" th:field="*{}" th:text="${plan_stuff.getPlanCodeId().getName()}">Stuff</option>
 			</select></div></center>
 			<p align="left">Plan Notes:
-				<textarea name="Plannotes"  th:field="*{plan_stuff.note}" th:text="${plan_stuff.getNote()}" maxlength="100" size="100"cols="120" rows="5"readonly></textarea>
+				<textarea name="Plannotes"  th:field="*{plan_stuff.note}" th:text="${plan_stuff.getNote()}" maxlength="100" size="100"cols="120" rows="5"></textarea>
 				<br></br>
 				<p1>Medication:
-					<textarea name="medication" th:text="${medication.getMedicationId()}" placeholder="List of Medication" maxlength="255" cols="120" rows="2"readonly></textarea>
+					<textarea name="medication" th:text="${medication.getMedicationId()}" placeholder="List of Medication" maxlength="255" cols="120" rows="2"></textarea>
 					<br></br>
 					<p1><div align="left" class="required">&nbsp;&nbsp;&nbsp;Discharge Plan:
-						<select name="dischargeplan" placeholder="active" maxlength="10"disabled>
+						<select name="dischargeplan" placeholder="active" maxlength="10">
 							<option th:text="${therapy.getDischargeId()}">Default Discharge Plan</option>
 						</select></div></p1>
 					<br></br><p align="right">Therapist Signature:
-			<input name="therapistsig" th:text="${therapy.therapistSignature}" maxlength="100" autocomplete="on"readonly></p><br></br>
+			<input name="therapistsig" th:text="${therapy.therapistSignature}" maxlength="100" autocomplete="on"></p><br></br>
 		</form></center>
 		<center><button class="exitButton" onclick="goBack()">Exit</button><center>
 			<script>
