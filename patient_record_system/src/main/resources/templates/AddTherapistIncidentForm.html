@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Therapy Progress Note</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/AddIncidentForm.css" th:href="@{/css/AddIncidentForm.css}">
+    <link rel="stylesheet" type="text/css" href="../static/css/AddTherapistIncidentForm.css" th:href="@{/css/AddTherapistIncidentForm.css}">
 </head>
 <body>
 <div id="header">
@@ -32,7 +32,7 @@
         <p1>
             <div>&nbsp;&nbsp;&nbsp;Therapist Name:
                 <select name="TherapistName" placeholder=" ">
-                <option th:each="therapist : ${therapist_array}" th:value="${therapist.getTherapistId()}" th:text="${therapist.getFirstName()} + ' ' + ${therapist.getLastName()}"></option>
+                    <option th:each="therapist : ${therapist_array}" th:value="${therapist.getTherapistId()}" th:text="${therapist.getFirstName()} + ' ' + ${therapist.getLastName()}"></option>
                 </select></div>
         </p1>
         <p1>&nbsp;&nbsp;&nbsp;Notes pertaining the Therapist Incident:

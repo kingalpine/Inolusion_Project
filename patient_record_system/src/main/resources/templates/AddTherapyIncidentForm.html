@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Therapy Progress Note</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/AddIncidentForm.css" th:href="@{/css/AddIncidentForm.css}">
+    <link rel="stylesheet" type="text/css" href="../static/css/AddTherapyIncidentForm.css" th:href="@{/css/AddIncidentForm.css}">
 </head>
 <body>
 <div id="header">
@@ -18,29 +18,26 @@
     </ul>
 </div>
 <center>
-    <form class="addIncident" th:action="@{/add_incident}" th:object="${incident}">
-        <h1> Add Therapy Incident </h1>
+    <form class="addIncident">
+        <h1>Add Therapy Incident </h1>
         <p2>
             <div class="requiredKey">Required</div>
         </p2><br><br>
         <p1>
             <div class="required">&nbsp;&nbsp;&nbsp;Therapy ID:
-                <select name="TherapyID" th:field="*{therapyId}" placeholder="">
-                    <option th:each="therapy : ${therapy_array}" th:text="${therapy.getTherapyId()}" th:value="${therapy.getTherapyId()}"></option>
+                <select name="TherapyID" placeholder="">
                 </select></div>
         </p1>
         <p1>
             <div>&nbsp;&nbsp;&nbsp;Therapist Name:
-                <select name="TherapistName" placeholder=" ">
-                <option th:each="therapist : ${therapist_array}" th:value="${therapist.getTherapistId()}" th:text="${therapist.getFirstName()} + ' ' + ${therapist.getLastName()}"></option>
+                <select name="TherapistName" placeholder="">
                 </select></div>
         </p1>
         <p1>&nbsp;&nbsp;&nbsp;Notes pertaining the Therapist Incident:
             <input type="text" name="Therapistnotes" placeholder="None" maxlength="250"></p1>
         <p1>
-            <div>&nbsp;&nbsp;&nbsp;Patient ID:
-                <select name="PatientID"  placeholder="">
-                    <option th:each="patient : ${patient_array}" th:value="${patient.getPatientId()}" th:text="${patient.getFirstName()} + ' ' + ${patient.getLastName()}"></option>
+            <div>&nbsp;&nbsp;&nbsp;Patient Name:
+                <select name="PatientName" placeholder="">
                 </select></div>
         </p1>
         <p1>&nbsp;&nbsp;&nbsp;Notes pertaining the Patient Incident :
@@ -48,7 +45,6 @@
         <p1>
             <div>&nbsp;&nbsp;&nbsp;Incident Type:
                 <select name="IncidentType" placeholder="">
-                    <option th:each="incident_type : ${incident_type_array}" th:value="${incident_type.getIncidentTypeId()}" th:text="${incident_type.getName()}"></option>
                 </select></div>
         </p1>
         <br><br>
@@ -64,8 +60,8 @@
         <br><br>
         <center>
             <div class="required">Incident Status:
-                <select name="Incident_Status" placeholder="active" maxlength="10">
-                    <option value="active" th:each="incident_status : ${incident_status_array}" th:value="${incident_status.getIncidentStatusId()}" th:text="${incident_status.getStatusType()}">Closed</option>
+                <select name="Therapiststatus" placeholder="active" maxlength="10">
+                    <option value="active">Closed</option>
                 </select></div>
         </center><br><br>
         <center><input type="submit" value="Submit"></center>
@@ -75,7 +71,7 @@
     <center>
         <script>
             function goBack() {
-                window.open("/incidents_table", "_self");
+                window.open("Incidents_Table.html", "_self");
             }
         </script>
         <script>

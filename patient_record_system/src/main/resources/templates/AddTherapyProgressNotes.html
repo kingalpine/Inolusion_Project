@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Therapy Progress Note</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/AddTherapyProgressNotes.css" th:href="@{/css/AddTherapyNotes.css}">
+    <link rel="stylesheet" type="text/css" href="../static/css/AddTherapyProgressNotes.css" th:href="@{/css/AddTherapyProgressNotes.css}">
 </head>
     <body>
         <div id="header">
@@ -17,51 +17,53 @@
             <li><a href="/reports">Reports</a></li>
 		</ul>
 		</div>
-		<center> <form class="addTherapyNotes" th:action="@{/add_therapy_note/{id} (id=${therapy.getTherapyId()})}" th:object="${therapy}">
+		<center> <form class="addTherapyNotes" th:action="@{/add_therapy_note/{id} (id=${therapy.getTherapyId()})}" th:object="${therapy}" method="post">
 			<h1> Therapy Progress Note </h1><p2><div class="requiredKey">Required</div></p2><br></br>
 			<br></br><p1><div align="left" class="required">Intervention:
 			<select name="intervention" placeholder="Default" maxlength="10" >
-				<option value="stuff"  th:value="${intervention_code.getInterventionCodeId()}" th:field="${intervention_code.interventionCodeId}">Stuff</option>
+				<option value="stuff" th:name="intervention_code" th:each="i_code : ${intervention_code}" th:text="${i_code.getName()}" th:value="${therapy_i_code.interventionCodeId}">Stuff</option>
 			</select></div></p1>
 			<p>    <div align="right" class="required">&nbsp;&nbsp;&nbsp;CPT Code:
 			<select name="cptcode" placeholder="Default"  maxlength="10" >
-				<option value="stuff" th:text="${cpt_code.getSpeechCptCodeId()}" >Stuff</option>
+				<option value="stuff" th:name="cpt" th:each="cpt : ${cpt_code}" th:text="${cpt.getSpeechCptCodeId().getName()}" th:value="${therapy_cpt.speechCptCodeId}" >Stuff</option>
 			</select></div></p1>
 			<br></br><center><div align="center" class="required">Subjective:
 			<select name="subjective" placeholder="Default" maxlength="10">
-				<option value="stuff" th:text="${subjective.getSubjectiveCodeId().getName()}">Stuff</option>
+				<option value="stuff"  th:each="subject : ${subjective}" th:text="${subject.getName()}" th:value="${therapy_subjective.subjectiveCodeId}">Stuff</option>
 			</select></div></center>
 			<p align="left"> Subjective Notes:
-				<textarea name="subjectivenotes" th:text="${subjective.getNote()}" maxlength="500" size="100" cols="120" rows="5"></textarea>
+				<textarea name="subjectivenotes"  maxlength="500" size="100" cols="120" rows="5" th:name="therapy_subjective" th:value="${therapy_subjective.note}"></textarea>
 				<br><br>
 			<p align="left"> Objective Goals:
-				<textarea name="objectivegoals" th:text="${therapy.getObjectiveGoals()}" placeholder="Goals" maxlength="500" size="100" cols="120" rows="5"></textarea>
+				<textarea name="objectivegoals" th:value="*{objectiveGoals}" placeholder="Goals" maxlength="500" size="100" cols="120" rows="5"></textarea>
 				<br><br>
 			<p align="left"> Objective Statement:
-				<textarea name="objectivestatement" th:text="${therapy.getObjectiveStatement()}" maxlength="500" size="100" cols="120" rows="5"></textarea>
+				<textarea name="objectivestatement" th:value="*{objectiveStatement}" maxlength="500" size="100" cols="120" rows="5"></textarea>
 				<br></br><center><div class="required">Assessment Progress Stage:
 			<select name="assessment" placeholder="Default"  maxlength="10">
-				<option value="stuff" th:text="${therapy.getAssessmentProgressId().getName()}">Stuff</option>
+				<option value="stuff" th:each="assessment_code : ${assessment_progress_code}" th:value="${therapy.assessmentProgressId}" th:text="${assessment_code.getName()}">Stuff</option>
 			</select></div></center>
 			<p align="left">Assessment Notes:
-				<textarea name="assessmentnotes" maxlength="100" th:field="*{assessmentTreatment}" size="100"cols="120" rows="5"></textarea>
+				<textarea name="assessmentnotes" maxlength="100" th:value="*{assessmentTreatment}" size="100"cols="120" rows="5"></textarea>
 				<br></br><center><div class="required">Plan:
 			<select name="Plan" placeholder="Default" maxlength="10">
-				<option value="stuff" th:field="*{}" th:text="${plan_stuff.getPlanCodeId().getName()}">Stuff</option>
+				<option value="stuff"  th:each="plan : ${plan_stuff}" th:text="${plan.getName()}" th:value="${therapy_plan.planCodeId}">Stuff</option>
 			</select></div></center>
 			<p align="left">Plan Notes:
-				<textarea name="Plannotes"  th:field="*{plan_stuff.note}" th:text="${plan_stuff.getNote()}" maxlength="100" size="100"cols="120" rows="5"></textarea>
+				<textarea name="Plannotes"   maxlength="100" size="100"cols="120" rows="5" th:value="${therapy_plan.note}"></textarea>
 				<br></br>
 				<p1>Medication:
-					<textarea name="medication" th:text="${medication.getMedicationId()}" placeholder="List of Medication" maxlength="255" cols="120" rows="2"></textarea>
+                    <select>
+					<option name="medication"  placeholder="List of Medication" th:each="med : ${medication}" th:text="${med.getName()}" th:value="${therapy_med.medicationId}" maxlength="255"  cols="120" rows="2"></option></select>
 					<br></br>
 					<p1><div align="left" class="required">&nbsp;&nbsp;&nbsp;Discharge Plan:
 						<select name="dischargeplan" placeholder="active" maxlength="10">
-							<option th:text="${therapy.getDischargeId()}">Default Discharge Plan</option>
+							<option th:each="discharge : ${discharge_array}" th:text="${discharge.getDischargePlan()}" th:value="*{dischargeId}">Default Discharge Plan</option>
 						</select></div></p1>
 					<br></br><p align="right">Therapist Signature:
-			<input name="therapistsig" th:text="${therapy.therapistSignature}" maxlength="100" autocomplete="on"></p><br></br>
-		</form></center>
+			<input name="therapistsig" th:value="*{therapistSignature}" maxlength="100" autocomplete="on"></p><br></br>
+            <center><input type="submit" value="Submit"></center>
+        </form></center>
 		<center><button class="exitButton" onclick="goBack()">Exit</button><center>
 			<script>
 				function goBack() {

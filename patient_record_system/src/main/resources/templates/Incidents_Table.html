@@ -19,9 +19,14 @@
 		</ul>
 		</div>
 		<center><div class="row">
-			<div onclick="location.href='/add_incident_form';">
+			<div onclick="location.href='/add_patient_incident_form';">
 				<div class="box">
-					<img th:src="@{/images/add.png}" height="30" width="30"><h1>Add Incident</h1></div></div>
+					<img th:src="@{/images/add.png}" height="30" width="30"><h1>Add Patient Incident</h1></div></div>
+		</div></center>
+		<center><div class="row">
+			<div onclick="location.href='/add_therapist_incident_form';">
+				<div class="box">
+					<img th:src="@{/images/add.png}" height="30" width="30"><h1>Add Therapist Incident</h1></div></div>
 		</div></center>
 		<center> <input style="text-align:center;" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by Incident Type" title="Type Incident Type"> </center>
 		<center>
@@ -39,8 +44,8 @@
 					<td th:text="${incident.getTypeId()}">Type ID</td>
 					<td th:text="${incident.getTherapyId()}">Therapy ID</td>
 					<td th:text="${incident.getStatusId()}">Status ID</td>
-					<td><a th:href="@{/modify_incident_form/{id} (id=${incident.getIncidentId()})}">Edit</a></td>
-					<td><a th:href="@{/delete_incident_form/{id} (id=${incident.getIncidentId()})}">Delete</a></td>
+					<td><a th:href="@{/modify_therapist_incident_form/{id} (id=${incident.getIncidentId()})}">Edit</a></td>
+					<td><a th:href="@{/delete_therapist_incident_form/{id} (id=${incident.getIncidentId()})}">Delete</a></td>
 				</tr>
 			</table>
 		</center>

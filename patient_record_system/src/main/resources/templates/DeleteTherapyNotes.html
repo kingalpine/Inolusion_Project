@@ -17,16 +17,16 @@
             <li><a href="/reports">Reports</a></li>
 		</ul>
 		</div>
-		<form class="deleteTherapyNotes">
+		<form class="deleteTherapyNotes" th:object="${therapy}">
 		<center><h1> Delete Therapy Note Form</h1></center><p2><div class="requiredKey">Required</div></p2><br></br>
 		<div class="required">Therapy Note ID:
-		<input type="text" name="patientID"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="text" name="patientID"  th:field="*{patientId}"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<input type="submit" value="Delete">
 		</form>
 		<center><button class="exitButton" onclick="goBack()">Exit</button></center>
 		<script>
 			function goBack() {
-				window.open("TherapyProgressNotes_Table.html", "_self");
+				window.open("/therapy_session", "_self");
 			}
 		</script>
     </body>

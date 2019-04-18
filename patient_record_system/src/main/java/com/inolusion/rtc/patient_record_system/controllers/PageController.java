@@ -2,10 +2,7 @@ package com.inolusion.rtc.patient_record_system.controllers;
 
 
 
-import com.inolusion.rtc.patient_record_system.entities.IncidentEntity;
-import com.inolusion.rtc.patient_record_system.entities.PatientEntity;
-import com.inolusion.rtc.patient_record_system.entities.TherapistEntity;
-import com.inolusion.rtc.patient_record_system.entities.TherapyEntity;
+import com.inolusion.rtc.patient_record_system.entities.*;
 import com.inolusion.rtc.patient_record_system.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -86,6 +83,27 @@ public class PageController {
     @Autowired
     private TherapistIncident_Repository therapistIncident_repository;
 
+    @Autowired
+    private IncidentType_Repository incidentType_repository;
+
+    @Autowired
+    private PatientInsurance_Repository patientInsurance_repository;
+
+    @Autowired
+    private Medication_Repository medication_repository;
+
+    @Autowired
+    private AssessmentProgress_Repository assessmentProgress_repository;
+
+    @Autowired
+    private PlanCode_Repository planCode_repository;
+
+    @Autowired
+    private SubjectiveCode_Repository subjectiveCode_repository;
+
+    @Autowired
+    private InterventionCode_Repository interventionCode_repository;
+
     @GetMapping("/index.html")
     public String showMainMenu(){
         return "index";
@@ -101,20 +119,27 @@ public class PageController {
     @GetMapping("/add_patient_form")
     public String showAddPatientFormPage(Model model){
         PatientEntity patient = new PatientEntity();
+        PatientInsuranceEntity insurance = new PatientInsuranceEntity();
+        PatientAllergyEntity allergy = new PatientAllergyEntity();
+        MedicationHistoryEntity medication = new MedicationHistoryEntity();
         model.addAttribute("region_array", region_repository.findAll());
         model.addAttribute("country_array", country_repository.findAll());
         model.addAttribute("insurance_array", insurance_repository.findAll());
         model.addAttribute("sex_array", sex_repository.findAll());
         model.addAttribute("patient_status_array", patientStatus_repository.findAll());
+        model.addAttribute("patient_insurance", insurance);
+        model.addAttribute("patient_allergy", allergy);
+        model.addAttribute("patient_medication", medication);
         model.addAttribute("patient", patient);
 
         return "AddPatientForm";
     }
     @PostMapping("/add_patient")
-    public String addPatient (@ModelAttribute("patient") PatientEntity patient, BindingResult result, Model model){
+    public String addPatient (@ModelAttribute("patient") PatientEntity patient, BindingResult result, @ModelAttribute("insurance")PatientInsuranceEntity insurance, BindingResult bindingResult,Model model){
 
 
         patient_repository.save(patient);
+        patientInsurance_repository.save(insurance);
         model.addAttribute("patient_array", patient_repository.findAll());
         return "PatientRecords_Table";
     }
@@ -279,27 +304,48 @@ public class PageController {
     @GetMapping("/add_therapy_note_form/{id}")
     public String showAddTherapyProgressForm(@PathVariable("id") int id, Model md) {
             TherapyEntity therapy = therapy_repository.findByTherapyId(id);
+            TherapyMedicationEntity therapyMedication = new TherapyMedicationEntity();
+            PlanEntity therapy_plan = new PlanEntity();
+            InterventionProgressCodeEntity therapy_i_code = new InterventionProgressCodeEntity();
+            SpeechCptTherapyProgressCodeEntity therapy_cpt = new SpeechCptTherapyProgressCodeEntity();
+            SubjectiveAnalysisEntity therapy_subjective = new SubjectiveAnalysisEntity();
+            therapy.setTherapyId(id);
             md.addAttribute("therapy", therapy);
-            md.addAttribute("medication", therapyMedication_repository.findByTherapyId(therapy));
-            md.addAttribute("subjective", subjectiveAnalysis_repository.findByTherapyId(therapy));
-            md.addAttribute("cpt_code",speech_cpt_tpc_repository.findByTherapyId(therapy));
-            md.addAttribute("intervention_code", interventionProgressCode_repository.findByTherapyId(therapy));
-            md.addAttribute("plan_stuff", plan_repository.findByTherapyId(therapy));
+            md.addAttribute("therapy_med", therapyMedication);
+            md.addAttribute("therapy_plan", therapy_plan);
+            md.addAttribute("therapy_i_code", therapy_i_code);
+            md.addAttribute("therapy_cpt", therapy_cpt);
+            md.addAttribute("therapy_subjective", therapy_subjective);
+            md.addAttribute("assessment_progress_code", assessmentProgress_repository.findAll());
+            md.addAttribute("medication", medication_repository.findAll());
+            md.addAttribute("subjective", subjectiveCode_repository.findAll());
+            md.addAttribute("cpt_code",speech_cpt_tpc_repository.findAll());
+            md.addAttribute("intervention_code", interventionCode_repository.findAll());
+            md.addAttribute("plan_stuff", planCode_repository.findAll());
             md.addAttribute("discharge_array", discharge_repository.findAll());
-            return "AddTherapyProgressNotes";
+        return "AddTherapyProgressNotes";
         }
         @PostMapping("/add_therapy_note/{id}")
         public String addTherapyProgressNote(@PathVariable("id") int id, TherapyEntity therapy, BindingResult result, Model md){
             therapy_repository.save(therapy);
-
             return "TherapySessions_Table";
         }
     @GetMapping("/delete_therapy_note_form/{id}")
     public String showDeleteTherapyProgressForm(@PathVariable("id") int id, Model md) {
+        TherapyEntity therapy = therapy_repository.findByTherapyId(id);
+        md.addAttribute("therapy",therapy);
             return "DeleteTherapyNotes";
         }
     @GetMapping("/modify_therapy_note_form/{id}")
     public String showModifyTherapyProgressForm(@PathVariable("id") int id, Model md) {
+        TherapyEntity therapy = therapy_repository.findByTherapyId(id);
+        md.addAttribute("therapy", therapy);
+        md.addAttribute("medication", therapyMedication_repository.findByTherapyId(therapy));
+        md.addAttribute("subjective", subjectiveAnalysis_repository.findByTherapyId(therapy));
+        md.addAttribute("cpt_code",speech_cpt_tpc_repository.findByTherapyId(therapy));
+        md.addAttribute("intervention_code", interventionProgressCode_repository.findByTherapyId(therapy));
+        md.addAttribute("plan_stuff", plan_repository.findByTherapyId(therapy));
+        md.addAttribute("discharge_array", discharge_repository.findAll());
             return "ModifyTherapyNotes";
         }
 
@@ -309,40 +355,67 @@ public class PageController {
 
             return "Incidents_Table";
         }
-        @GetMapping("/add_incident_form")
-        public String showAddIncidentForm(Model md){
+        @GetMapping("/add_patient_incident_form")
+        public String showAddPatientIncidentForm(Model md){
             IncidentEntity incident = new IncidentEntity();
-            md.addAttribute("patient_incident", patientIncident_repository.findAll());
-            md.addAttribute("therapist_incident", therapyMedication_repository.findAll());
+            md.addAttribute("patient_array",patient_repository.findAll());
+            md.addAttribute("therapy_array" , therapy_repository.findAll());
+            md.addAttribute("therapist_array", therapist_repository.findAll());
             md.addAttribute("incident_status_array", incidentStatus_repository.findAll());
+            md.addAttribute("incident_type_array", incidentType_repository.findAll());
             md.addAttribute("incident", incident);
-            return "AddIncidentForm";
+            return "AddPatientIncidentForm";
         }
-        @PostMapping("/add_incident")
-        public String addIncident(@ModelAttribute("incident") IncidentEntity incident, BindingResult result, Model md){
+        @PostMapping("/add_patient_incident")
+        public String addPatientIncident(@ModelAttribute("incident") IncidentEntity incident, BindingResult result, Model md){
             incident_repository.save(incident);
             md.addAttribute("incident_array",incident_repository.findAll());
             return "Incidents_Table";
         }
-        @GetMapping("/modify_incident_form/{id}")
-        public String showModifyIncidentForm(@PathVariable("id") int id, Model md){
+        @GetMapping("/add_therapist_incident_form")
+        public String addTherapistIncidentForm(@ModelAttribute("t_incident") TherapistIncidentEntity therapistIncident, BindingResult result, Model md){
+        IncidentEntity incident = new IncidentEntity();
+        md.addAttribute("incident", incident);
+        md.addAttribute("t_incident", therapistIncident);
+        return "AddTherapistIncidentForm";
+        }
+        @PostMapping("/add_therapist_incident")
+        public String addTherapistIncident(@ModelAttribute("t_incident") TherapistIncidentEntity therapistIncident, BindingResult result, Model md){
+        md.addAttribute("incident_array", incident_repository.findAll());
+        return "Incidents_Table";
+        }
+        @GetMapping("/modify_patient_incident_form/{id}")
+        public String showModifyPatientIncidentForm(@PathVariable("id") int id, Model md){
             IncidentEntity incident = incident_repository.findByIncidentId(id);
             md.addAttribute("incident", incident);
-            return "ModifyIncident";
+            return "ModifyPatientIncident";
         }
-        @PostMapping("/modify_incident/{id}")
-        public String modifyIncident(@PathVariable("id") int id, IncidentEntity incident, BindingResult result, Model md){
+        @PostMapping("/modify_patient_incident/{id}")
+        public String modifyPatientIncident(@PathVariable("id") int id, IncidentEntity incident, BindingResult result, Model md){
             incident.setIncidentId(id);
             incident_repository.save(incident);
             md.addAttribute("incident_array",incident_repository.findAll());
             return "Incidents_Table";
         }
+        @GetMapping("/modify_therapist_incident_form/{id}")
+        public String modifyTherapistIncidentForm(@PathVariable("id") int id, TherapistIncidentEntity therapistIncident, BindingResult result, Model md){
+            IncidentEntity incident = incident_repository.findByIncidentId(id);
+            md.addAttribute("incident", incident);
+            return "ModifyTherapistIncident";
+        }
+        @PostMapping("/modify_therapist_incident/{id}")
+        public String modifyTherapistIncident(@PathVariable("id") int id, TherapistIncidentEntity incident, BindingResult result, Model md){
+            incident.setIncidentId(id);
+            therapistIncident_repository.save(incident);
+            md.addAttribute("incident_array",incident_repository.findAll());
+            return "Incidents_Table";
+        }
 
-        @GetMapping("/delete_incident_form/{id}")
+        @GetMapping("/delete_therapist_incident_form/{id}")
         public String showDeleteIncidentForm(@PathVariable("id") int id, Model md){
             IncidentEntity incident = incident_repository.findByIncidentId(id);
             md.addAttribute("incident", incident);
-            return "DeleteIncident";
+            return "DeleteTherapistIncident";
         }
         @PostMapping("/delete_incident/{id}")
         public String deleteIncident(@PathVariable("id") int id,Model md){

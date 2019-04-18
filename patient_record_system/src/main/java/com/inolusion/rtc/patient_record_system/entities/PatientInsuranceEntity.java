@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.time.LocalTime;
 import java.util.Date;
 import java.util.Objects;
-
+@Entity
 @Table(name = "PATIENT_INSURANCE", schema = "dbo", catalog = "localspringbootdb")
 public class PatientInsuranceEntity {
     private int patientInsuranceId;
@@ -51,16 +51,16 @@ public class PatientInsuranceEntity {
         this.medicaidNumber = medicaidNumber;
     }
 
-    @Basic
-    @Column(name = "INSURANCE_ID")
+    @ManyToOne
+    @JoinColumn(name = "INSURANCE_ID")
     public InsuranceEntity getInsuranceId(){return insuranceId;}
 
     public void setInsuranceId(InsuranceEntity insuranceId) {
         this.insuranceId = insuranceId;
     }
 
-    @Basic
-    @Column(name = "PATIENT_ID")
+    @ManyToOne
+    @JoinColumn(name = "PATIENT_ID")
     public PatientEntity getPatientId(){return patientId;}
 
     public void setPatientId(PatientEntity patientId) {

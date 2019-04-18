@@ -53,7 +53,7 @@
         <textarea name="Plannotes"  th:text="${plan_stuff != null} ? ${plan_stuff.getNote()}" maxlength="100" size="100"cols="120" rows="5"readonly></textarea>
         <br></br>
         <p1>Medication:
-            <textarea name="medication" th:text="${medication != null} ? ${medication.getMedicationId()}" placeholder="List of Medication" maxlength="255" cols="120" rows="2"readonly></textarea>
+            <option name="medication" th:each="med : ${medication}" th:text="${med != null} ? ${med.getMedicationId().getName()}"  placeholder="List of Medication" maxlength="255" cols="120" rows="2"readonly></option>
             <br></br>
             <p1><div align="left" class="required">&nbsp;&nbsp;&nbsp;Discharge Plan:
                 <select name="dischargeplan" placeholder="active" maxlength="10"disabled>

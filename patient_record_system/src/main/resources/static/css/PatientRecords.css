@@ -1,48 +1,47 @@
 #firstInput {
-  background-position: 10px 10px;
-  background-repeat: no-repeat;
-  text-align: center;
-  width: 15%;
-  font-size: 16px;
-  padding: 12px 20px 12px 40px;
-  border: 1px solid #ddd;
-  margin-bottom: 12px;
+	background-position: 10px 10px;
+	background-repeat: no-repeat;
+	text-align: center;
+	width: 16%;
+	font-size: 16px;
+	padding: 12px 20px 12px 40px;
+	border: 1px solid #ddd;
+	margin-bottom: 12px;
 }
 #secondInput {
-  background-position: 10px 10px;
-  background-repeat: no-repeat;
-  text-align: center;
-  width: 15%;
-  font-size: 16px;
-  padding: 12px 20px 12px 40px;
-  border: 1px solid #ddd;
-  margin-bottom: 12px;
+	background-position: 10px 10px;
+	background-repeat: no-repeat;
+	text-align: center;
+	width: 16%;
+	font-size: 16px;
+	padding: 12px 20px 12px 40px;
+	border: 1px solid #ddd;
+	margin-bottom: 12px;
 }
 #myTable {
-  border-collapse: collapse;
-  width: 100%;
-  border: 1px solid #ddd;
-  font-size: 18px;
-  background-color:#f2f2f2;
+	border-collapse: collapse;
+	width: 100%;
+	border: 1px solid #ddd;
+	font-size: 18px;
+	background-color:#f2f2f2;
 }
 #myTable th, #myTable td {
-  text-align: left;
-  padding: 12px;
-}
-
-#myTable tr {
-  border-bottom: 1px solid #ddd;
-}
-
-#myTable tr.header{
-  background-image: url("../images/tableheader.jpg");
-}
-#myTable tr:hover{
-	background-image: url("../images/mainmenuButtonBG.jpg");
+	text-align: left;
+	padding: 12px;
 }
 h4 {
 	font-family: "Arial Black";
 	font-size: 40px;
+}
+#myTable tr {
+	border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header{
+	background-image: url("../images/tableheader.jpg");
+}
+#myTable tr:hover{
+	background-image: url("../images/mainmenuButtonBG.jpg");
 }
 h1 {
 	cursor: pointer;
@@ -79,7 +78,7 @@ h1 {
 	background-image:url("../images/logo.png");
 	float:left;
 	background-repeat: no-repeat;
-	
+
 }
 #nav a {
 	display:block;
@@ -92,15 +91,15 @@ h1 {
 	padding: 12px 10px;
 }
 #nav a:hover {
-  background-color: #ddd;
-  color: black;
+	background-color: #ddd;
+	color: black;
 }
 #nav a.active {
-  background-color: green;
-  color: white;
+	background-color: green;
+	color: white;
 }
 .searchBar {
-	text-align:center; 
+	text-align:center;
 }
 .row {
 	display: -ms-flexbox;
@@ -132,8 +131,8 @@ h1 {
 	background-image:url("../images/tableheader.jpg");
 }
 body {
-  background-image: url("../images/medicalBG.png");
-  margin: auto;
-  min-height: 900px;
-  min-width:900px;
+	background-image: url("../images/medicalBG.png");
+	margin: auto;
+	min-height: 900px;
+	min-width:900px;
 }

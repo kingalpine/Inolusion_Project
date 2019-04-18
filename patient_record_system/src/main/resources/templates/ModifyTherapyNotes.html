@@ -17,11 +17,7 @@
 			<li><a href="/reports">Reports</a></li>
 		</ul>
 		</div>
-		<center><form class="modifyTherapyNoteID">
-		<center>Therapy Note ID:
-		<input type="text" name="patientID" maxlength="10">&nbsp;&nbsp;&nbsp;<button onclick="modifyTherapyNote()">Modify</button>
-		</form></center>
-    <center> <form class="modifyTherapyNotes">
+    <center> <form class="modifyTherapyNotes" th:object="${therapy}">
 		<h1> Modify Therapy Notes </h1><p2><div class="requiredKey">Required</div></p2><br></br>
 		<p1><div class="required">Date:
 		<input type="date" name="TPNdate" maxlength="50"></div></p1>

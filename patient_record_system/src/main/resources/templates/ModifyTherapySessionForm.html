@@ -20,17 +20,17 @@
 <center> <form class="addTherapy" th:action="@{/modify_therapy_session/{id} (id=${therapy_object.getTherapyId()})}" th:object="${therapy_object}" method="post">
     <h1> Therapy Session </h1><p2><div class="requiredKey">Required</div></p2><br><br>
     <p1><div class="required">Therapist ID:
-        <input name="TherapistName" type="text" th:field="*{therapistId}" placeholder="Enter Therapist ID" >
+        <input name="TherapistName" type="text" th:field="*{therapistId}" th:text="${therapy_object.getTherapistId()}"  placeholder="Enter Therapist ID" >
         </input></div></p1>
     <p1><div class="required">Patient ID:
-        <input name="PatientName" type="text" th:field="*{patientId}" placeholder="Enter Patient ID" >
+        <input name="PatientName" type="text" th:field="*{patientId}" th:text="${therapy_object.getPatientId()}" placeholder="Enter Patient ID" >
         </input></div></p1>
     <br><br><p1><div class="required">Session Date:
-    <input name="Sessiondate" type="date" size="5" th:field="*{date}" maxlength="10"></div></p1>
+    <input name="Sessiondate" type="date" size="5" th:field="*{date}" th:text="${therapy_object.getDate()}" maxlength="10"></div></p1>
     <br><br><p1><div class="required">Session Start Time:
-    <input name="Starttime" type="time" size="5" th:field="*{timeIn}" maxlength="10"></div></p1>
+    <input name="Starttime" type="time" size="5" th:field="*{timeIn}" th:text="${therapy_object.getTimeIn()}" maxlength="10"></div></p1>
     <br><br><p1><div>Session End Time:
-    <input name="EndTime" type="time" size="5" th:field="*{timeOut}" maxlength="10"></div></p1>
+    <input name="EndTime" type="time" size="5" th:field="*{timeOut}" th:text="${therapy_object.getTimeOut()}" maxlength="10"></div></p1>
 
     <br><br><center><div class="required">Session Status:
     <select name="Therapiststatus" placeholder="active" th:field="*{therapyStatusId}" maxlength="10">
@@ -38,13 +38,11 @@
     </select></div></center><br><br>
     <center><input type="submit" value="Submit"></center>
 
-    <input type="button" onclick="location.href='ModifyTherapyProgressNotes.html';" value="Next" />
-
 </form></center>
 <center><button class="exitButton" onclick="goBack()">Exit</button><center>
     <script>
         function goBack() {
-            window.open("TherapySessions_Table.html", "_self");
+            window.open("/therapy_session", "_self");
         }
     </script>
     <script>
