@@ -12,6 +12,7 @@ public class SpeechCptTherapyProgressCodeEntity {
     private TherapyEntity therapyId;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "SPEECH_CPT_THERAPY_PROGRESS_CODE_ID")
     public int getSpeechCptTherapyProgressCodeId() {
         return speechCptTherapyProgressCodeId;

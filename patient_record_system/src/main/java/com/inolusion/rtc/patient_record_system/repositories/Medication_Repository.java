@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface Medication_Repository extends CrudRepository<MedicationEntity, Long> {
+    MedicationEntity findByMedicationId (int medicationId);
 }

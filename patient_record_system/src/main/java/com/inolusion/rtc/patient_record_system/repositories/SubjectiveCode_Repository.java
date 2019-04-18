@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SubjectiveCode_Repository extends CrudRepository<SubjectiveCodeEntity, Long> {
+    SubjectiveCodeEntity findBySubjectiveCodeId (int subjectiveCodeId);
 }

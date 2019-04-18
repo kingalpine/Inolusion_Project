@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.jws.WebParam;
+import java.time.LocalTime;
+import java.sql.Date;
 
 
 @Controller
@@ -103,6 +105,9 @@ public class PageController {
 
     @Autowired
     private InterventionCode_Repository interventionCode_repository;
+
+    @Autowired
+    private SpeechCPTCode_Repository speechCPTCode_repository;
 
     @GetMapping("/index.html")
     public String showMainMenu(){
@@ -304,14 +309,14 @@ public class PageController {
     @GetMapping("/add_therapy_note_form/{id}")
     public String showAddTherapyProgressForm(@PathVariable("id") int id, Model md) {
             TherapyEntity therapy = therapy_repository.findByTherapyId(id);
-            TherapyMedicationEntity therapyMedication = new TherapyMedicationEntity();
+            TherapyMedicationEntity therapy_med = new TherapyMedicationEntity();
             PlanEntity therapy_plan = new PlanEntity();
             InterventionProgressCodeEntity therapy_i_code = new InterventionProgressCodeEntity();
             SpeechCptTherapyProgressCodeEntity therapy_cpt = new SpeechCptTherapyProgressCodeEntity();
             SubjectiveAnalysisEntity therapy_subjective = new SubjectiveAnalysisEntity();
             therapy.setTherapyId(id);
             md.addAttribute("therapy", therapy);
-            md.addAttribute("therapy_med", therapyMedication);
+            md.addAttribute("therapy_med", therapy_med);
             md.addAttribute("therapy_plan", therapy_plan);
             md.addAttribute("therapy_i_code", therapy_i_code);
             md.addAttribute("therapy_cpt", therapy_cpt);
@@ -319,15 +324,42 @@ public class PageController {
             md.addAttribute("assessment_progress_code", assessmentProgress_repository.findAll());
             md.addAttribute("medication", medication_repository.findAll());
             md.addAttribute("subjective", subjectiveCode_repository.findAll());
-            md.addAttribute("cpt_code",speech_cpt_tpc_repository.findAll());
+            md.addAttribute("cpt_code",speechCPTCode_repository.findAll());
             md.addAttribute("intervention_code", interventionCode_repository.findAll());
             md.addAttribute("plan_stuff", planCode_repository.findAll());
             md.addAttribute("discharge_array", discharge_repository.findAll());
         return "AddTherapyProgressNotes";
         }
         @PostMapping("/add_therapy_note/{id}")
-        public String addTherapyProgressNote(@PathVariable("id") int id, TherapyEntity therapy, BindingResult result, Model md){
+        public String addTherapyProgressNote(@PathVariable("id") int id, TherapyEntity therapy, BindingResult result, TherapyMedicationEntity therapy_med, BindingResult result2,PlanEntity therapy_plan, BindingResult result3,InterventionProgressCodeEntity therapy_i_code,BindingResult result4, SpeechCptTherapyProgressCodeEntity therapy_cpt,BindingResult result5, SubjectiveAnalysisEntity therapy_subjective, BindingResult result6,Model md){
+            TherapyEntity old_therapy = therapy_repository.findByTherapyId(id);
+            Date therapy_date = old_therapy.getDate();
+            LocalTime therapy_time_in = old_therapy.getTimeIn();
+            LocalTime therapy_time_out = old_therapy.getTimeOut();
+            PatientEntity therapy_patient = old_therapy.getPatientId();
+            TherapistEntity therapy_therapist = old_therapy.getTherapistId();
+            TherapyStatusEntity therapy_status = old_therapy.getTherapyStatusId();
+            therapy.setTherapyId(id);
+            therapy.setDate(therapy_date);
+            therapy.setTimeIn(therapy_time_in);
+            therapy.setTimeOut(therapy_time_out);
+            therapy.setPatientId(therapy_patient);
+            therapy.setTherapistId(therapy_therapist);
+            therapy.setTherapyStatusId(therapy_status);
+            therapy_med.setTherapyId(therapy);
+            therapy_plan.setTherapyId(therapy);
+            therapy_i_code.setTherapyId(therapy);
+            therapy_cpt.setTherapyId(therapy);
+            therapy_subjective.setTherapyId(therapy);
+            therapy_med.setTherapyId(therapy);
             therapy_repository.save(therapy);
+            therapyMedication_repository.save(therapy_med);
+            plan_repository.save(therapy_plan);
+            interventionProgressCode_repository.save(therapy_i_code);
+            speech_cpt_tpc_repository.save(therapy_cpt);
+            subjectiveAnalysis_repository.save(therapy_subjective);
+            therapyMedication_repository.save(therapy_med);
+            md.addAttribute("therapy_array", therapy_repository.findAll());
             return "TherapySessions_Table";
         }
     @GetMapping("/delete_therapy_note_form/{id}")

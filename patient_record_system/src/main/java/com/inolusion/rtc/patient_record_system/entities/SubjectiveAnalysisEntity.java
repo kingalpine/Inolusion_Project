@@ -12,6 +12,7 @@ public class SubjectiveAnalysisEntity {
     private TherapyEntity therapyId;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "SUBJECTIVE_ANALYSIS_ID")
     public int getSubjectiveAnalysisId() {
         return subjectiveAnalysisId;

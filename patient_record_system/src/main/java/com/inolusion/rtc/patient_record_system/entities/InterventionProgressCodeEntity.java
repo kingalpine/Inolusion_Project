@@ -12,6 +12,7 @@ public class InterventionProgressCodeEntity {
     private TherapyEntity therapyId;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "INTERVENTION_PROGRESS_CODE_ID")
     public int getInterventionProgressCodeId() {
         return interventionProgressCodeId;

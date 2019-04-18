@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface InterventionCode_Repository extends CrudRepository<InterventionCodeEntity, Long> {
+    InterventionCodeEntity findByInterventionCodeId (int interventionCodeId);
 }

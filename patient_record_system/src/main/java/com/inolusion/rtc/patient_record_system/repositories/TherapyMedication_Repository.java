@@ -10,4 +10,6 @@ import java.util.List;
 @Repository
 public interface TherapyMedication_Repository extends CrudRepository<TherapyMedicationEntity, Long> {
     List<TherapyMedicationEntity> findByTherapyId (TherapyEntity therapyId);
+
+    TherapyMedicationEntity findByTherapyMedicationId (int therapyMedicationId);
 }

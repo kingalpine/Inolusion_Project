@@ -13,6 +13,7 @@ public class TherapyMedicationEntity {
     private TherapyEntity therapyId;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "THERAPY_MEDICATION_ID")
     public int getTherapyMedicationId() {
         return therapyMedicationId;

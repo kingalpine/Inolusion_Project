@@ -29,10 +29,7 @@
   text-align: left;
   padding: 12px;
 }
-h4 {
-	font-family: "Arial Black";
-	font-size: 40px;
-}
+
 #myTable tr {
   border-bottom: 1px solid #ddd;
 }

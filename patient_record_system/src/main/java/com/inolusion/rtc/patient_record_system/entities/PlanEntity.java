@@ -12,6 +12,7 @@ public class PlanEntity {
     private PlanCodeEntity planCodeId;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "PLAN_ID")
     public int getPlanId() {
         return planId;
