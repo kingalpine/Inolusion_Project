@@ -6,7 +6,7 @@ import java.time.LocalTime;
 import java.util.Objects;
 
 @Entity
-@Table(name = "PATIENT_INCIDENT", schema = "dbo", catalog = "localspringbootdb")
+@Table(name = "PATIENT_INCIDENT", schema = "dbo", catalog = "Inolusion")
 public class PatientIncidentEntity {
     private int patientIncidentId;
     private int patientId;

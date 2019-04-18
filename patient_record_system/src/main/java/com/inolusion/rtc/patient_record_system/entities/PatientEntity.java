@@ -6,7 +6,7 @@ import java.sql.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name = "PATIENT", schema = "dbo", catalog = "localspringbootdb")
+@Table(name = "PATIENT", schema = "dbo", catalog = "InOlusion")
 public class PatientEntity {
     private int patientId;
     private String firstName;
@@ -175,7 +175,7 @@ public class PatientEntity {
 
 
     @ManyToOne
-    @JoinColumn(name = "STATUS_ID")
+    @JoinColumn(name = "PATIENT_STATUS_ID")
     public PatientStatusEntity getStatusId() {
         return statusId;
     }

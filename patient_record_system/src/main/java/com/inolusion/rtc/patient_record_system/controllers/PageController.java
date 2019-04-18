@@ -140,11 +140,10 @@ public class PageController {
         return "AddPatientForm";
     }
     @PostMapping("/add_patient")
-    public String addPatient (@ModelAttribute("patient") PatientEntity patient, BindingResult result, @ModelAttribute("insurance")PatientInsuranceEntity insurance, BindingResult bindingResult,Model model){
+    public String addPatient (@ModelAttribute("patient") PatientEntity patient, BindingResult result,Model model){
 
 
         patient_repository.save(patient);
-        patientInsurance_repository.save(insurance);
         model.addAttribute("patient_array", patient_repository.findAll());
         return "PatientRecords_Table";
     }
@@ -278,6 +277,7 @@ public class PageController {
         @GetMapping("/modify_therapy_session_form/{id}")
         public String showModifyTherapySession(@PathVariable("id") int id, Model md){
             TherapyEntity therapy = therapy_repository.findByTherapyId(id);
+            therapy.setTherapyId(id);
             md.addAttribute("therapy_status_array", therapyStatus_repository.findAll());
             md.addAttribute("therapy_object",therapy);
             return "ModifyTherapySessionForm";
@@ -378,7 +378,7 @@ public class PageController {
         md.addAttribute("intervention_code", interventionProgressCode_repository.findByTherapyId(therapy));
         md.addAttribute("plan_stuff", plan_repository.findByTherapyId(therapy));
         md.addAttribute("discharge_array", discharge_repository.findAll());
-            return "ModifyTherapyNotes";
+            return "ModifyTherapyProgressNotes";
         }
 
     @GetMapping("/incidents_table")

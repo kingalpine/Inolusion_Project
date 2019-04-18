@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/inolusion.iml" filepath="$PROJECT_DIR$/.idea/inolusion.iml" />
       <module fileurl="file://$PROJECT_DIR$/patient_record_system/patient_record_system.iml" filepath="$PROJECT_DIR$/patient_record_system/patient_record_system.iml" />
+      <module fileurl="file://$PROJECT_DIR$/patient_record_system/patient_record_system.iml" filepath="$PROJECT_DIR$/patient_record_system/patient_record_system.iml" />
     </modules>
   </component>
 </project>
